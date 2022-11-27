@@ -12,6 +12,7 @@ set.expandtab = true
 set.autoindent = true
 set.clipboard = 'unnamed'
 set.ruler = true
+set.relativenumber = true
 vim.g.mapleader = ' '
 
 -- theme
@@ -25,10 +26,20 @@ vim.cmd([[
   colorscheme everforest
 ]])
 
+-- shortcuts
+
 -- fuzzy finder
 vim.keymap.set("n", "<Leader>p", ":FZF<CR>", {})
--- formatter
-vim.keymap.set("n", "<Leader>i", ":Prettier<CR>", {})
 -- file explorer
 vim.keymap.set("n", "<Leader>e", ":Explore<CR>", {})
+
+-- screen split
+vim.keymap.set("n", "<Leader>v", ":vsplit<CR>", {})
+vim.keymap.set("n", "<Leader>s", ":split<CR>", {})
+-- terminal specific
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
+
+
+-- LSP config
+require('lsp_config')
 

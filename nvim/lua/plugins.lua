@@ -1,13 +1,16 @@
 
 return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
+  use('wbthomason/packer.nvim')
 
-  use {
+  -- Theme
+  use('sainnhe/everforest')
+
+  -- Stuff
+  use({
     'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
-  use { 'junegunn/fzf' }
-  use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
-  use { 'sainnhe/everforest' }
+    run = ":TSUpdate"
+  })
+  use('junegunn/fzf')
+  use('neovim/nvim-lspconfig')
 end)
 
