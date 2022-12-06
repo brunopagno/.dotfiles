@@ -4,9 +4,19 @@ if not ok then
   return
 end
 
+local opts = { buffer = true, silent = true }
+local base = {
+  on_attach = function()
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "gk", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+  end
+}
 
-local on_attach = function(client, bufnr)
-  print "attached"
-end
+require("gatoguild.lsp.gopls").setup(base)
 
-require("gatoguild.lsp.gopls").setup(on_attach)
+require("gatoguild.lsp.solargraph").setup(base)
+

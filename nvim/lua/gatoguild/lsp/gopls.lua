@@ -17,10 +17,16 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 --]]
 
-function M.setup(on_attach)
-  require("lspconfig")["gopls"].setup({
-    on_attach = on_attach
-  })
+function M.setup(base)
+  require("lspconfig")["gopls"].setup(vim.tbl_extend("force", base, {
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true
+        }
+      }
+    }
+  }))
 end
 
 return M

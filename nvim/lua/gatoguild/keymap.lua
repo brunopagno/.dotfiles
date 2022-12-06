@@ -15,6 +15,7 @@ set("n", "<c-k>", "<cmd>wincmd k<cr>")
 set("n", "<c-j>", "<cmd>wincmd j<cr>")
 set("n", "<c-h>", "<cmd>wincmd h<cr>")
 set("n", "<c-l>", "<cmd>wincmd l<cr>")
+set("n", "<c-I>", "gg<c-v>G=")
 
 -- terminal
 set("t", "<Esc>", "<C-\\><C-n>")
