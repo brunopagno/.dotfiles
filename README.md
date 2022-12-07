@@ -25,3 +25,6 @@ nvidia-settings
 
 And under `Settings -> About` there should be a reference to Nvidia there
 
+### Git stuff
+
+Probably want to setup git config globals like `git config --global init.defaultBranch main`

@@ -31,6 +31,9 @@ return require("packer").startup(function(use)
       ts_update()
     end
   }) -- better syntax highlighting
-  use("neovim/nvim-lspconfig") -- language server protocol implementation
+  use("neovim/nvim-lspconfig") -- language server protocol
+
+  -- copilot
+  use("github/copilot.vim")
 end)
 

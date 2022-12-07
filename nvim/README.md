@@ -1,5 +1,5 @@
 ## Things to do after copying these files
 - ~install packer~ (it should install itself, now)
-- check `~/.config/nvim/gatoguild/lsp` files to see if there's any manual step there
+- it will be necessary to install language tools and LSPs manually, so check `./lua/gatoguild/lsp` for the ones that are currently setup
 - attempt to keep sane
 
