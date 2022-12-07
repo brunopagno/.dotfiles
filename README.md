@@ -28,3 +28,10 @@ And under `Settings -> About` there should be a reference to Nvidia there
 ### Git stuff
 
 Probably want to setup git config globals like `git config --global init.defaultBranch main`
+
+### Keychron keyboard
+
+This will enable f# keys
+```
+echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
+```
