@@ -32,6 +32,7 @@ return require("packer").startup(function(use)
     end
   }) -- better syntax highlighting
   use("neovim/nvim-lspconfig") -- language server protocol
+  use("prettier/vim-prettier")
 
   -- copilot
   use("github/copilot.vim")

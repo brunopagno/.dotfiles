@@ -14,7 +14,6 @@ set("n", "<c-k>", "<cmd>wincmd k<cr>")
 set("n", "<c-j>", "<cmd>wincmd j<cr>")
 set("n", "<c-h>", "<cmd>wincmd h<cr>")
 set("n", "<c-l>", "<cmd>wincmd l<cr>")
-set("n", "<c-I>", "gg<c-v>G=") -- this is overriden when there's an LSP attached
 
 -- terminal
 set("t", "<Esc>", "<C-\\><C-n>")
@@ -22,6 +21,5 @@ set("t", "<Esc>", "<C-\\><C-n>")
 -- Telescope keys
 set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
 
-set("n", "<leader>fdsa", function()
-    print(vim.inspect(vim.api.nvim_list_runtime_paths()))
-end)
+-- Prettier
+set("n", "<leader>fp", "<cmd>Prettier<cr>")
