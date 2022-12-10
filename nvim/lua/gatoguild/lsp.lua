@@ -4,18 +4,17 @@ if not ok then
   return
 end
 
-local opts = { buffer = true, silent = true }
 on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "gk", vim.lsp.buf.signature_help, opts)
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-  -- vim.keymap.set("n", "<c-I>", function() vim.lsp.buf.format { async = true }; end,  opts)
+  local opts = { noremap = true, buffer = bufnr }
+  vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, opts)
+  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, opts)
+  vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, opts)
+  vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
 end
 
-require("lspconfig")["tsserver"].setup({})
+require("lspconfig")["tsserver"].setup({
+  on_attach = on_attach
+})
 

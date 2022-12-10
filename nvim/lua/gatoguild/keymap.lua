@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 function set(mode, lhs, rhs)
-    vim.keymap.set(mode, lhs, rhs, opts)
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 -- leader key is space
@@ -16,7 +16,8 @@ set("n", "<c-h>", "<cmd>wincmd h<cr>")
 set("n", "<c-l>", "<cmd>wincmd l<cr>")
 
 -- terminal
-set("t", "<Esc>", "<C-\\><C-n>")
+set({ "n", "t" }, "<c-t>", "<cmd>FloatermToggle<cr>")
+set("t", "<esc>", "<c-\\><c-n>")
 
 -- Telescope keys
 set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
