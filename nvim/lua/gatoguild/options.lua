@@ -13,7 +13,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.ruler = true
-
+vim.opt.signcolumn = "yes"
 vim.opt.mouse = "c"
 vim.opt.backup = false
 vim.opt.swapfile = false

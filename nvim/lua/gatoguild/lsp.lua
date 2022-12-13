@@ -18,3 +18,6 @@ require("lspconfig")["tsserver"].setup({
   on_attach = on_attach
 })
 
+-- require("lspconfig")["solargraph"].setup({
+--   on_attach = on_attach
+-- })
