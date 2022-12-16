@@ -20,9 +20,3 @@ set("i", "<c-space>", "<c-x><c-o>")
 -- terminal
 set({ "n", "t" }, "<c-t>", "<cmd>FloatermToggle<cr>")
 set("t", "<esc>", "<c-\\><c-n>")
-
--- Telescope keys
-set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
-
--- Prettier
-set("n", "<leader>fp", "<cmd>Prettier<cr>")

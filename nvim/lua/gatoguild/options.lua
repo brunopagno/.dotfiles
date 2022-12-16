@@ -19,8 +19,3 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.termguicolors = true
-
--- telescope config
-require("telescope").setup{ defaults = { file_ignore_patterns = { "node_modules" } } }
-
