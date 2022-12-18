@@ -1,23 +1,29 @@
-local ok, _ = pcall(require, "lspconfig")
-if not ok then
-  print("Could not load lspconfig")
-  return
-end
+local lsp = require("lsp-zero")
 
-on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-  local opts = { noremap = true, buffer = bufnr }
-  vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
-end
-
-require("lspconfig")["tsserver"].setup({
-  on_attach = on_attach
+lsp.set_preferences({
+  suggest_lsp_servers = false,
+  setup_servers_on_start = true,
+  set_lsp_keymaps = true,
+  configure_diagnostics = true,
+  cmp_capabilities = true,
+  manage_nvim_cmp = true,
+  call_servers = 'local',
+  sign_icons = {
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = ''
+  }
 })
 
--- require("lspconfig")["solargraph"].setup({
---   on_attach = on_attach
--- })
+lsp.ensure_installed({ "tsserver", "sumneko_lua" })
+
+lsp.on_attach(function(client, bufnr)
+  local opts = { buffer = bufnr, remap = false }
+  local bind = vim.keymap.set
+
+  bind("n", "<leader>fp", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+end)
+
+lsp.setup()
+
