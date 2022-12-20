@@ -14,8 +14,11 @@ vim.opt.wrap = false
 
 vim.opt.ruler = true
 vim.opt.signcolumn = "yes"
+vim.opt.showtabline = 2
 vim.opt.mouse = "c"
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.clipboard = "unnamedplus"
 
+-- netrw
+vim.g.netrw_preview = 1 -- vertical preview

@@ -15,10 +15,19 @@ set("n", "<down>", "<cmd>wincmd j<cr>")
 set("n", "<left>", "<cmd>wincmd h<cr>")
 set("n", "<right>", "<cmd>wincmd l<cr>")
 
+-- tabs
+set("n", "<leader>tt", "<cmd>tab split<cr>")
+set("n", "<leader>tw", "<cmd>tab close<cr>")
+
+-- buffers
+set("n", "<c-s-right>", "<cmd>bn<cr>")
+set("n", "<c-s-left>", "<cmd>bp<cr>")
+set("n", "<c-q>", "<cmd>bd<cr>")
+
 -- terminal
 set({ "n", "t" }, "<c-t>", "<cmd>FloatermToggle<cr>")
 set("t", "<esc>", "<c-\\><c-n>")
 
 -- Telescope
-vim.keymap.set("n", "<leader>tp", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>tl", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true })
+set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
+set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")

@@ -7,23 +7,32 @@ lsp.set_preferences({
   configure_diagnostics = true,
   cmp_capabilities = true,
   manage_nvim_cmp = true,
-  call_servers = 'local',
+  call_servers = "local",
   sign_icons = {
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = ''
+    error = "X",
+    warn = "W",
+    hint = "H",
+    info = "I"
   }
 })
 
-lsp.ensure_installed({ "tsserver", "sumneko_lua" })
+lsp.ensure_installed({
+  "solargraph",
+  "sumneko_lua",
+  "tsserver",
+  "vuels",
+  "volar",
+})
 
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
   local bind = vim.keymap.set
 
-  bind("n", "<leader>fp", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+  bind("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
 end)
 
-lsp.setup()
+lsp.configure("ruby_ls", {
+  cmd = { "bundle", "exec", "ruby-lsp" }
+})
 
+lsp.setup()
