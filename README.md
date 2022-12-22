@@ -39,3 +39,10 @@ echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
 ### ZSA Moonlander Thingy
 
 [Oryx config](https://configure.zsa.io/moonlander/layouts/DNyab/latest/0)
+
+### Using Cedilla on intl keyboard
+
+Add this to `.profile`
+```
+GTK_IM_MODULE=cedilla QT_IM_MODULE=cedilla
+```
