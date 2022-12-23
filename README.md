@@ -42,7 +42,12 @@ echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
 
 ### Using Cedilla on intl keyboard
 
-Add this to `.profile`
+Copy `.XCompose` to the home folder and run:
 ```
-GTK_IM_MODULE=cedilla QT_IM_MODULE=cedilla
+gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/IMModule': <'ibus'>}"
 ```
+[Reference](https://garajau.com.br/2021/02/enabling-cedilla-acute-c-on-gnome)
+
+This worked for a day and then stopped :sad:
+~~Add this to `.profile`~~
+~~GTK_IM_MODULE=cedilla QT_IM_MODULE=cedilla~~

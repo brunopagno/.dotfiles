@@ -1,0 +1,6 @@
+# UTF-8 (Unicode) compose sequences
+
+# Override C acute with Ccedilla:
+<dead_acute> <C> : "Ç" "Ccedilla"
+<dead_acute> <c> : "ç" "ccedilla"
+
