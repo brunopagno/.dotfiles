@@ -1,6 +1,9 @@
 # Things
 
-run `setup.sh` to setup general things
+Setup nvim without copying stuff around
+```
+ln -s $(pwd)/nvim ~/.config
+```
 
 ## Helpers so I don't need to research every time again
 
@@ -27,7 +30,12 @@ And under `Settings -> About` there should be a reference to Nvidia there
 
 ### Git stuff
 
-Probably want to setup git config globals like `git config --global init.defaultBranch main`
+Probably want to setup git config globals like: 
+```
+git config --global init.defaultBranch main
+git config --global user.name "name"
+git config --global user.email "email"
+```
 
 ### Keychron keyboard
 
