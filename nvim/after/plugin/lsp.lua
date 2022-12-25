@@ -1,38 +1,39 @@
-local lsp = require("lsp-zero")
+-- LSP
+local lspconfig = require('lspconfig')
 
-lsp.set_preferences({
-  suggest_lsp_servers = false,
-  setup_servers_on_start = true,
-  set_lsp_keymaps = true,
-  configure_diagnostics = true,
-  cmp_capabilities = true,
-  manage_nvim_cmp = true,
-  call_servers = "local",
-  sign_icons = {
-    error = "X",
-    warn = "W",
-    hint = "H",
-    info = "I"
+-- Mason
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { 
+    "solargraph",
+    "sumneko_lua",
+    "tsserver",
+    "vuels",
+    "volar",
   }
 })
 
-lsp.ensure_installed({
-  "solargraph",
-  "sumneko_lua",
-  "tsserver",
-  "vuels",
-  "volar",
+-- NullLS
+local null_ls = require("null-ls")
+
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
+
+local sources = {
+  formatting.prettier,
+  formatting.rubocop,
+  diagnostics.rubocop,
+}
+
+null_ls.setup({
+  sources = sources,
 })
 
-lsp.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-  local bind = vim.keymap.set
+-- Setup servers
 
-  bind("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
-end)
+lspconfig["solargraph"].setup {}
+lspconfig["sumneko_lua"].setup {}
+lspconfig["tsserver"].setup {}
+lspconfig["vuels"].setup {}
+lspconfig["volar"].setup {}
 
-lsp.configure("ruby_ls", {
-  cmd = { "bundle", "exec", "ruby-lsp" }
-})
-
-lsp.setup()

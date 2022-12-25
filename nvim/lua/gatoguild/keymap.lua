@@ -31,3 +31,13 @@ set("t", "<esc>", "<c-\\><c-n>")
 -- Telescope
 set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
 set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
+
+-- LSP
+set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<cr>")
+set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
+set("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
+set("n", "<f4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
+set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
+set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
+
