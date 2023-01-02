@@ -14,6 +14,7 @@ set("n", "<up>", "<cmd>wincmd k<cr>")
 set("n", "<down>", "<cmd>wincmd j<cr>")
 set("n", "<left>", "<cmd>wincmd h<cr>")
 set("n", "<right>", "<cmd>wincmd l<cr>")
+set("n", "<leader>/", "<cmd>noh<cr>")
 
 -- tabs
 set("n", "<leader>tt", "<cmd>tab split<cr>")

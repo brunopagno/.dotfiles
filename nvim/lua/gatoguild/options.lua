@@ -18,6 +18,8 @@ vim.opt.showtabline = 2
 vim.opt.mouse = "c"
 vim.opt.backup = false
 vim.opt.swapfile = false
+
+-- clipboard
 vim.opt.clipboard = "unnamedplus"
 
 -- netrw

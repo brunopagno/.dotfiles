@@ -4,12 +4,14 @@ local lspconfig = require('lspconfig')
 -- Mason
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { 
+  ensure_installed = {
     "solargraph",
     "sumneko_lua",
     "tsserver",
     "vuels",
     "volar",
+
+    "rust_analyzer",
   }
 })
 
@@ -31,9 +33,10 @@ null_ls.setup({
 
 -- Setup servers
 
-lspconfig["solargraph"].setup {}
-lspconfig["sumneko_lua"].setup {}
-lspconfig["tsserver"].setup {}
-lspconfig["vuels"].setup {}
-lspconfig["volar"].setup {}
+lspconfig["solargraph"].setup({})
+lspconfig["sumneko_lua"].setup({})
+lspconfig["tsserver"].setup({})
+lspconfig["vuels"].setup({})
+lspconfig["volar"].setup({})
 
+lspconfig["rust_analyzer"].setup({})

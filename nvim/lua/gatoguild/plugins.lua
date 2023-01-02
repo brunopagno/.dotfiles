@@ -16,14 +16,14 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require("packer").startup(function(use)
-  use("wbthomason/packer.nvim")
+  use({ "wbthomason/packer.nvim" })
 
   -- Theme
-  use("sainnhe/everforest")
+  use({ "sainnhe/everforest" })
 
-  -- All the things
-  use("nvim-lua/plenary.nvim") -- lua functions
-  use("nvim-telescope/telescope.nvim") -- fuzzy finder
+  -- All the main things
+  use({ "nvim-lua/plenary.nvim" }) -- lua functions
+  use({ "nvim-telescope/telescope.nvim" }) -- fuzzy finder
   use({
     "nvim-treesitter/nvim-treesitter",
    run = function()
@@ -38,8 +38,10 @@ return require("packer").startup(function(use)
   use({ 'williamboman/mason-lspconfig.nvim' })
 
   -- Format and lint
-  use("jose-elias-alvarez/null-ls.nvim")
+  use({ "jose-elias-alvarez/null-ls.nvim" })
 
+  -- All the rest
   -- use("github/copilot.vim")
-  use("voldikss/vim-floaterm")
+  use({ "voldikss/vim-floaterm" })
+  use({ "tpope/vim-fugitive" })
 end)
