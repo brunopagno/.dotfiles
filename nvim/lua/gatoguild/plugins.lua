@@ -26,7 +26,7 @@ return require("packer").startup(function(use)
   use({ "nvim-telescope/telescope.nvim" }) -- fuzzy finder
   use({
     "nvim-treesitter/nvim-treesitter",
-   run = function()
+    run = function()
       local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
       ts_update()
     end
@@ -36,6 +36,11 @@ return require("packer").startup(function(use)
   use({ 'neovim/nvim-lspconfig' })
   use({ 'williamboman/mason.nvim' })
   use({ 'williamboman/mason-lspconfig.nvim' })
+
+  -- autocomplete stuff
+  use({ 'hrsh7th/cmp-nvim-lsp' })
+  use({ 'hrsh7th/nvim-cmp' })
+  use({ 'L3MON4D3/LuaSnip' })
 
   -- Format and lint
   use({ "jose-elias-alvarez/null-ls.nvim" })
