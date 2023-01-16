@@ -33,17 +33,22 @@ return require("packer").startup(function(use)
   }) -- better syntax highlighting
 
   -- LSP
-  use({ 'neovim/nvim-lspconfig' })
-  use({ 'williamboman/mason.nvim' })
-  use({ 'williamboman/mason-lspconfig.nvim' })
+  use({ "neovim/nvim-lspconfig" })
+  use({ "williamboman/mason.nvim" })
+  use({ "williamboman/mason-lspconfig.nvim" })
 
   -- autocomplete stuff
-  use({ 'hrsh7th/cmp-nvim-lsp' })
-  use({ 'hrsh7th/nvim-cmp' })
-  use({ 'L3MON4D3/LuaSnip' })
+  use({ "hrsh7th/cmp-nvim-lsp" })
+  use({ "hrsh7th/nvim-cmp" })
+  use({ "L3MON4D3/LuaSnip" })
 
-  -- Format and lint
+  -- format and lint
   use({ "jose-elias-alvarez/null-ls.nvim" })
+
+  -- debug
+  -- use({ "mfussenegger/nvim-dap" })
+  -- use({ "rcarriga/nvim-dap-ui" })
+  -- use({ "theHamsta/nvim-dap-virtual-text" })
 
   -- All the rest
   -- use("github/copilot.vim")

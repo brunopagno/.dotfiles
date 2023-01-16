@@ -46,3 +46,14 @@ set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
+-- DAP
+-- set("n", "<f5>", "<cmd>lua require'dap'.continue()<cr>")
+-- set("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>")
+-- set("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>")
+-- set("n", "<F12>", "<cmd>lua require'dap'.step_out()<cr>")
+-- set("n", "<Leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+-- set("n", "<Leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
+-- set("n", "<Leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>")
+-- set("n", "<Leader>dr", "<cmd>lua require'dap'.repl.open()<cr>")
+-- set("n", "<Leader>dl", "<cmd>lua require'dap'.run_last()<cr>")
+
