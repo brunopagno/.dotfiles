@@ -16,6 +16,10 @@ set("n", "<left>", "<cmd>wincmd h<cr>")
 set("n", "<right>", "<cmd>wincmd l<cr>")
 set("n", "<leader>/", "<cmd>noh<cr>")
 
+-- move lines
+set("n", "<s-up>", "<cmd>m-2<cr>")
+set("n", "<s-down>", "<cmd>m+<cr>")
+
 -- tabs
 set("n", "<leader>tt", "<cmd>tab split<cr>")
 set("n", "<leader>tw", "<cmd>tab close<cr>")
