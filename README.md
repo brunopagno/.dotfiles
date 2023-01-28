@@ -46,7 +46,7 @@ echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
 
 ### ZSA Moonlander Thingy
 
-[Oryx config](https://configure.zsa.io/moonlander/layouts/Nad4j/latest/0)
+[Oryx config](https://configure.zsa.io/moonlander/layouts/Wzy34/latest/0)
 
 ### Using Cedilla on intl keyboard
 
