@@ -45,13 +45,9 @@ return require("packer").startup(function(use)
   -- format and lint
   use({ "jose-elias-alvarez/null-ls.nvim" })
 
-  -- debug
-  -- use({ "mfussenegger/nvim-dap" })
-  -- use({ "rcarriga/nvim-dap-ui" })
-  -- use({ "theHamsta/nvim-dap-virtual-text" })
-
   -- All the rest
-  -- use("github/copilot.vim")
+  use({ "github/copilot.vim" })
+  -- use({ "Exafunction/codeium.vim" })
   use({ "voldikss/vim-floaterm" })
   use({ "tpope/vim-fugitive" })
 end)

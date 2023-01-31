@@ -4,7 +4,6 @@ function set(mode, lhs, rhs)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
--- leader key is space
 vim.g.mapleader = " "
 
 set("n", "<leader>e", "<cmd>Explore<cr>")
