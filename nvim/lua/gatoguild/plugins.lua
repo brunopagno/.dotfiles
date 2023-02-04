@@ -47,7 +47,7 @@ return require("packer").startup(function(use)
 
   -- All the rest
   use({ "github/copilot.vim" })
-  -- use({ "Exafunction/codeium.vim" })
+  -- use({ "Exafunction/codeium.vim" }) -- not there yet
   use({ "voldikss/vim-floaterm" })
   use({ "tpope/vim-fugitive" })
 end)
