@@ -28,6 +28,16 @@ nvidia-settings
 
 And under `Settings -> About` there should be a reference to Nvidia there
 
+### Logitech G29 things
+
+The following command will print information about the device, including a path `/devices/pci000:00/.../input30/js0` or similar.
+
+```
+udevadm info /dev/input/js0
+```
+
+To access driver parameters we want to do `/sys/<the_path_mentioned_above_WITHOUT_js0>/device`
+
 ### Git stuff
 
 Probably want to setup git config globals like: 
