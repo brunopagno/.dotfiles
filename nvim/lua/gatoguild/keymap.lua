@@ -15,6 +15,9 @@ set("n", "<left>", "<cmd>wincmd h<cr>")
 set("n", "<right>", "<cmd>wincmd l<cr>")
 set("n", "<leader>/", "<cmd>noh<cr>")
 
+-- copy to clipboard
+set("v", "<leader>y", '"+y')
+
 -- move lines
 set("n", "<s-up>", "<cmd>m-2<cr>")
 set("n", "<s-down>", "<cmd>m+<cr>")
@@ -55,4 +58,3 @@ set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 -- set("n", "<Leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>")
 -- set("n", "<Leader>dr", "<cmd>lua require'dap'.repl.open()<cr>")
 -- set("n", "<Leader>dl", "<cmd>lua require'dap'.run_last()<cr>")
-
