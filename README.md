@@ -5,28 +5,14 @@ Setup nvim without copying stuff around
 ln -s $(pwd)/nvim ~/.config
 ```
 
-## Helpers so I don't need to research every time again
+# Helpers so I don't need to research every time again
 
-### Nvidia stuff on linux (ubuntu)
+### Fedora setup
 
-This for listing drivers available
-```sh
-sudo ubuntu-drivers devices
-```
-
-Then install the latest one compatible
-```
-sudo apt install nvidia-driver-520
-```
-
-It's probably worth to do a restart here
-
-And finally open nvidia settings to check if settings are available
-```sh
-nvidia-settings
-```
-
-And under `Settings -> About` there should be a reference to Nvidia there
+- sudo dnf upgrade --refresh
+- install codecs
+- add flathub to flatpak
+- hostnamectl set-hostname gengar
 
 ### Logitech G29 things
 
@@ -69,3 +55,24 @@ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/IMMod
 This worked for a day and then stopped :sad:
 ~~Add this to `.profile`~~
 ~~GTK_IM_MODULE=cedilla QT_IM_MODULE=cedilla~~
+
+### Nvidia stuff on linux (ubuntu)
+
+This for listing drivers available
+```sh
+sudo ubuntu-drivers devices
+```
+
+Then install the latest one compatible
+```
+sudo apt install nvidia-driver-520
+```
+
+It's probably worth to do a restart here
+
+And finally open nvidia settings to check if settings are available
+```sh
+nvidia-settings
+```
+
+And under `Settings -> About` there should be a reference to Nvidia there
