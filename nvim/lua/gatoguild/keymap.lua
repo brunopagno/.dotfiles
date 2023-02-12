@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-function set(mode, lhs, rhs)
+local function set(mode, lhs, rhs)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
@@ -22,11 +22,8 @@ set("v", "<leader>y", '"+y')
 set("n", "<s-up>", "<cmd>m-2<cr>")
 set("n", "<s-down>", "<cmd>m+<cr>")
 
--- tabs
-set("n", "<leader>tt", "<cmd>tab split<cr>")
-set("n", "<leader>tw", "<cmd>tab close<cr>")
-
 -- buffers
+set("n", "<c-b>", "<cmd>ls<cr>")
 set("n", "<c-s-right>", "<cmd>bn<cr>")
 set("n", "<c-s-left>", "<cmd>bp<cr>")
 set("n", "<c-q>", "<cmd>bd<cr>")

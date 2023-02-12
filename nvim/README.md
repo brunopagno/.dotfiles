@@ -13,13 +13,10 @@
 - npm i -g typescript typescript-language-server prettier
 
 ### Ruby
-- sudo dnf install perl
-- sudo dnf install openssl-devel
-- sudo dnf install libyaml-devel
-- sudo dnf install zlib-devel
-- asdf install ruby latest
-- asdf global ruby VERSION
-- gem install solargraph
+sudo dnf install perl openssl-devel libyaml-devel zlib-devel
+asdf install ruby latest
+asdf global ruby VERSION
+gem install solargraph
 
 ## Rust
 - https://rustup.rs/

@@ -23,16 +23,21 @@ null_ls.setup({
 -- gem install solargraph
 lspconfig.solargraph.setup({})
 
--- brew install lua-language-server
--- apt install lua-language-server # double check if this works
-lspconfig.lua_ls.setup({})
+-- lua-language-server
+lspconfig.lua_ls.setup({
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+        },
+    },
+})
 
--- npm i -g typescript typescript-language-server
--- npm i -g prettier
+-- npm i -g typescript typescript-language-server prettier
 lspconfig.tsserver.setup({})
 
 -- rustup component add rust-analyzer
--- rustup component add rustfmt
 lspconfig.rust_analyzer.setup({
     cmd = { "rustup", "run", "stable", "rust-analyzer" },
 })
