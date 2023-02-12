@@ -25,7 +25,7 @@ lspconfig.solargraph.setup({})
 
 -- brew install lua-language-server
 -- apt install lua-language-server # double check if this works
-lspconfig.sumneko_lua.setup({})
+lspconfig.lua_ls.setup({})
 
 -- npm i -g typescript typescript-language-server
 -- npm i -g prettier
