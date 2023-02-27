@@ -1,8 +1,8 @@
 -- LSP
 local lspconfig = require('lspconfig')
 
--- NullLS
-local null_ls = require("null-ls")
+-- null ls
+local null_ls = require('null-ls')
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -11,7 +11,6 @@ local sources = {
     formatting.prettier,
     formatting.rubocop,
     formatting.rustfmt,
-    diagnostics.rubocop,
 }
 
 null_ls.setup({
@@ -36,6 +35,11 @@ lspconfig.lua_ls.setup({
 
 -- npm i -g typescript typescript-language-server prettier
 lspconfig.tsserver.setup({})
+
+-- npm i -g @volar/vue-language-server
+lspconfig.volar.setup({
+    filetypes = { "vue" },
+})
 
 -- rustup component add rust-analyzer
 lspconfig.rust_analyzer.setup({
