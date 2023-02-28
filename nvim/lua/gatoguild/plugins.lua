@@ -41,12 +41,9 @@ return require("packer").startup(function(use)
       use({ "hrsh7th/nvim-cmp" })
       use({ "L3MON4D3/LuaSnip" })
 
-      --  -- format and lint
-      --  use({ "jose-elias-alvarez/null-ls.nvim" })
-
       -- All the rest
-      -- use({ "github/copilot.vim" })
-      use({ "Exafunction/codeium.vim" })
+      use({ "github/copilot.vim" })
+      -- use({ "Exafunction/codeium.vim" })
       use({ "voldikss/vim-floaterm" })
       use({ "tpope/vim-fugitive" })
     end)
