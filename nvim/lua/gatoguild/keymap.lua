@@ -28,6 +28,12 @@ set("n", "<c-s-right>", "<cmd>bn<cr>")
 set("n", "<c-s-left>", "<cmd>bp<cr>")
 set("n", "<c-q>", "<cmd>bd<cr>")
 
+-- tabs
+set("n", "<leader>tn", "<cmd>tabnew<cr>")
+set("n", "<leader>tc", "<cmd>tabclose<cr>")
+set("n", "<leader><tab>", "<cmd>tabn<cr>")
+set("n", "<leader><s-tab>", "<cmd>tabp<cr>")
+
 -- terminal
 set({ "n", "t" }, "<c-t>", "<cmd>FloatermToggle<cr>")
 set("t", "<esc>", "<c-\\><c-n>")
@@ -44,14 +50,3 @@ set("n", "<f4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
-
--- DAP
--- set("n", "<f5>", "<cmd>lua require'dap'.continue()<cr>")
--- set("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>")
--- set("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>")
--- set("n", "<F12>", "<cmd>lua require'dap'.step_out()<cr>")
--- set("n", "<Leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
--- set("n", "<Leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
--- set("n", "<Leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>")
--- set("n", "<Leader>dr", "<cmd>lua require'dap'.repl.open()<cr>")
--- set("n", "<Leader>dl", "<cmd>lua require'dap'.run_last()<cr>")

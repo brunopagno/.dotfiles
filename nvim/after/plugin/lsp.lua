@@ -34,14 +34,20 @@ lspconfig.lua_ls.setup({
 })
 
 -- npm i -g typescript typescript-language-server prettier
-lspconfig.tsserver.setup({})
+lspconfig.tsserver.setup({
+    init_options = {
+        preferences = {
+            disableSuggestions = true,
+        }
+    }
+})
 
 -- npm i -g @volar/vue-language-server
-lspconfig.volar.setup({
-    filetypes = {
-        'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'
-    },
-})
+-- lspconfig.volar.setup({
+--     filetypes = {
+--         'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'
+--     },
+-- })
 
 -- rustup component add rust-analyzer
 lspconfig.rust_analyzer.setup({
