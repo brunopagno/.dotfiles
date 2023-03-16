@@ -50,6 +50,8 @@ lspconfig.tsserver.setup({
 --     },
 -- })
 
+-- go get golang.org/x/tools/gopls@latest
+-- export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 lspconfig.gopls.setup({})
 
 -- rustup component add rust-analyzer
