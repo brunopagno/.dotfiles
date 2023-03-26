@@ -21,3 +21,6 @@ vim.opt.swapfile = false
 
 -- netrw
 vim.g.netrw_preview = 1 -- vertical preview
+
+vim.cmd("packadd termdebug")
+vim.g.termdebug_wide = 1

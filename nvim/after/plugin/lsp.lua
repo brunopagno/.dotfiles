@@ -55,6 +55,6 @@ lspconfig.tsserver.setup({
 lspconfig.gopls.setup({})
 
 -- rustup component add rust-analyzer
--- lspconfig.rust_analyzer.setup({
---     cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
--- })
+lspconfig.rust_analyzer.setup({
+    cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
+})
