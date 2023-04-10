@@ -5,13 +5,15 @@ local lspconfig = require('lspconfig')
 local null_ls = require('null-ls')
 
 local formatting = null_ls.builtins.formatting
--- local diagnostics = null_ls.builtins.diagnostics
+local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
     formatting.prettier,
-    formatting.rubocop,
-    formatting.rustfmt,
+    -- formatting.rustfmt,
     formatting.gofmt,
+
+    formatting.rubocop,
+    diagnostics.rubocop,
 }
 
 null_ls.setup({
@@ -55,6 +57,6 @@ lspconfig.tsserver.setup({
 lspconfig.gopls.setup({})
 
 -- rustup component add rust-analyzer
-lspconfig.rust_analyzer.setup({
-    cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
-})
+-- lspconfig.rust_analyzer.setup({
+--     cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
+-- })
