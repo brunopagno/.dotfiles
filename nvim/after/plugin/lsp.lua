@@ -46,11 +46,11 @@ lspconfig.tsserver.setup({
 })
 
 -- npm i -g @volar/vue-language-server
--- lspconfig.volar.setup({
---     filetypes = {
---         'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'
---     },
--- })
+lspconfig.volar.setup({
+    filetypes = {
+        'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'
+    },
+})
 
 -- go get golang.org/x/tools/gopls@latest
 -- export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
