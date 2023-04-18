@@ -9,8 +9,6 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
     formatting.prettier,
-    -- formatting.rustfmt,
-    formatting.gofmt,
 
     formatting.rubocop,
     diagnostics.rubocop,
@@ -37,26 +35,4 @@ lspconfig.lua_ls.setup({
 })
 
 -- npm i -g typescript typescript-language-server prettier
-lspconfig.tsserver.setup({
-    init_options = {
-        preferences = {
-            disableSuggestions = true,
-        }
-    }
-})
-
--- npm i -g @volar/vue-language-server
-lspconfig.volar.setup({
-    filetypes = {
-        'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'
-    },
-})
-
--- go get golang.org/x/tools/gopls@latest
--- export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-lspconfig.gopls.setup({})
-
--- rustup component add rust-analyzer
--- lspconfig.rust_analyzer.setup({
---     cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
--- })
+lspconfig.tsserver.setup({})

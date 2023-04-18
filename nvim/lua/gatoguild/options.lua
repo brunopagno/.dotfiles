@@ -24,6 +24,3 @@ vim.g.netrw_preview = 1 -- vertical preview
 
 -- auto format on save
 vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
-
-vim.cmd("packadd termdebug")
-vim.g.termdebug_wide = 1
