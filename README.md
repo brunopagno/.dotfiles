@@ -13,6 +13,11 @@ ln -s $(pwd)/nvim ~/.config
 - install codecs
 - add flathub to flatpak
 - hostnamectl set-hostname gengar
+- install dev tools
+
+```sh
+sudo dnf group install "C Development Tools and Libraries" "Development Tools"
+```
 
 ### Logitech G29 things
 
