@@ -14,6 +14,7 @@ set("n", "<down>", "<cmd>wincmd j<cr>")
 set("n", "<left>", "<cmd>wincmd h<cr>")
 set("n", "<right>", "<cmd>wincmd l<cr>")
 set("n", "<leader>/", "<cmd>noh<cr>")
+set("n", "<leader>z", "<cmd>set wrap!<cr>")
 
 -- copy to clipboard
 set("v", "<leader>y", '"+y')
