@@ -17,7 +17,3 @@ sudo dnf install perl openssl-devel libyaml-devel zlib-devel
 asdf install ruby latest
 asdf global ruby VERSION
 gem install solargraph
-
-## Rust
-- https://rustup.rs/
-- rustup component add rust-analyzer

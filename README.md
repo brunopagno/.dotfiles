@@ -11,7 +11,6 @@ ln -s $(pwd)/nvim ~/.config
 
 - sudo dnf upgrade --refresh
 - install codecs
-- add flathub to flatpak
 - hostnamectl set-hostname gengar
 - install dev tools
 
@@ -47,7 +46,7 @@ echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
 
 ### ZSA Moonlander Thingy
 
-[Oryx config](https://configure.zsa.io/moonlander/layouts/oLPow/latest/00)
+[Oryx config](https://configure.zsa.io/moonlander/layouts/BwzED/latest/1)
 
 ### Using Cedilla on intl keyboard
 
