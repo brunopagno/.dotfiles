@@ -12,6 +12,12 @@ ln -s $(pwd)/nvim ~/.config
 - sudo dnf upgrade --refresh
 - install codecs
 - hostnamectl set-hostname gengar
+- set timeout check for 20 seconds
+
+```sh
+gsettings set org.gnome.mutter check-alive-timeout 20000
+```
+
 - install dev tools
 
 ```sh
