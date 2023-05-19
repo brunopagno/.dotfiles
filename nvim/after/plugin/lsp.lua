@@ -25,7 +25,3 @@ lspconfig.solargraph.setup({})
 
 -- npm i -g typescript typescript-language-server prettier
 lspconfig.tsserver.setup({})
-
--- go get golang.org/x/tools/gopls@latest
--- export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-lspconfig.gopls.setup({})
