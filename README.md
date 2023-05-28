@@ -47,7 +47,11 @@ git config --global user.email "email"
 
 This will enable f# keys
 ```
+# for the current session
 echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
+
+# permanent
+echo 'options hid_apple fnmode=0' | sudo tee -a /etc/modprobe.d/hid_apple.conf
 ```
 
 ### ZSA Moonlander Thingy
