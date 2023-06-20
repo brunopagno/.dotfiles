@@ -56,7 +56,7 @@ echo 'options hid_apple fnmode=0' | sudo tee -a /etc/modprobe.d/hid_apple.conf
 
 ### ZSA Moonlander Thingy
 
-[Oryx config](https://configure.zsa.io/moonlander/layouts/0p05l/latest/0)
+[Oryx config](https://configure.zsa.io/moonlander/layouts/XYeO9/latest/0)
 
 ### Using Cedilla on intl keyboard
 
