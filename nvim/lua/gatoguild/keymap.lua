@@ -35,10 +35,6 @@ set("n", "<leader>tc", "<cmd>tabclose<cr>")
 set("n", "<leader><tab>", "<cmd>tabn<cr>")
 set("n", "<leader><s-tab>", "<cmd>tabp<cr>")
 
--- terminal
-set({ "n", "t" }, "<c-t>", "<cmd>FloatermToggle<cr>")
-set("t", "<esc>", "<c-\\><c-n>")
-
 -- Telescope
 set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
 set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
@@ -51,3 +47,4 @@ set("n", "<f4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
+
