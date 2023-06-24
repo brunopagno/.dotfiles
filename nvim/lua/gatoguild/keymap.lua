@@ -29,12 +29,6 @@ set("n", "<c-s-right>", "<cmd>bn<cr>")
 set("n", "<c-s-left>", "<cmd>bp<cr>")
 set("n", "<c-q>", "<cmd>bd<cr>")
 
--- tabs
-set("n", "<leader>tn", "<cmd>tabnew<cr>")
-set("n", "<leader>tc", "<cmd>tabclose<cr>")
-set("n", "<leader><tab>", "<cmd>tabn<cr>")
-set("n", "<leader><s-tab>", "<cmd>tabp<cr>")
-
 -- Telescope
 set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
 set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
