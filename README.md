@@ -41,6 +41,7 @@ Probably want to setup git config globals like:
 git config --global init.defaultBranch main
 git config --global user.name "name"
 git config --global user.email "email"
+git config --global pager.branch false
 ```
 
 ### Keychron keyboard
@@ -59,6 +60,14 @@ echo 'options hid_apple fnmode=0' | sudo tee -a /etc/modprobe.d/hid_apple.conf
 [Oryx config](https://configure.zsa.io/moonlander/layouts/XYeO9/latest/0)
 
 ### Using Cedilla on intl keyboard
+
+```
+sudo vim /usr/share/X11/locale/en_US.UTF-8/Compose
+```
+
+Then replace all ć with ç (lower and uppercase)
+
+OR
 
 Copy `.XCompose` to the home folder and run:
 ```
