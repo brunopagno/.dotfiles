@@ -25,3 +25,7 @@ lspconfig.solargraph.setup({})
 
 -- npm i -g typescript typescript-language-server prettier
 lspconfig.tsserver.setup({})
+
+-- go install golang.org/x/tools/gopls@latest
+lspconfig.gopls.setup({})
+
