@@ -1,50 +1,36 @@
-# Things
+# All the things
 
-Setup nvim without copying stuff around
+### Helpers so I don't need to research every time again
+
+hostname
+```bash
+hostnamectl set-hostname gengar
 ```
-ln -s $(pwd)/nvim ~/.config
-```
 
-# Helpers so I don't need to research every time again
-
-### Fedora setup
-
-- sudo dnf upgrade --refresh
-- install codecs
-- hostnamectl set-hostname gengar
-- set timeout check for 20 seconds
-
-```sh
+patient check alive
+```bash
 gsettings set org.gnome.mutter check-alive-timeout 20000
 ```
 
 - install dev tools
 
-```sh
+```bash
+sudo apt install build-essential
+```
+
+```bash
 sudo dnf group install "C Development Tools and Libraries" "Development Tools"
 ```
 
-### Logitech G29 things
-
-The following command will print information about the device, including a path `/devices/pci000:00/.../input30/js0` or similar.
-
-```
-udevadm info /dev/input/js0
-```
-
-To access driver parameters we want to do `/sys/<the_path_mentioned_above_WITHOUT_js0>/device`
-
-### Git stuff
-
-Probably want to setup git config globals like: 
-```
+```bash
 git config --global init.defaultBranch main
 git config --global user.name "name"
 git config --global user.email "email"
 git config --global pager.branch false
+git config --global credential.helper store
 ```
 
-### Keychron keyboard
+### NuPhy/Keychron keyboard
 
 This will enable f# keys
 ```
@@ -53,21 +39,14 @@ echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode
 
 # permanent
 echo 'options hid_apple fnmode=0' | sudo tee -a /etc/modprobe.d/hid_apple.conf
+sudo update-initramfs -u
 ```
 
-### ZSA Moonlander Thingy
+### ZSA Moonlander
 
 [Oryx config](https://configure.zsa.io/moonlander/layouts/XYeO9/latest/0)
 
 ### Using Cedilla on intl keyboard
-
-```
-sudo vim /usr/share/X11/locale/en_US.UTF-8/Compose
-```
-
-Then replace all ć with ç (lower and uppercase)
-
-OR
 
 Copy `.XCompose` to the home folder and run:
 ```
@@ -75,9 +54,19 @@ gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/IMMod
 ```
 [Reference](https://garajau.com.br/2021/02/enabling-cedilla-acute-c-on-gnome)
 
-This worked for a day and then stopped :sad:
-~~Add this to `.profile`~~
-~~GTK_IM_MODULE=cedilla QT_IM_MODULE=cedilla~~
+OR
+
+```
+sudo vim /usr/share/X11/locale/en_US.UTF-8/Compose
+```
+
+Then replace all ć with ç (lower and uppercase)
+
+### nvim
+
+```
+ln -s $(pwd)/nvim ~/.config
+```
 
 ### Nvidia stuff on linux (ubuntu)
 
@@ -99,3 +88,13 @@ nvidia-settings
 ```
 
 And under `Settings -> About` there should be a reference to Nvidia there
+
+### Logitech G29 things
+
+The following command will print information about the device, including a path `/devices/pci000:00/.../input30/js0` or similar.
+
+```
+udevadm info /dev/input/js0
+```
+
+To access driver parameters we want to do `/sys/<the_path_mentioned_above_WITHOUT_js0>/device`
