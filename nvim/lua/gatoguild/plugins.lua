@@ -43,7 +43,7 @@ return require("packer").startup(function(use)
       use({ "hrsh7th/nvim-cmp" })
 
       -- All the rest
-      -- use({ "github/copilot.vim" })
+      use({ "github/copilot.vim" })
       use({ "tpope/vim-fugitive" })
     end)
 

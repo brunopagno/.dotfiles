@@ -5,13 +5,10 @@ local lspconfig = require('lspconfig')
 local null_ls = require('null-ls')
 
 local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
+-- local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
     formatting.prettier,
-
-    formatting.standardrb,
-    diagnostics.standardrb
 }
 
 null_ls.setup({
@@ -20,12 +17,6 @@ null_ls.setup({
 
 -- Setup servers
 
--- gem install solargraph
-lspconfig.solargraph.setup({})
-
 -- npm i -g typescript typescript-language-server prettier
 lspconfig.tsserver.setup({})
-
--- go install golang.org/x/tools/gopls@latest
-lspconfig.gopls.setup({})
 
