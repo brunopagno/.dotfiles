@@ -44,7 +44,7 @@ sudo update-initramfs -u
 
 ### ZSA Moonlander
 
-[Oryx config](https://configure.zsa.io/moonlander/layouts/XYeO9/latest/0)
+[Oryx config](https://configure.zsa.io/moonlander/layouts/xLrEW/latest/0)
 
 ### Using Cedilla on intl keyboard
 
