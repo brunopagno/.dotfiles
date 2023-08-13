@@ -30,6 +30,14 @@ git config --global pager.branch false
 git config --global credential.helper store
 ```
 
+### Debian specific bluetooth shenanigans
+
+It seems that the firmware is not detected initially and needs to be manually installed later
+
+```bash
+sudo apt install firmware-realtek
+```
+
 ### NuPhy/Keychron keyboard
 
 This will enable f# keys
@@ -67,27 +75,6 @@ Then replace all ć with ç (lower and uppercase)
 ```
 ln -s $(pwd)/nvim ~/.config
 ```
-
-### Nvidia stuff on linux (ubuntu)
-
-This for listing drivers available
-```sh
-sudo ubuntu-drivers devices
-```
-
-Then install the latest one compatible
-```
-sudo apt install nvidia-driver-520
-```
-
-It's probably worth to do a restart here
-
-And finally open nvidia settings to check if settings are available
-```sh
-nvidia-settings
-```
-
-And under `Settings -> About` there should be a reference to Nvidia there
 
 ### Logitech G29 things
 
