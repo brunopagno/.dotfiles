@@ -3,7 +3,7 @@
     "workbench.colorTheme": "Quiet Light",
     "editor.minimap.enabled": false,
     "editor.tabSize": 2,
-    "editor.inlineSuggest.enabled": true,
     "telemetry.telemetryLevel": "error",
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
+    "git.mergeEditor": false
 }
