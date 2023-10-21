@@ -34,7 +34,9 @@ return require("packer").startup(function(use)
 
       -- LSP
       use({ "neovim/nvim-lspconfig" })
-      use({ "jose-elias-alvarez/null-ls.nvim" })
+
+      -- formatting
+      use({"stevearc/conform.nvim"})
 
       -- autocomplete stuff
       use({ "L3MON4D3/LuaSnip" })
