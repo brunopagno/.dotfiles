@@ -19,7 +19,7 @@ return require("packer").startup(function(use)
       use({ "wbthomason/packer.nvim" })
 
       -- Theme
-      use({ "folke/tokyonight.nvim" })
+      use({ "sainnhe/everforest" })
 
       -- All the main things
       use({ "nvim-lua/plenary.nvim" }) -- lua functions

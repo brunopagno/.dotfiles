@@ -75,4 +75,15 @@ set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 require("gatoguild.plugins")
 
-vim.cmd[[colorscheme tokyonight-day]]
+vim.cmd[[
+  if has('termguicolors')
+    set termguicolors
+  endif
+
+  set background=dark
+
+  let g:everforest_background = 'soft'
+  let g:everforest_better_performance = 1
+
+  colorscheme everforest
+]]
