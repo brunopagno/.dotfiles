@@ -36,7 +36,7 @@ return require("packer").startup(function(use)
       use({ "neovim/nvim-lspconfig" })
 
       -- formatting
-      use({"stevearc/conform.nvim"})
+      use({ 'sbdchd/neoformat' })
 
       -- autocomplete stuff
       use({ "L3MON4D3/LuaSnip" })
@@ -47,5 +47,6 @@ return require("packer").startup(function(use)
       -- All the rest
       use({ "github/copilot.vim" })
       use({ "tpope/vim-fugitive" })
+      use({ "akinsho/toggleterm.nvim", tag = "*", config = function() require("toggleterm").setup() end })
     end)
 
