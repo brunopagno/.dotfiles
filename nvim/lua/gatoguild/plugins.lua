@@ -19,7 +19,8 @@ return require("packer").startup(function(use)
       use({ "wbthomason/packer.nvim" })
 
       -- Theme
-      use({ "sainnhe/everforest" })
+      -- use({ "sainnhe/everforest" })
+      use({ "catppuccin/nvim", as = "catppuccin" })
 
       -- All the main things
       use({ "nvim-lua/plenary.nvim" }) -- lua functions
@@ -31,6 +32,12 @@ return require("packer").startup(function(use)
             ts_update()
           end
       }) -- better syntax highlighting
+      use({
+        "nvim-tree/nvim-tree.lua",
+        -- requires = {
+        --   "nvim-tree/nvim-web-devicons",
+        -- },
+      }) -- file explorer
 
       -- LSP
       use({ "neovim/nvim-lspconfig" })

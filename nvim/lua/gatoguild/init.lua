@@ -21,8 +21,11 @@ vim.opt.mouse = "c"
 vim.opt.backup = false
 vim.opt.swapfile = false
 
--- netrw
-vim.g.netrw_preview = 1 -- vertical preview
+-- file navigation 
+-- vim.g.netrw_preview = 1 -- vertical preview
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 
 -- auto format on save
 vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
@@ -37,7 +40,7 @@ end
 
 vim.g.mapleader = " "
 
-set("n", "<leader>e", "<cmd>Explore<cr>")
+set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 set("n", "<leader>vs", "<cmd>vsplit<cr>")
 set("n", "<leader>ss", "<cmd>split<cr>")
 set("n", "<leader>/", "<cmd>noh<cr>")
@@ -73,17 +76,7 @@ set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 set("n", "<c-t>", "<cmd>ToggleTerm<cr>")
 set("t", "<c-t>", "<cmd>ToggleTerm<cr>")
 
+vim.cmd.colorscheme "catppuccin-frappe"
+
 require("gatoguild.plugins")
 
-vim.cmd[[
-  if has('termguicolors')
-    set termguicolors
-  endif
-
-  set background=dark
-
-  let g:everforest_background = 'soft'
-  let g:everforest_better_performance = 1
-
-  colorscheme everforest
-]]
