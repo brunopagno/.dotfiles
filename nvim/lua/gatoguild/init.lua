@@ -76,7 +76,6 @@ set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 set("n", "<c-t>", "<cmd>ToggleTerm<cr>")
 set("t", "<c-t>", "<cmd>ToggleTerm<cr>")
 
-vim.cmd.colorscheme "catppuccin-frappe"
-
 require("gatoguild.plugins")
 
+vim.cmd.colorscheme "catppuccin-frappe"

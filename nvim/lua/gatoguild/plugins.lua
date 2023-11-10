@@ -34,9 +34,6 @@ return require("packer").startup(function(use)
       }) -- better syntax highlighting
       use({
         "nvim-tree/nvim-tree.lua",
-        -- requires = {
-        --   "nvim-tree/nvim-web-devicons",
-        -- },
       }) -- file explorer
 
       -- LSP
