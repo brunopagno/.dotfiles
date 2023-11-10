@@ -70,10 +70,12 @@ sudo vim /usr/share/X11/locale/en_US.UTF-8/Compose
 
 Then replace all ć with ç (lower and uppercase)
 
-### nvim
+### nvim, tmux and alacritty
+
+The setup files in this repo can be symlinked into the `$HOME/.config` folder by running the `setup` script
 
 ```
-ln -s $(pwd)/nvim ~/.config
+./setup
 ```
 
 ### Logitech G29 things
