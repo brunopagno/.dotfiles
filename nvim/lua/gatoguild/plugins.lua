@@ -47,6 +47,7 @@ return require("packer").startup(function(use)
       -- All the rest
       use({ "github/copilot.vim" })
       use({ "tpope/vim-fugitive" })
+      use({ "christoomey/vim-tmux-navigator", lazy = false })
       use({ "akinsho/toggleterm.nvim", tag = "*", config = function() require("toggleterm").setup() end })
     end)
 
