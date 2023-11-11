@@ -36,6 +36,7 @@ Install:
 - tmux
 - tmux-plugins (https://github.com/tmux-plugins/tpm)
 - neovim
+- JetBrainsMono Nerd Font (https://www.nerdfonts.com/)
 
 run the symlink magic
 
