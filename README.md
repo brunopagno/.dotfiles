@@ -7,21 +7,20 @@ hostname
 hostnamectl set-hostname gengar
 ```
 
-patient check alive
+make check alive a little bit more patient in gnome
 ```bash
 gsettings set org.gnome.mutter check-alive-timeout 20000
 ```
 
-- install dev tools
-
+install dev tools
 ```bash
+# ubuntu
 sudo apt install build-essential
-```
-
-```bash
+# fedora
 sudo dnf group install "C Development Tools and Libraries" "Development Tools"
 ```
 
+git defaults
 ```bash
 git config --global init.defaultBranch main
 git config --global user.name "name"
@@ -30,13 +29,26 @@ git config --global pager.branch false
 git config --global credential.helper store
 ```
 
-### Debian specific bluetooth shenanigans
+### neovim, tmux and alacritty
 
-It seems that the firmware is not detected initially and needs to be manually installed later
+Install:
+- alacritty
+- tmux
+- tmux-plugins (https://github.com/tmux-plugins/tpm)
+- neovim
 
-```bash
-sudo apt install firmware-realtek
+run the symlink magic
+
 ```
+./setup
+```
+
+- run tmux
+- Use `<C-Space> I` to install tmux plugins
+- run nvim
+- Use `<Esc>:PackerSync` to install all neovim plugins
+
+Try to have fun, I guess
 
 ### NuPhy/Keychron keyboard
 
@@ -50,40 +62,15 @@ echo 'options hid_apple fnmode=0' | sudo tee -a /etc/modprobe.d/hid_apple.conf
 sudo update-initramfs -u
 ```
 
-### ZSA Moonlander
-
-[Oryx config](https://configure.zsa.io/)
-
 ### Using Cedilla on intl keyboard
 
-Copy `.XCompose` to the home folder and run:
+Copy `_messy/.XCompose` to the home folder and run:
 ```
 gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/IMModule': <'ibus'>}"
 ```
 [Reference](https://garajau.com.br/2021/02/enabling-cedilla-acute-c-on-gnome)
 
-OR
+### ZSA Moonlander
 
-```
-sudo vim /usr/share/X11/locale/en_US.UTF-8/Compose
-```
+[Oryx config](https://configure.zsa.io/)
 
-Then replace all ć with ç (lower and uppercase)
-
-### nvim, tmux and alacritty
-
-The setup files in this repo can be symlinked into the `$HOME/.config` folder by running the `setup` script
-
-```
-./setup
-```
-
-### Logitech G29 things
-
-The following command will print information about the device, including a path `/devices/pci000:00/.../input30/js0` or similar.
-
-```
-udevadm info /dev/input/js0
-```
-
-To access driver parameters we want to do `/sys/<the_path_mentioned_above_WITHOUT_js0>/device`
