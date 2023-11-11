@@ -46,11 +46,11 @@ set("n", "<leader>ss", "<cmd>split<cr>")
 set("n", "<leader>/", "<cmd>noh<cr>")
 set("n", "<leader>z", "<cmd>set wrap!<cr>")
 
--- TmuxNavigate
-set("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>")
-set("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>")
-set("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>")
-set("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>")
+-- navigation
+set("n", "<up>", "<cmd>wincmd k<cr>")
+set("n", "<down>", "<cmd>wincmd j<cr>")
+set("n", "<left>", "<cmd>wincmd h<cr>")
+set("n", "<right>", "<cmd>wincmd l<cr>")
 
 -- copy to clipboard
 set("v", "<leader>y", '"+y')
@@ -71,10 +71,6 @@ set("n", "<f4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
-
--- Toggleterm
-set("n", "<c-t>", "<cmd>ToggleTerm<cr>")
-set("t", "<c-t>", "<cmd>ToggleTerm<cr>")
 
 require("gatoguild.plugins")
 

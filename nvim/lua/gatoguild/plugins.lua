@@ -32,9 +32,7 @@ return require("packer").startup(function(use)
             ts_update()
           end
       }) -- better syntax highlighting
-      use({
-        "nvim-tree/nvim-tree.lua",
-      }) -- file explorer
+      use({ "nvim-tree/nvim-tree.lua" }) -- file explorer
 
       -- LSP
       use({ "neovim/nvim-lspconfig" })
@@ -51,7 +49,5 @@ return require("packer").startup(function(use)
       -- All the rest
       use({ "github/copilot.vim" })
       use({ "tpope/vim-fugitive" })
-      use({ "christoomey/vim-tmux-navigator", lazy = false })
-      use({ "akinsho/toggleterm.nvim", tag = "*", config = function() require("toggleterm").setup() end })
     end)
 
