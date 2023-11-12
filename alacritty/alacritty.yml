@@ -16,3 +16,5 @@ font:
     style: Bold Italic
 
   size: 13.0
+
+shell: "tmux"
