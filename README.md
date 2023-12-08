@@ -29,28 +29,6 @@ git config --global pager.branch false
 git config --global credential.helper store
 ```
 
-### neovim, tmux and alacritty
-
-Install:
-- alacritty
-- tmux
-- tmux-plugins (https://github.com/tmux-plugins/tpm)
-- neovim
-- JetBrainsMono Nerd Font (https://www.nerdfonts.com/)
-
-run the symlink magic
-
-```
-./setup
-```
-
-- run tmux
-- Use `<C-Space> I` to install tmux plugins
-- run nvim
-- Use `<Esc>:PackerSync` to install all neovim plugins
-
-Try to have fun, I guess
-
 ### NuPhy/Keychron keyboard
 
 This will enable f# keys
