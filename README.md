@@ -43,7 +43,7 @@ sudo update-initramfs -u
 
 ### Using Cedilla on intl keyboard
 
-Copy `_messy/.XCompose` to the home folder and run:
+Copy `.XCompose` to the home folder and run:
 ```
 gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "{'Gtk/IMModule': <'ibus'>}"
 ```
