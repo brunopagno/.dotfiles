@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- Colorscheme
+  -- colorscheme
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -49,21 +49,6 @@ require("lazy").setup({
       })
     end,
   },
-  -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   config = function()
-  --     require("nvim-tree").setup({
-  --       actions = {
-  --         open_file = {
-  --           quit_on_open = true,
-  --           window_picker = {
-  --             enable = false,
-  --           },
-  --         },
-  --       },
-  --     })
-  --   end,
-  -- },
 
   -- LSP
   {
@@ -76,6 +61,9 @@ require("lazy").setup({
 
       -- gem install solargraph
       lspconfig.solargraph.setup({})
+
+      -- rustup component add rust_analyzer
+      lspconfig.rust_analyzer.setup({})
     end,
   },
   {

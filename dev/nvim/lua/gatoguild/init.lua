@@ -41,10 +41,8 @@ set("n", "<left>", "<cmd>wincmd h<cr>")
 set("n", "<right>", "<cmd>wincmd l<cr>")
 
 -- resize
-set({ "n", "t" }, "<C-,>", "<cmd>resize -10<cr>")
-set({ "n", "t" }, "<C-.>", "<cmd>resize +10<cr>")
-set("n", "<C-[>", "<cmd>vertical resize -10<cr>")
-set("n", "<C-]>", "<cmd>vertical resize +10<cr>")
+set({ "t", "n" }, "<M-up>", "<cmd>resize +10<cr>")
+set({ "t", "n" }, "<M-down>", "<cmd>resize -10<cr>")
 
 -- copy to clipboard
 set("v", "<leader>y", '"+y')
@@ -72,9 +70,6 @@ set("n", "<leader>e", "<cmd>Lexplore %:p:h<cr>")
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 25
 vim.g.netrw_banner = 0
-vim.cmd([[
-  autocmd FileType netrw autocmd BufLeave <buffer> if &filetype == 'netrw' | :bd | endif
-]])
 
 -- terminal
 set("n", "<C-t>", function() show_terminal() end)
@@ -87,16 +82,13 @@ local TERM_NAME = "splittermin"
 function show_terminal()
   local buf = vim.fn.bufnr(TERM_NAME)
   if buf == -1 then
-    print("no buffer")
     do_show_terminal()
   else
     local win = vim.fn.bufwinnr(buf)
 
     if win == -1 then
-      print("buffer & no window")
       do_show_terminal(buf)
     else
-      print("buffer & window")
       vim.cmd(win .. "wincmd w")
     end
   end
