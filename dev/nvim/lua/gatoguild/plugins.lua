@@ -49,38 +49,54 @@ require("lazy").setup({
       })
     end,
   },
-  {
-    "nvim-tree/nvim-tree.lua",
-    config = function()
-      require("nvim-tree").setup({
-        actions = {
-          open_file = {
-            quit_on_open = true,
-            window_picker = {
-              enable = false,
-            },
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   config = function()
+  --     require("nvim-tree").setup({
+  --       actions = {
+  --         open_file = {
+  --           quit_on_open = true,
+  --           window_picker = {
+  --             enable = false,
+  --           },
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 
   -- LSP
-  { "williamboman/mason.nvim" },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
     config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-      require("mason-lspconfig").setup_handlers({
-        function(server_name)
-          require("lspconfig")[server_name].setup({})
-        end
+      local lspconfig = require('lspconfig')
+
+      -- npm i -g typescript typescript-language-server prettier
+      lspconfig.tsserver.setup({})
+
+      -- gem install solargraph
+      lspconfig.solargraph.setup({})
+    end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    config = function()
+      local none_ls = require("null-ls")
+
+      local formatting = none_ls.builtins.formatting
+      local diagnostics = none_ls.builtins.diagnostics
+
+      local sources = {
+        formatting.rubocop,
+        formatting.prettier,
+        diagnostics.rubocop,
+      }
+
+      none_ls.setup({
+        sources = sources,
       })
     end,
   },
-  { "neovim/nvim-lspconfig" },
-  { "nvimtools/none-ls.nvim" },
 
   -- autocomplete
   { "L3MON4D3/LuaSnip" },

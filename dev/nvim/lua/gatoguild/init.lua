@@ -13,15 +13,11 @@ vim.opt.wrap = false
 vim.opt.ruler = true
 vim.opt.signcolumn = "yes"
 vim.opt.showtabline = 2
-
 vim.opt.mouse = "nv"
+vim.opt.termguicolors = true
+
 vim.opt.backup = false
 vim.opt.swapfile = false
-
--- file navigation 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
 
 -- Keymap
 
@@ -33,7 +29,6 @@ end
 
 vim.g.mapleader = " "
 
-set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 set("n", "<leader>w-", "<cmd>split<cr>")
 set("n", "<leader>w\\", "<cmd>vsplit<cr>")
 set("n", "<leader>/", "<cmd>noh<cr>")
@@ -44,6 +39,12 @@ set("n", "<up>", "<cmd>wincmd k<cr>")
 set("n", "<down>", "<cmd>wincmd j<cr>")
 set("n", "<left>", "<cmd>wincmd h<cr>")
 set("n", "<right>", "<cmd>wincmd l<cr>")
+
+-- resize
+set({ "n", "t" }, "<C-,>", "<cmd>resize -10<cr>")
+set({ "n", "t" }, "<C-.>", "<cmd>resize +10<cr>")
+set("n", "<C-[>", "<cmd>vertical resize -10<cr>")
+set("n", "<C-]>", "<cmd>vertical resize +10<cr>")
 
 -- copy to clipboard
 set("v", "<leader>y", '"+y')
@@ -64,6 +65,66 @@ set("n", "<f4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
+
+-- file navigation
+set("n", "<leader>e", "<cmd>Lexplore %:p:h<cr>")
+
+vim.g.netrw_liststyle = 3
+vim.g.netrw_winsize = 25
+vim.g.netrw_banner = 0
+vim.cmd([[
+  autocmd FileType netrw autocmd BufLeave <buffer> if &filetype == 'netrw' | :bd | endif
+]])
+
+-- terminal
+set("n", "<C-t>", function() show_terminal() end)
+set("t", "<esc>", "<c-\\><c-n>")
+set("t", "<C-t>", function() hide_terminal() end)
+
+-- commands
+local TERM_NAME = "splittermin"
+
+function show_terminal()
+  local buf = vim.fn.bufnr(TERM_NAME)
+  if buf == -1 then
+    print("no buffer")
+    do_show_terminal()
+  else
+    local win = vim.fn.bufwinnr(buf)
+
+    if win == -1 then
+      print("buffer & no window")
+      do_show_terminal(buf)
+    else
+      print("buffer & window")
+      vim.cmd(win .. "wincmd w")
+    end
+  end
+end
+
+function do_show_terminal(buf)
+  vim.cmd("split")
+  vim.cmd("wincmd j")
+  vim.cmd("resize 18")
+
+  if buf then
+    vim.cmd("buffer " .. buf)
+  else
+    vim.cmd("terminal")
+    vim.cmd("file " .. TERM_NAME)
+  end
+
+  vim.cmd("startinsert")
+end
+
+function hide_terminal()
+  local current = vim.fn.bufnr("%")
+
+  if current == vim.fn.bufnr(TERM_NAME) then
+    vim.cmd("stopinsert")
+    vim.cmd("q")
+  end
+end
 
 require("gatoguild.plugins")
 
