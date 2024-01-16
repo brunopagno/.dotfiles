@@ -65,7 +65,7 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
-set("n", "<leader>e", "<cmd>Lexplore %:p:h<cr>")
+set("n", "<leader>e", "<cmd>Lexplore<cr>")
 
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 25
