@@ -64,6 +64,17 @@ require("lazy").setup({
 
       -- rustup component add rust_analyzer
       lspconfig.rust_analyzer.setup({})
+
+      -- asdf plugin add lua-language-server && asdf install lua-language-server latest && asdf global lua-language-server latest
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
     end,
   },
   {
@@ -122,4 +133,3 @@ require("lazy").setup({
   { "github/copilot.vim" },
   { "tpope/vim-fugitive" },
 })
-

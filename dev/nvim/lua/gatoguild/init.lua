@@ -76,38 +76,42 @@ set("n", "<leader>e",
     local width = ui.width - 50
     local height = ui.height - 10
 
-    local opts = {
+    local win_opts = {
       relative = "editor",
+      focusable = false,
       width = width,
       height = height,
       col = (ui.width / 2) - (width / 2),
       row = (ui.height / 2) - (height / 2),
       anchor = "NW",
-      border = "rounded",
+      border = "single",
     }
 
-    local win = vim.api.nvim_open_win(0, true, opts)
+    local fewin = vim.api.nvim_open_win(0, true, win_opts)
     vim.cmd("Explore")
 
-    local buf = vim.api.nvim_get_current_buf()
+    local febuf = vim.api.nvim_win_get_buf(fewin)
+
     local close_keys = { '<esc>', '<leader>e' }
 
-    local fegr = vim.api.nvim_create_augroup("file_explorer", { clear = true })
-    vim.api.nvim_create_autocmd({"BufEnter"}, {
-      command = "lua set_buffer_and_close(" .. win .. ", " .. buf .. ")",
+    local fegr = vim.api.nvim_create_augroup("file_explorer", {})
+    vim.api.nvim_create_autocmd({ "BufEnter" }, {
+      group = fegr,
+      callback = function(ev)
+        vim.api.nvim_del_augroup_by_id(fegr)
+        vim.api.nvim_win_set_buf(cur_win, ev.buf)
+        vim.cmd("q")
+      end
     })
 
     for _, key in ipairs(close_keys) do
-      vim.api.nvim_buf_set_keymap(buf, 'n', key, '<cmd>q<cr>', { noremap = true, silent = true })
+      vim.api.nvim_buf_set_keymap(febuf, 'n', key,
+        "<cmd>autocmd! file_explorer | q<cr>",
+        { noremap = true, silent = true }
+      )
     end
   end
 )
-
-function set_buffer_and_close(win, buf)
-  vim.api.nvim_win_set_buf(win, buf)
-  vim.cmd("autocmd! file_explorer")
-  vim.cmd("q")
-end
 
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 25
@@ -121,13 +125,12 @@ set("t", "<C-a>",
   function()
     local bufnr = vim.fn.bufnr("#")
     local filepath = vim.api.nvim_buf_get_name(bufnr)
-    
+
     vim.fn.feedkeys(filepath)
   end
 )
 
 -- commands
-local TERM_NAME = "splittermin"
 
 local fixed_splits = {
   term = {
@@ -165,9 +168,9 @@ function do_show(split, buf)
     vim.cmd("wincmd h")
     vim.cmd("vertical resize " .. split.size)
   else
-   vim.cmd("split")
-   vim.cmd("wincmd j")
-   vim.cmd("resize " .. split.size)
+    vim.cmd("split")
+    vim.cmd("wincmd j")
+    vim.cmd("resize " .. split.size)
   end
 
   if buf then
@@ -192,4 +195,3 @@ function hide_split(key)
 end
 
 require("gatoguild.plugins")
-
