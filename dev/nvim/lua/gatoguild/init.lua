@@ -69,33 +69,45 @@ set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 -- file navigation
 set("n", "<leader>e",
   function()
-    local buf = vim.api.nvim_create_buf(false, true)
-    local close_keys = { '<esc>', 'q', '<leader>e' }
-
-    for _, key in ipairs(close_keys) do
-      vim.api.nvim_buf_set_keymap(buf, 'n', key, '<cmd>q<cr>', { noremap = true, silent = true })
-    end
+    local cur_win = vim.api.nvim_get_current_win()
 
     local ui = vim.api.nvim_list_uis()[1]
 
-    local width = ui.width - 10
+    local width = ui.width - 50
     local height = ui.height - 10
 
     local opts = {
       relative = "editor",
       width = width,
       height = height,
-      row = (ui.height / 2) - (height / 2),
       col = (ui.width / 2) - (width / 2),
+      row = (ui.height / 2) - (height / 2),
       anchor = "NW",
       border = "rounded",
     }
 
-    local win = vim.api.nvim_open_win(buf, true, opts)
-    
-    vim.api.nvim_win_call(win, "<cmd>Explore<cr>")
+    local win = vim.api.nvim_open_win(0, true, opts)
+    vim.cmd("Explore")
+
+    local buf = vim.api.nvim_get_current_buf()
+    local close_keys = { '<esc>', '<leader>e' }
+
+    local fegr = vim.api.nvim_create_augroup("file_explorer", { clear = true })
+    vim.api.nvim_create_autocmd({"BufEnter"}, {
+      command = "lua set_buffer_and_close(" .. win .. ", " .. buf .. ")",
+    })
+
+    for _, key in ipairs(close_keys) do
+      vim.api.nvim_buf_set_keymap(buf, 'n', key, '<cmd>q<cr>', { noremap = true, silent = true })
+    end
   end
 )
+
+function set_buffer_and_close(win, buf)
+  vim.api.nvim_win_set_buf(win, buf)
+  vim.cmd("autocmd! file_explorer")
+  vim.cmd("q")
+end
 
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 25
