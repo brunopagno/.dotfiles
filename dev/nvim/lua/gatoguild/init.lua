@@ -136,7 +136,6 @@ local fixed_splits = {
   term = {
     name = "splittermin",
     size = 18,
-    pos = "bottom",
     cmd = function() vim.cmd("terminal") end,
     show = function() vim.cmd("startinsert") end,
   },
@@ -163,15 +162,9 @@ function show_split(key)
 end
 
 function do_show(split, buf)
-  if split.pos == "left" then
-    vim.cmd("vsplit")
-    vim.cmd("wincmd h")
-    vim.cmd("vertical resize " .. split.size)
-  else
-    vim.cmd("split")
-    vim.cmd("wincmd j")
-    vim.cmd("resize " .. split.size)
-  end
+  vim.cmd("split")
+  vim.cmd("wincmd J")
+  vim.cmd("resize " .. split.size)
 
   if buf then
     vim.cmd("buffer " .. buf)
