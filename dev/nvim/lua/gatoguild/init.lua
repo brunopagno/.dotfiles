@@ -43,6 +43,8 @@ set("n", "<right>", "<cmd>wincmd l<cr>")
 -- resize
 set({ "t", "n" }, "<M-up>", "<cmd>resize +10<cr>")
 set({ "t", "n" }, "<M-down>", "<cmd>resize -10<cr>")
+set("n", "<M-right>", "<cmd>vertical resize +10<cr>")
+set("n", "<M-left>", "<cmd>vertical resize -10<cr>")
 
 -- copy to clipboard
 set("v", "<leader>y", '"+y')
@@ -75,6 +77,14 @@ vim.g.netrw_banner = 0
 set("n", "<C-t>", function() show_split("term") end)
 set("t", "<esc>", "<c-\\><c-n>")
 set("t", "<C-t>", function() hide_split("term") end)
+set("t", "<C-a>",
+  function()
+    local bufnr = vim.fn.bufnr("#")
+    local filepath = vim.api.nvim_buf_get_name(bufnr)
+    
+    vim.fn.feedkeys(filepath)
+  end
+)
 
 -- commands
 local TERM_NAME = "splittermin"
@@ -102,6 +112,9 @@ function show_split(key)
       do_show(split, buf)
     else
       vim.cmd(win .. "wincmd w")
+      if split.show then
+        split.show()
+      end
     end
   end
 end
