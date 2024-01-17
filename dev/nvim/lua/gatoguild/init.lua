@@ -67,7 +67,35 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
-set("n", "<leader>e", "<cmd>Lexplore<cr>")
+set("n", "<leader>e",
+  function()
+    local buf = vim.api.nvim_create_buf(false, true)
+    local close_keys = { '<esc>', 'q', '<leader>e' }
+
+    for _, key in ipairs(close_keys) do
+      vim.api.nvim_buf_set_keymap(buf, 'n', key, '<cmd>q<cr>', { noremap = true, silent = true })
+    end
+
+    local ui = vim.api.nvim_list_uis()[1]
+
+    local width = ui.width - 10
+    local height = ui.height - 10
+
+    local opts = {
+      relative = "editor",
+      width = width,
+      height = height,
+      row = (ui.height / 2) - (height / 2),
+      col = (ui.width / 2) - (width / 2),
+      anchor = "NW",
+      border = "rounded",
+    }
+
+    local win = vim.api.nvim_open_win(buf, true, opts)
+    
+    vim.api.nvim_win_call(win, "<cmd>Explore<cr>")
+  end
+)
 
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 25
