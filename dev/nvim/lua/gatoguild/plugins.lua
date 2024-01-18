@@ -109,7 +109,7 @@ require("lazy").setup({
       cmp.setup({
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expan(args.body)
+            require('luasnip').lsp_expand(args.body)
           end,
         },
         window = {
@@ -130,6 +130,6 @@ require("lazy").setup({
   },
 
   -- all the rest
-  { "github/copilot.vim" },
+  -- { "github/copilot.vim" },
   { "tpope/vim-fugitive" },
 })
