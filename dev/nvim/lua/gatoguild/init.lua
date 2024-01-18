@@ -118,9 +118,9 @@ vim.g.netrw_winsize = 25
 vim.g.netrw_banner = 0
 
 -- terminal
-set("n", "<C-t>", function() show_split("term") end)
+set("n", "<C-t>", function() show_splittermin() end)
 set("t", "<esc>", "<c-\\><c-n>")
-set("t", "<C-t>", function() hide_split("term") end)
+set("t", "<C-t>", function() hide_splittermin() end)
 set("t", "<C-a>",
   function()
     local bufnr = vim.fn.bufnr("#")
@@ -132,57 +132,43 @@ set("t", "<C-a>",
 
 -- commands
 
-local fixed_splits = {
-  term = {
-    name = "splittermin",
-    size = 18,
-    cmd = function() vim.cmd("terminal") end,
-    show = function() vim.cmd("startinsert") end,
-  },
-}
+local splittermin_name = "splittermin"
 
-function show_split(key)
-  local split = fixed_splits[key]
-
-  local buf = vim.fn.bufnr(split.name)
+function show_splittermin()
+  local buf = vim.fn.bufnr(splittermin_name)
   if buf == -1 then
-    do_show(split)
+    do_show_splittermin()
   else
     local win = vim.fn.bufwinnr(buf)
 
     if win == -1 then
-      do_show(split, buf)
+      do_show_splittermin(buf)
     else
       vim.cmd(win .. "wincmd w")
-      if split.show then
-        split.show()
-      end
+      vim.cmd("startinsert")
     end
   end
 end
 
-function do_show(split, buf)
+function do_show_splittermin(buf)
   vim.cmd("split")
   vim.cmd("wincmd J")
-  vim.cmd("resize " .. split.size)
+  vim.cmd("resize 18")
 
   if buf then
     vim.cmd("buffer " .. buf)
   else
-    split.cmd()
-    vim.cmd("file " .. split.name)
+    vim.cmd("terminal")
+    vim.cmd("file " .. splittermin_name)
   end
 
-  if split.show then
-    split.show()
-  end
+  vim.cmd("startinsert")
 end
 
-function hide_split(key)
-  local split = fixed_splits[key]
+function hide_splittermin()
   local current = vim.fn.bufnr("%")
 
-  if current == vim.fn.bufnr(split.name) then
+  if current == vim.fn.bufnr(splittermin_name) then
     vim.cmd("q")
   end
 end
