@@ -1,3 +1,23 @@
+-- Init
+
+-- local sgr = vim.api.nvim_create_augroup("startup", {})
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, {
+--   group = sgr,
+--   callback = function(ev)
+--     vim.api.nvim_del_augroup_by_id(sgr)
+--
+--     if vim.fn.isdirectory(ev.file) == 1 then
+--       local startup_buf = vim.api.nvim_create_buf(false, true)
+--
+--       vim.api.nvim_buf_set_lines(startup_buf, 0, -1, false, {
+--         "<leader>e to open the file explorer",
+--         "<leader>p to open the file finder",
+--       })
+--       vim.api.nvim_set_current_buf(startup_buf)
+--     end
+--   end
+-- })
+
 -- Options
 
 vim.opt.number = true
