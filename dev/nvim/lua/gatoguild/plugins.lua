@@ -29,7 +29,12 @@ require("lazy").setup({
     config = function()
       require("telescope").setup({
         defaults = {
-          file_ignore_patterns = { "node_modules", ".git" },
+          file_ignore_patterns = { "node_modules/.*", ".git/.*" },
+        },
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
         },
       })
     end,
@@ -116,9 +121,9 @@ require("lazy").setup({
           completion = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-          ['<c-space>'] = cmp.mapping.complete(),
-          ['<c-e>'] = cmp.mapping.abort(),
-          ['<cr>'] = cmp.mapping.confirm({ select = true }),
+              ['<c-space>'] = cmp.mapping.complete(),
+              ['<c-e>'] = cmp.mapping.abort(),
+              ['<cr>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
           { name = 'path' },
