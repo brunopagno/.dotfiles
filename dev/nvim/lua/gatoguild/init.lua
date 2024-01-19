@@ -112,7 +112,7 @@ set("n", "<leader>e",
 
     local febuf = vim.api.nvim_win_get_buf(fewin)
 
-    local close_keys = { '<esc>', '<leader>e' }
+    local close_keys = { '<esc>', '<leader>e', '<leader>p' }
 
     local fegr = vim.api.nvim_create_augroup("file_explorer", {})
     vim.api.nvim_create_autocmd({ "BufEnter" }, {
