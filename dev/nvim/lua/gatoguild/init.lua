@@ -1,23 +1,3 @@
--- Init
-
--- local sgr = vim.api.nvim_create_augroup("startup", {})
--- vim.api.nvim_create_autocmd({ "VimEnter" }, {
---   group = sgr,
---   callback = function(ev)
---     vim.api.nvim_del_augroup_by_id(sgr)
---
---     if vim.fn.isdirectory(ev.file) == 1 then
---       local startup_buf = vim.api.nvim_create_buf(false, true)
---
---       vim.api.nvim_buf_set_lines(startup_buf, 0, -1, false, {
---         "<leader>e to open the file explorer",
---         "<leader>p to open the file finder",
---       })
---       vim.api.nvim_set_current_buf(startup_buf)
---     end
---   end
--- })
-
 -- Options
 
 vim.opt.number = true
@@ -49,16 +29,16 @@ end
 
 vim.g.mapleader = " "
 
-set("n", "<leader>w-", "<cmd>split<cr>")
-set("n", "<leader>w\\", "<cmd>vsplit<cr>")
+set("n", "<leader>ss", "<cmd>split<cr>")
+set("n", "<leader>vs", "<cmd>vsplit<cr>")
 set("n", "<leader>/", "<cmd>noh<cr>")
 set("n", "<leader>z", "<cmd>set wrap!<cr>")
 
 -- navigation
-set("n", "<up>", "<cmd>wincmd k<cr>")
-set("n", "<down>", "<cmd>wincmd j<cr>")
-set("n", "<left>", "<cmd>wincmd h<cr>")
-set("n", "<right>", "<cmd>wincmd l<cr>")
+set({ "n", "t" }, "<C-up>", "<cmd>wincmd k<cr>")
+set({ "n", "t" }, "<C-down>", "<cmd>wincmd j<cr>")
+set({ "n", "t" }, "<C-left>", "<cmd>wincmd h<cr>")
+set({ "n", "t" }, "<C-right>", "<cmd>wincmd l<cr>")
 
 -- resize
 set({ "t", "n" }, "<M-up>", "<cmd>resize +10<cr>")
@@ -87,110 +67,17 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
-set("n", "<leader>e",
-  function()
-    local cur_win = vim.api.nvim_get_current_win()
-
-    local ui = vim.api.nvim_list_uis()[1]
-
-    local width = ui.width - 50
-    local height = ui.height - 10
-
-    local win_opts = {
-      relative = "editor",
-      focusable = false,
-      width = width,
-      height = height,
-      col = (ui.width / 2) - (width / 2),
-      row = (ui.height / 2) - (height / 2),
-      anchor = "NW",
-      border = "single",
-    }
-
-    local fewin = vim.api.nvim_open_win(0, true, win_opts)
-    vim.cmd("Explore")
-
-    local febuf = vim.api.nvim_win_get_buf(fewin)
-
-    local close_keys = { '<esc>', '<leader>e', '<leader>p' }
-
-    local fegr = vim.api.nvim_create_augroup("file_explorer", {})
-    vim.api.nvim_create_autocmd({ "BufEnter" }, {
-      group = fegr,
-      callback = function(ev)
-        vim.api.nvim_del_augroup_by_id(fegr)
-        vim.api.nvim_win_set_buf(cur_win, ev.buf)
-        vim.cmd("q")
-      end
-    })
-
-    for _, key in ipairs(close_keys) do
-      vim.api.nvim_buf_set_keymap(febuf, 'n', key,
-        "<cmd>autocmd! file_explorer | q<cr>",
-        { noremap = true, silent = true }
-      )
-    end
-  end
-)
+set("n", "<leader>e", "<cmd>Explore<cr>")
 
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 25
 vim.g.netrw_banner = 0
 
 -- terminal
-set("n", "<C-t>", function() show_splittermin() end)
+set("n", "<C-t>", "<cmd>terminal<cr>")
 set("t", "<esc>", "<c-\\><c-n>")
-set("t", "<C-t>", function() hide_splittermin() end)
-set("t", "<C-a>",
-  function()
-    local bufnr = vim.fn.bufnr("#")
-    local filepath = vim.api.nvim_buf_get_name(bufnr)
-
-    vim.fn.feedkeys(filepath)
-  end
-)
-
--- commands
-
-local splittermin_name = "splittermin"
-
-function show_splittermin()
-  local buf = vim.fn.bufnr(splittermin_name)
-  if buf == -1 then
-    do_show_splittermin()
-  else
-    local win = vim.fn.bufwinnr(buf)
-
-    if win == -1 then
-      do_show_splittermin(buf)
-    else
-      vim.cmd(win .. "wincmd w")
-      vim.cmd("startinsert")
-    end
-  end
-end
-
-function do_show_splittermin(buf)
-  vim.cmd("split")
-  vim.cmd("wincmd J")
-  vim.cmd("resize 18")
-
-  if buf then
-    vim.cmd("buffer " .. buf)
-  else
-    vim.cmd("terminal")
-    vim.cmd("file " .. splittermin_name)
-  end
-
-  vim.cmd("startinsert")
-end
-
-function hide_splittermin()
-  local current = vim.fn.bufnr("%")
-
-  if current == vim.fn.bufnr(splittermin_name) then
-    vim.cmd("q")
-  end
-end
+vim.cmd([[
+  autocmd TermOpen * startinsert
+]])
 
 require("gatoguild.plugins")

@@ -67,9 +67,6 @@ require("lazy").setup({
       -- gem install solargraph
       lspconfig.solargraph.setup({})
 
-      -- rustup component add rust_analyzer
-      lspconfig.rust_analyzer.setup({})
-
       -- asdf plugin add lua-language-server && asdf install lua-language-server latest && asdf global lua-language-server latest
       lspconfig.lua_ls.setup({
         settings = {
