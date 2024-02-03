@@ -64,8 +64,7 @@ require("lazy").setup({
       -- npm i -g typescript typescript-language-server prettier
       lspconfig.tsserver.setup({})
 
-      -- gem install solargraph
-      lspconfig.solargraph.setup({})
+      lspconfig.ruby_ls.setup({})
 
       -- asdf plugin add lua-language-server && asdf install lua-language-server latest && asdf global lua-language-server latest
       lspconfig.lua_ls.setup({
@@ -118,9 +117,9 @@ require("lazy").setup({
           completion = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-              ['<c-space>'] = cmp.mapping.complete(),
-              ['<c-e>'] = cmp.mapping.abort(),
-              ['<cr>'] = cmp.mapping.confirm({ select = true }),
+          ['<c-space>'] = cmp.mapping.complete(),
+          ['<c-e>'] = cmp.mapping.abort(),
+          ['<cr>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
           { name = 'path' },

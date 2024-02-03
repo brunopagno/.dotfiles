@@ -67,17 +67,16 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
-set("n", "<leader>e", "<cmd>Explore<cr>")
+set("n", "<leader>er", "<cmd>Vexplore!<cr>")
+set("n", "<leader>ee", "<cmd>Explore<cr>")
 
 vim.g.netrw_liststyle = 3
-vim.g.netrw_winsize = 25
-vim.g.netrw_banner = 0
 
 -- terminal
 set("n", "<C-t>", "<cmd>terminal<cr>")
 set("t", "<esc>", "<c-\\><c-n>")
 vim.cmd([[
-  autocmd TermOpen * startinsert
+  autocmd TermOpen,BufEnter,WinEnter term://* startinsert
 ]])
 
 require("gatoguild.plugins")
