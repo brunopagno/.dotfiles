@@ -1,21 +1,12 @@
 {
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Quiet Light",
+  "workbench.colorTheme": "Catppuccin Latte",
+  "workbench.iconTheme": "catppuccin-latte",
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "telemetry.telemetryLevel": "off",
   "window.menuBarVisibility": "toggle",
-  "workbench.activityBar.visible": false,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
