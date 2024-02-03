@@ -3,7 +3,7 @@
     "key": "alt+f",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "'${file}'"
+      "text": "${file}"
     },
     "when": "terminalFocus"
   },
@@ -28,31 +28,7 @@
     "command": "-workbench.action.quickOpenLeastRecentlyUsedEditorInGroup"
   },
   {
-    "key": "ctrl+win+pageup",
+    "key": "ctrl+shift+j",
     "command": "workbench.action.toggleMaximizedPanel"
-  },
-  {
-    "key": "ctrl+shift+b",
-    "command": "workbench.action.toggleAuxiliaryBar"
-  },
-  {
-    "key": "alt+s",
-    "command": "workbench.action.terminal.split",
-    "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
-  },
-  {
-    "key": "ctrl+shift+5",
-    "command": "-workbench.action.terminal.split",
-    "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
-  },
-  {
-    "key": "alt+s",
-    "command": "workbench.action.terminal.splitActiveTab",
-    "when": "terminalProcessSupported && terminalTabsFocus"
-  },
-  {
-    "key": "ctrl+shift+5",
-    "command": "-workbench.action.terminal.splitActiveTab",
-    "when": "terminalProcessSupported && terminalTabsFocus"
   }
 ]
