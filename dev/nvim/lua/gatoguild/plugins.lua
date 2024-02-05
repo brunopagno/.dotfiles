@@ -12,13 +12,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- colorscheme
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "sainnhe/everforest",
+    name = "everforest",
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme catppuccin-frappe]])
+      vim.cmd([[
+        set background=light
+        let g:everforest_background = 'medium'
+        let g:everforest_better_performance = 1
+        colorscheme everforest
+      ]])
     end,
   },
 
@@ -131,6 +135,6 @@ require("lazy").setup({
   },
 
   -- all the rest
-  -- { "github/copilot.vim" },
+  { "github/copilot.vim" },
   { "tpope/vim-fugitive" },
 })
