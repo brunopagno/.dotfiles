@@ -68,7 +68,14 @@ require("lazy").setup({
       -- npm i -g typescript typescript-language-server prettier
       lspconfig.tsserver.setup({})
 
-      lspconfig.ruby_ls.setup({})
+      -- gem install solargraph
+      lspconfig.solargraph.setup({
+        settings = {
+          solargraph = {
+            diagnostics = false,
+          },
+        },
+      })
 
       -- asdf plugin add lua-language-server && asdf install lua-language-server latest && asdf global lua-language-server latest
       lspconfig.lua_ls.setup({
