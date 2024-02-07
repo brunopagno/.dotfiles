@@ -13,16 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "sainnhe/everforest",
-    name = "everforest",
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
-      vim.cmd([[
-        set background=light
-        let g:everforest_background = 'medium'
-        let g:everforest_better_performance = 1
-        colorscheme everforest
-      ]])
+      vim.cmd("colorscheme catppuccin-frappe")
     end,
   },
 
