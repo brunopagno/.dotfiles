@@ -1,11 +1,15 @@
 {
+  "telemetry.telemetryLevel": "off",
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "Catppuccin Latte",
   "workbench.iconTheme": "catppuccin-latte",
+  "window.menuBarVisibility": "toggle",
+  "window.zoomLevel": 1,
+  "window.zoomPerWindow": false,
+  "workbench.colorTheme": "Default Light Modern"
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
-  "telemetry.telemetryLevel": "off",
-  "window.menuBarVisibility": "toggle",
+  "extensions.ignoreRecommendations": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
