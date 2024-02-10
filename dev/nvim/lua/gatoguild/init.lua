@@ -71,6 +71,8 @@ set("n", "<leader>er", "<cmd>Vexplore!<cr>")
 set("n", "<leader>ew", "<cmd>Vexplore<cr>")
 set("n", "<leader>ee", "<cmd>Explore<cr>")
 
+vim.g.netrw_preview = 1
+
 -- console
 set("n", "<C-j>", "<cmd>term<cr>")
 set("t", "<esc>", "<c-\\><c-n>")
