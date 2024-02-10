@@ -21,7 +21,7 @@ require("lazy").setup({
     end,
   },
 
-  -- general setup
+  -- finder and search
   { "nvim-lua/plenary.nvim" },
   {
     "nvim-telescope/telescope.nvim",
@@ -35,21 +35,6 @@ require("lazy").setup({
             hidden = true,
           },
         },
-      })
-    end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "rust", "typescript", "javascript", "lua", "ruby", "html", "vim", "vimdoc" },
-        sync_install = false,
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        indent = { enable = true },
       })
     end,
   },
@@ -104,10 +89,9 @@ require("lazy").setup({
     end,
   },
 
-  -- autocomplete
+  -- autocompletions
   { "L3MON4D3/LuaSnip" },
   { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/cmp-path" },
   {
     "hrsh7th/nvim-cmp",
     config = function()
@@ -128,15 +112,12 @@ require("lazy").setup({
           ['<cr>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = 'path' },
-        }, {
           { name = 'nvim_lsp' },
         }),
       })
     end,
   },
 
-  -- all the rest
-  { "github/copilot.vim" },
+  -- git
   { "tpope/vim-fugitive" },
 })

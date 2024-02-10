@@ -53,7 +53,7 @@ set("v", "<leader>y", '"+y')
 set("n", "<s-up>", "<cmd>m-2<cr>")
 set("n", "<s-down>", "<cmd>m+<cr>")
 
--- Telescope
+-- search and find
 set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
 set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
 
@@ -74,10 +74,26 @@ set("n", "<leader>ee", "<cmd>Explore<cr>")
 vim.g.netrw_preview = 1
 
 -- console
-set("n", "<C-j>", "<cmd>term<cr>")
+set("n", "<leader>tt", "<cmd>term<cr>")
 set("t", "<esc>", "<c-\\><c-n>")
 vim.cmd([[
   autocmd TermOpen,BufEnter,WinEnter term://* startinsert
 ]])
+
+-- commands
+-- function GatoNewBuffer(cmd)
+--   vim.cmd("vs")
+--   vim.cmd("wincmd l")
+--   local vim_cmd = string.format("enew | put=execute('%s')", cmd)
+--   print(vim_cmd)
+--   vim.cmd(vim_cmd)
+-- end
+-- 
+-- function GatoFind(options)
+--   local key = options.args
+--   GatoNewBuffer(string.format("find ./ -name \"%s\"", key))
+-- end
+-- 
+-- vim.api.nvim_create_user_command('GatoFind', GatoFind, { nargs = 1 })
 
 require("gatoguild.plugins")
