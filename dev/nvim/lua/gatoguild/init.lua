@@ -61,20 +61,18 @@ set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
 set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
 set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
 set("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
-set("n", "<f4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
-set("n", "<leader>er", "<cmd>Vexplore!<cr>")
-set("n", "<leader>ew", "<cmd>Vexplore<cr>")
-set("n", "<leader>ee", "<cmd>Explore<cr>")
+set("n", "<leader>e", "<cmd>Explore<cr>")
 
 vim.g.netrw_preview = 1
 
 -- console
-set("n", "<leader>tt", "<cmd>term<cr>")
+set("n", "<leader>t", "<cmd>term<cr>")
 set("t", "<esc>", "<c-\\><c-n>")
 vim.cmd([[
   autocmd TermOpen,BufEnter,WinEnter term://* startinsert
@@ -88,12 +86,12 @@ vim.cmd([[
 --   print(vim_cmd)
 --   vim.cmd(vim_cmd)
 -- end
--- 
+--
 -- function GatoFind(options)
 --   local key = options.args
 --   GatoNewBuffer(string.format("find ./ -name \"%s\"", key))
 -- end
--- 
+--
 -- vim.api.nvim_create_user_command('GatoFind', GatoFind, { nargs = 1 })
 
 require("gatoguild.plugins")
