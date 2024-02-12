@@ -13,17 +13,17 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "sainnhe/everforest",
-    name = "everforest",
+    "mcchrish/zenbones.nvim",
+    name = "zenbones",
     priority = 1000,
     config = function()
+      vim.g.zenbones = { darkness = "warm", lightness = "dim" }
       vim.cmd([[
-        set background=dark
-        let g:everforest_background = 'soft'
-        let g:everforest_better_performance = 1
-        colorscheme everforest
+        set background=light
+        colorscheme zenbones
       ]])
     end,
+    dependencies = { "rktjmp/lush.nvim" },
   },
 
   -- finder and search

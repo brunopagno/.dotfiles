@@ -17,6 +17,7 @@ echo "setting up configuration files for nvim"
 echo "... this setup does not install any software, only links configuration"
 
 link_config "nvim"
+link_config "alacritty"
 
 echo "setup complete"
 
