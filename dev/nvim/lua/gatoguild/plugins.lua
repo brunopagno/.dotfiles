@@ -13,17 +13,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "mcchrish/zenbones.nvim",
-    name = "zenbones",
+    "catppuccin/nvim",
+    name = "catppucin",
     priority = 1000,
     config = function()
-      vim.g.zenbones = { darkness = "warm", lightness = "dim" }
-      vim.cmd([[
-        set background=light
-        colorscheme zenbones
-      ]])
+      vim.cmd.colorscheme "catppuccin-frappe"
     end,
-    dependencies = { "rktjmp/lush.nvim" },
   },
 
   -- finder and search
