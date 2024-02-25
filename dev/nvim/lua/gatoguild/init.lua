@@ -53,8 +53,11 @@ set("v", "<leader>y", '"+y')
 set("n", "<s-up>", "<cmd>m-2<cr>")
 set("n", "<s-down>", "<cmd>m+<cr>")
 
+set("n", "<leader>q", "<cmd>bd<cr>")
+
 -- search and find
 set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
+set("n", "<leader>P", "<cmd>Telescope buffers<cr>")
 set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
 
 -- LSP
