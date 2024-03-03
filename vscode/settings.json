@@ -6,7 +6,6 @@
   "window.menuBarVisibility": "toggle",
   "window.zoomLevel": 1,
   "window.zoomPerWindow": false,
-  "workbench.colorTheme": "Default Light Modern"
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "extensions.ignoreRecommendations": true,
