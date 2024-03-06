@@ -19,7 +19,7 @@ require("lazy").setup({
     config = function()
       vim.cmd([[
         set background=dark
-        colorscheme zenburned
+        colorscheme zenbones
       ]])
     end,
     dependencies = { "rktjmp/lush.nvim" },

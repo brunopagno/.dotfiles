@@ -1,8 +1,8 @@
 [font]
-size = 15
+size = 12
 
 [window]
-decorations = "Transparent"
+decorations = "None"
 [window.padding]
 y = 32
 x = 8
