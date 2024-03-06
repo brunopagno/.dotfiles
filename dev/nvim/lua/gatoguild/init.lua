@@ -71,7 +71,6 @@ set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
 set("n", "<leader>e", "<cmd>Explore<cr>")
-
 vim.g.netrw_preview = 1
 
 -- console
@@ -82,19 +81,12 @@ vim.cmd([[
 ]])
 
 -- commands
--- function GatoNewBuffer(cmd)
---   vim.cmd("vs")
---   vim.cmd("wincmd l")
---   local vim_cmd = string.format("enew | put=execute('%s')", cmd)
---   print(vim_cmd)
---   vim.cmd(vim_cmd)
--- end
---
--- function GatoFind(options)
---   local key = options.args
---   GatoNewBuffer(string.format("find ./ -name \"%s\"", key))
--- end
---
--- vim.api.nvim_create_user_command('GatoFind', GatoFind, { nargs = 1 })
+set("n", "<leader><tab>", function()
+  if vim.opt.background:get() == 'dark' then
+    vim.opt.background = 'light'
+  else
+    vim.opt.background = 'dark'
+  end
+end)
 
 require("gatoguild.plugins")
