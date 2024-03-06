@@ -1,5 +1,11 @@
 [font]
-size = 11
+size = 15
+
+[window]
+decorations = "Transparent"
+[window.padding]
+y = 32
+x = 8
 
 # zenbones
 [colors.bright]
