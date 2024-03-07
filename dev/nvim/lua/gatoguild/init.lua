@@ -80,13 +80,4 @@ vim.cmd([[
   autocmd TermOpen,BufEnter,WinEnter term://* startinsert
 ]])
 
--- commands
-set("n", "<leader><tab>", function()
-  if vim.opt.background:get() == 'dark' then
-    vim.opt.background = 'light'
-  else
-    vim.opt.background = 'dark'
-  end
-end)
-
 require("gatoguild.plugins")

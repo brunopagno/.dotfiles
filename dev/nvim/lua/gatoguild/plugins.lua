@@ -13,16 +13,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "mcchrish/zenbones.nvim",
-    name = "zenbones",
+    "rose-pine/neovim",
+    name = "rose-pine",
     priority = 1000,
     config = function()
       vim.cmd([[
-        set background=dark
-        colorscheme zenbones
+        colorscheme rose-pine-dawn
       ]])
     end,
-    dependencies = { "rktjmp/lush.nvim" },
   },
 
   -- finder and search
@@ -66,7 +64,7 @@ require("lazy").setup({
         settings = {
           Lua = {
             diagnostics = {
-              globals = { "vim" },
+              globals = { "vim", "love" },
             },
           },
         },
