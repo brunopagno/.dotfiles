@@ -123,16 +123,25 @@ require("lazy").setup({
           ['<c-e>'] = cmp.mapping.abort(),
           ['<cr>'] = cmp.mapping.confirm({ select = true }),
         }),
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'path' },
-        }, {
-          { name = 'buffer' },
-        }),
+        sources = cmp.config.sources(
+          {
+            { name = 'nvim_lsp' },
+            { name = 'path' },
+          }, {
+            { name = 'buffer' },
+          }),
       })
     end,
   },
 
   -- git
   { "tpope/vim-fugitive" },
+
+  -- copiloto
+  {
+    "github/copilot.vim",
+    config = function()
+      vim.g.copilot_filetypes = { ["*"] = false }
+    end,
+  },
 })
