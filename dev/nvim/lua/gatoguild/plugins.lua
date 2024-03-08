@@ -12,15 +12,23 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  -- ui and theme
   {
     "rose-pine/neovim",
     name = "rose-pine",
     priority = 1000,
     config = function()
       vim.cmd([[
-        colorscheme rose-pine-dawn
+        colorscheme rose-pine-moon
       ]])
     end,
+  },
+  {
+    "echasnovski/mini.indentscope",
+    version = false,
+    config = function()
+      require('mini.indentscope').setup()
+    end
   },
 
   -- finder and search
@@ -94,6 +102,8 @@ require("lazy").setup({
   -- autocompletions
   { "L3MON4D3/LuaSnip" },
   { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-path" },
+  { "hrsh7th/cmp-buffer" },
   {
     "hrsh7th/nvim-cmp",
     config = function()
@@ -115,6 +125,9 @@ require("lazy").setup({
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
+          { name = 'path' },
+        }, {
+          { name = 'buffer' },
         }),
       })
     end,
