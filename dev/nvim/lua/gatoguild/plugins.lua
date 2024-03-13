@@ -19,7 +19,7 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       vim.cmd([[
-        colorscheme rose-pine
+        colorscheme rose-pine-moon
       ]])
     end,
   },
@@ -55,17 +55,7 @@ require("lazy").setup({
     config = function()
       local lspconfig = require('lspconfig')
 
-      -- npm i -g typescript typescript-language-server prettier
-      lspconfig.tsserver.setup({})
-
-      -- gem install solargraph
-      lspconfig.solargraph.setup({
-        settings = {
-          solargraph = {
-            diagnostics = false,
-          },
-        },
-      })
+      lspconfig.gopls.setup({})
 
       -- asdf plugin add lua-language-server && asdf install lua-language-server latest && asdf global lua-language-server latest
       lspconfig.lua_ls.setup({
@@ -85,12 +75,11 @@ require("lazy").setup({
       local none_ls = require("null-ls")
 
       local formatting = none_ls.builtins.formatting
-      local diagnostics = none_ls.builtins.diagnostics
+      -- local diagnostics = none_ls.builtins.diagnostics
 
       local sources = {
-        formatting.rubocop,
         formatting.prettier,
-        diagnostics.rubocop,
+        formatting.gofmt,
       }
 
       none_ls.setup({

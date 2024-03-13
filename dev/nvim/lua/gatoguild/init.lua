@@ -29,29 +29,29 @@ end
 
 vim.g.mapleader = " "
 
-set("n", "<leader>ss", "<cmd>split<cr>")
-set("n", "<leader>vs", "<cmd>vsplit<cr>")
+-- set("n", "<leader>ss", "<cmd>split<cr>")
+-- set("n", "<leader>vs", "<cmd>vsplit<cr>")
 set("n", "<leader>/", "<cmd>noh<cr>")
-set("n", "<leader>z", "<cmd>set wrap!<cr>")
+-- set("n", "<leader>z", "<cmd>set wrap!<cr>")
 
 -- navigation
-set({ "n", "t" }, "<C-up>", "<cmd>wincmd k<cr>")
-set({ "n", "t" }, "<C-down>", "<cmd>wincmd j<cr>")
-set({ "n", "t" }, "<C-left>", "<cmd>wincmd h<cr>")
-set({ "n", "t" }, "<C-right>", "<cmd>wincmd l<cr>")
+-- set({ "n", "t" }, "<C-up>", "<cmd>wincmd k<cr>")
+-- set({ "n", "t" }, "<C-down>", "<cmd>wincmd j<cr>")
+-- set({ "n", "t" }, "<C-left>", "<cmd>wincmd h<cr>")
+-- set({ "n", "t" }, "<C-right>", "<cmd>wincmd l<cr>")
 
 -- resize
-set({ "t", "n" }, "<M-up>", "<cmd>resize +10<cr>")
-set({ "t", "n" }, "<M-down>", "<cmd>resize -10<cr>")
-set("n", "<M-right>", "<cmd>vertical resize +10<cr>")
-set("n", "<M-left>", "<cmd>vertical resize -10<cr>")
+-- set({ "t", "n" }, "<M-up>", "<cmd>resize +10<cr>")
+-- set({ "t", "n" }, "<M-down>", "<cmd>resize -10<cr>")
+-- set("n", "<M-right>", "<cmd>vertical resize +10<cr>")
+-- set("n", "<M-left>", "<cmd>vertical resize -10<cr>")
 
 -- copy to clipboard
 set("v", "<leader>y", '"+y')
 
 -- move lines
-set("n", "<s-up>", "<cmd>m-2<cr>")
-set("n", "<s-down>", "<cmd>m+<cr>")
+-- set("n", "<s-up>", "<cmd>m-2<cr>")
+-- set("n", "<s-down>", "<cmd>m+<cr>")
 
 set("n", "<leader>q", "<cmd>bd<cr>")
 
