@@ -67,7 +67,7 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- copilot
-set("i", "<C-Enter>", "<Plug>(copilot-suggest)")
+set("i", "<M-i>", "<Plug>(copilot-suggest)")
 
 -- file navigation
 set("n", "<leader>e", "<cmd>Explore<cr>")
