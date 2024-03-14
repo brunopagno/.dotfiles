@@ -28,31 +28,28 @@ local function set(mode, lhs, rhs)
 end
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- set("n", "<leader>ss", "<cmd>split<cr>")
--- set("n", "<leader>vs", "<cmd>vsplit<cr>")
 set("n", "<leader>/", "<cmd>noh<cr>")
--- set("n", "<leader>z", "<cmd>set wrap!<cr>")
 
 -- navigation
--- set({ "n", "t" }, "<C-up>", "<cmd>wincmd k<cr>")
--- set({ "n", "t" }, "<C-down>", "<cmd>wincmd j<cr>")
--- set({ "n", "t" }, "<C-left>", "<cmd>wincmd h<cr>")
--- set({ "n", "t" }, "<C-right>", "<cmd>wincmd l<cr>")
+set({ "n", "t" }, "<C-up>", "<cmd>wincmd k<cr>")
+set({ "n", "t" }, "<C-down>", "<cmd>wincmd j<cr>")
+set({ "n", "t" }, "<C-left>", "<cmd>wincmd h<cr>")
+set({ "n", "t" }, "<C-right>", "<cmd>wincmd l<cr>")
+set("n", "<leader>ss", "<cmd>split<cr>")
+set("n", "<leader>vs", "<cmd>vsplit<cr>")
 
 -- resize
--- set({ "t", "n" }, "<M-up>", "<cmd>resize +10<cr>")
--- set({ "t", "n" }, "<M-down>", "<cmd>resize -10<cr>")
--- set("n", "<M-right>", "<cmd>vertical resize +10<cr>")
--- set("n", "<M-left>", "<cmd>vertical resize -10<cr>")
+set({ "t", "n" }, "<M-up>", "<cmd>resize +10<cr>")
+set({ "t", "n" }, "<M-down>", "<cmd>resize -10<cr>")
+set("n", "<M-right>", "<cmd>vertical resize +10<cr>")
+set("n", "<M-left>", "<cmd>vertical resize -10<cr>")
 
 -- copy to clipboard
 set("v", "<leader>y", '"+y')
 
--- move lines
--- set("n", "<s-up>", "<cmd>m-2<cr>")
--- set("n", "<s-down>", "<cmd>m+<cr>")
-
+-- buffers
 set("n", "<leader>q", "<cmd>bd<cr>")
 
 -- search and find
@@ -82,5 +79,12 @@ set("t", "<esc>", "<c-\\><c-n>")
 vim.cmd([[
   autocmd TermOpen,BufEnter,WinEnter term://* startinsert
 ]])
+vim.api.nvim_create_user_command('TT', function()
+  vim.cmd([[
+    vs
+    term
+    wincmd L
+  ]])
+end, {})
 
 require("gatoguild.plugins")
