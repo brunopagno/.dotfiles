@@ -57,6 +57,8 @@ require("lazy").setup({
 
       lspconfig.gopls.setup({})
 
+      lspconfig.solargraph.setup({})
+
       -- asdf plugin add lua-language-server && asdf install lua-language-server latest && asdf global lua-language-server latest
       lspconfig.lua_ls.setup({
         settings = {
@@ -75,11 +77,13 @@ require("lazy").setup({
       local none_ls = require("null-ls")
 
       local formatting = none_ls.builtins.formatting
-      -- local diagnostics = none_ls.builtins.diagnostics
+      local diagnostics = none_ls.builtins.diagnostics
 
       local sources = {
         formatting.prettier,
         formatting.gofmt,
+        formatting.rubocop,
+        diagnostics.rubocop,
       }
 
       none_ls.setup({
