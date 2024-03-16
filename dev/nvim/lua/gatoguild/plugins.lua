@@ -27,8 +27,8 @@ require("lazy").setup({
     "echasnovski/mini.indentscope",
     version = false,
     config = function()
-      require('mini.indentscope').setup()
-    end
+      require("mini.indentscope").setup()
+    end,
   },
 
   -- finder and search
@@ -36,6 +36,7 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope.nvim",
     config = function()
+      local actions = require "telescope.actions"
       require("telescope").setup({
         defaults = {
           file_ignore_patterns = { "node_modules/.*", ".git/.*" },
@@ -44,6 +45,13 @@ require("lazy").setup({
           find_files = {
             hidden = true,
           },
+          buffers = {
+            mappings = {
+              i = {
+                ["<c-x>"] = actions.delete_buffer
+              },
+            },
+          }
         },
       })
     end,
@@ -53,7 +61,7 @@ require("lazy").setup({
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require('lspconfig')
+      local lspconfig = require("lspconfig")
 
       lspconfig.gopls.setup({})
 
@@ -100,28 +108,28 @@ require("lazy").setup({
   {
     "hrsh7th/nvim-cmp",
     config = function()
-      local cmp = require('cmp')
+      local cmp = require("cmp")
 
       cmp.setup({
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            require("luasnip").lsp_expand(args.body)
           end,
         },
         window = {
           completion = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-          ['<c-space>'] = cmp.mapping.complete(),
-          ['<c-e>'] = cmp.mapping.abort(),
-          ['<cr>'] = cmp.mapping.confirm({ select = true }),
+          ["<c-space>"] = cmp.mapping.complete(),
+          ["<c-e>"] = cmp.mapping.abort(),
+          ["<cr>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources(
           {
-            { name = 'nvim_lsp' },
-            { name = 'path' },
+            { name = "nvim_lsp" },
+            { name = "path" },
           }, {
-            { name = 'buffer' },
+            { name = "buffer" },
           }),
       })
     end,
