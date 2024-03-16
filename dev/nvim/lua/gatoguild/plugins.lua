@@ -26,8 +26,11 @@ require("lazy").setup({
   {
     "echasnovski/mini.indentscope",
     version = false,
-    config = function()
-      require("mini.indentscope").setup()
+    opts = {
+      symbol = "│"
+    },
+    config = function(_, opts)
+      require("mini.indentscope").setup(opts)
     end,
   },
 
