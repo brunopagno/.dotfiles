@@ -74,17 +74,19 @@ set("n", "<leader>e", "<cmd>Explore<cr>")
 vim.g.netrw_preview = 1
 
 -- console
-set("n", "<leader>t", "<cmd>term<cr>")
-set("t", "<esc>", "<c-\\><c-n>")
+local function splitterm(direction)
+  vim.api.nvim_command("split")
+  vim.api.nvim_command("term")
+  vim.api.nvim_command("wincmd " .. direction)
+end
+
 vim.cmd([[
   autocmd TermOpen,BufEnter,WinEnter term://* startinsert
 ]])
-vim.api.nvim_create_user_command('TT', function()
-  vim.cmd([[
-    vs
-    term
-    wincmd L
-  ]])
-end, {})
+set({ "n", "t" }, "<c-t>h", function() splitterm("H") end)
+set({ "n", "t" }, "<c-t>j", function() splitterm("J") end)
+set({ "n", "t" }, "<c-t>k", function() splitterm("K") end)
+set({ "n", "t" }, "<c-t>l", function() splitterm("L") end)
+
 
 require("gatoguild.plugins")

@@ -12,6 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  -- general dependencies
+  { "nvim-lua/plenary.nvim" },
+  -- not sure if I need treesitter
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   build = ":TSUpdate",
+  -- },
+
   -- ui and theme
   {
     "rose-pine/neovim",
@@ -35,7 +43,6 @@ require("lazy").setup({
   },
 
   -- finder and search
-  { "nvim-lua/plenary.nvim" },
   {
     "nvim-telescope/telescope.nvim",
     config = function()
