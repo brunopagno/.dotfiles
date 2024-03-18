@@ -67,7 +67,7 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- copilot
-set("i", "<M-i>", "<Plug>(copilot-suggest)")
+set("i", "<c-o>", "<Plug>(copilot-suggest)")
 
 -- file navigation
 set("n", "<leader>e", "<cmd>Explore<cr>")
@@ -83,6 +83,7 @@ end
 vim.cmd([[
   autocmd TermOpen,BufEnter,WinEnter term://* startinsert
 ]])
+set("t", "<esc>", "<c-\\><c-n>")
 set({ "n", "t" }, "<c-t>h", function() splitterm("H") end)
 set({ "n", "t" }, "<c-t>j", function() splitterm("J") end)
 set({ "n", "t" }, "<c-t>k", function() splitterm("K") end)
