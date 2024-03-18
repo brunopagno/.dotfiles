@@ -90,22 +90,16 @@ require("lazy").setup({
     end,
   },
   {
-    "nvimtools/none-ls.nvim",
+    "stevearc/conform.nvim",
+    opts = {},
     config = function()
-      local none_ls = require("null-ls")
-
-      local formatting = none_ls.builtins.formatting
-      local diagnostics = none_ls.builtins.diagnostics
-
-      local sources = {
-        formatting.prettier,
-        formatting.gofmt,
-        formatting.rubocop,
-        diagnostics.rubocop,
-      }
-
-      none_ls.setup({
-        sources = sources,
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          javascript = { "prettier" },
+          ruby = { "rubocop" },
+          go = { "goimports", "gofmt" },
+        },
       })
     end,
   },
