@@ -84,10 +84,10 @@ vim.cmd([[
   autocmd TermOpen,BufEnter,WinEnter term://* startinsert
 ]])
 set("t", "<esc>", "<c-\\><c-n>")
-set({ "n", "t" }, "<leader>th", function() splitterm("H") end)
-set({ "n", "t" }, "<leader>tj", function() splitterm("J") end)
-set({ "n", "t" }, "<leader>tk", function() splitterm("K") end)
-set({ "n", "t" }, "<leader>tl", function() splitterm("L") end)
+set("n", "<leader>th", function() splitterm("H") end)
+set("n", "<leader>tj", function() splitterm("J") end)
+set("n", "<leader>tk", function() splitterm("K") end)
+set("n", "<leader>tl", function() splitterm("L") end)
 
 
 require("gatoguild.plugins")
