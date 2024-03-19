@@ -22,12 +22,12 @@ require("lazy").setup({
 
   -- ui and theme
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    "EdenEast/nightfox.nvim",
+    name = "nightfox",
     priority = 1000,
     config = function()
       vim.cmd([[
-        colorscheme rose-pine-moon
+        colorscheme nightfox
       ]])
     end,
   },
@@ -73,7 +73,7 @@ require("lazy").setup({
     config = function()
       local lspconfig = require("lspconfig")
 
-      lspconfig.gopls.setup({})
+      -- lspconfig.gopls.setup({})
 
       lspconfig.solargraph.setup({})
 
@@ -98,7 +98,7 @@ require("lazy").setup({
           lua = { "stylua" },
           javascript = { "prettier" },
           ruby = { "rubocop" },
-          go = { "goimports", "gofmt" },
+          -- go = { "goimports", "gofmt" },
         },
       })
     end,
