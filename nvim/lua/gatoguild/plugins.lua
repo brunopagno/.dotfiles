@@ -73,7 +73,7 @@ require("lazy").setup({
     config = function()
       local lspconfig = require("lspconfig")
 
-      -- lspconfig.gopls.setup({})
+      lspconfig.gopls.setup({})
 
       lspconfig.solargraph.setup({})
 
@@ -98,7 +98,7 @@ require("lazy").setup({
           lua = { "stylua" },
           javascript = { "prettier" },
           ruby = { "rubocop" },
-          -- go = { "goimports", "gofmt" },
+          go = { "goimports", "gofmt" },
         },
       })
     end,
