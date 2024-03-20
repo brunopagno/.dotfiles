@@ -13,8 +13,7 @@ link_config() {
   fi
 }
 
-echo "setting up configuration files for nvim"
-echo "... this setup does not install any software, only links configuration"
+echo "Symlinking folders"
 
 link_config "nvim"
 
