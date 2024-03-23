@@ -24,7 +24,7 @@ git config --global pull.rebase true
 This will enable f# keys
 ```
 echo 'options hid_apple fnmode=0' | sudo tee -a /etc/modprobe.d/hid_apple.conf
-sudo makeinitcpio -P
+sudo mkinitcpio -P
 ```
 
 ### ZSA Moonlander
