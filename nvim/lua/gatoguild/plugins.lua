@@ -14,11 +14,19 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- general dependencies
   { "nvim-lua/plenary.nvim" },
-  -- not sure if I need treesitter
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   build = ":TSUpdate",
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    opts = {
+      ensure_installed = { "lua", "vim", "vimdoc" },
+      highlight = {
+        enable = true
+      },
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
 
   -- ui and theme
   {
