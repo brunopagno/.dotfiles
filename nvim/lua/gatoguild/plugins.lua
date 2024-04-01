@@ -81,11 +81,8 @@ require("lazy").setup({
     config = function()
       local lspconfig = require("lspconfig")
 
-      lspconfig.gopls.setup({})
-
+      lspconfig.tsserver.setup({})
       lspconfig.solargraph.setup({})
-
-      -- asdf plugin add lua-language-server && asdf install lua-language-server latest && asdf global lua-language-server latest
       lspconfig.lua_ls.setup({
         settings = {
           Lua = {
@@ -94,6 +91,10 @@ require("lazy").setup({
             },
           },
         },
+      })
+
+      lspconfig.elixirls.setup({
+        cmd = { "elixir-ls" },
       })
     end,
   },
@@ -110,6 +111,12 @@ require("lazy").setup({
         },
       })
     end,
+  },
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end
   },
 
   -- autocompletions
