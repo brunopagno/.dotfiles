@@ -67,9 +67,6 @@ set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
--- copilot
-set("i", "<c-o>", "<Plug>(copilot-suggest)")
-
 -- file navigation
 set("n", "<leader>e", "<cmd>Explore<cr>")
 vim.g.netrw_preview = 1

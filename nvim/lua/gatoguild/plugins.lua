@@ -93,9 +93,7 @@ require("lazy").setup({
         },
       })
 
-      lspconfig.elixirls.setup({
-        cmd = { "elixir-ls" },
-      })
+      lspconfig.gopls.setup({})
     end,
   },
   {
@@ -156,12 +154,4 @@ require("lazy").setup({
 
   -- git
   { "tpope/vim-fugitive" },
-
-  -- copiloto
-  {
-    "github/copilot.vim",
-    config = function()
-      vim.g.copilot_filetypes = { ["*"] = false }
-    end,
-  },
 })
