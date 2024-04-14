@@ -19,8 +19,9 @@ set $term alacritty
 set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
 ### Output configuration
+output * bg ~/wallpaper.jpg fill
 # swaymsg -t get_outputs
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#
 # laptop screen
 output eDP-1 resolution 2256x1504 position 0,0 scale 1.5
 # samsung ultra wide
@@ -30,10 +31,10 @@ output DP-3 resolution 3440x1440 position -592,-1504
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -52,6 +53,9 @@ input type:keyboard {
 #
 # Basics:
 #
+    # Lock screen
+    bindsym $mod+Ctrl+q exec swaylock -c 333333 -s fill -i ~/wallpaper.jpg
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -187,17 +191,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# Volume keys
+# Media keys
 #
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym Print exec /usr/share/sway-contrib/grimshot save area
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
 
 # These keys can also be configured for a full featured magic
-# XF86AudioPrev
-# XF86AudioPlay
-# XF86AudioNext
 # XF86MonBrightnessDown
 # XF86MonBrightnessUp
 
