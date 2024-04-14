@@ -1,3 +1,7 @@
+# Useful stuff
+# systemctl suspend
+# systemctl hibernate
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -15,16 +19,12 @@ set $term alacritty
 set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# swaymsg -t get_outputs
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+# laptop screen
 output eDP-1 resolution 2256x1504 position 0,0 scale 1.5
+# samsung ultra wide
+output DP-3 resolution 3440x1440 position -592,-1504
 
 ### Idle configuration
 #
