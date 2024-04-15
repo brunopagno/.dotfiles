@@ -10,7 +10,6 @@
         "sway/workspaces",
         "sway/mode",
         "sway/scratchpad",
-        "custom/media"
     ],
     "modules-center": [
         "sway/window"
@@ -62,8 +61,8 @@
         "spacing": 10
     },
     "clock": {
+        "format": "{:%H:%M  %Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -121,17 +120,5 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
 }
