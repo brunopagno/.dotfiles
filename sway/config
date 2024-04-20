@@ -2,21 +2,22 @@
 # systemctl suspend
 # systemctl hibernate
 
-### Variables
-#
+default_border none
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
+# Main runners
 set $term alacritty
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+# set $menu dmenu_path | wmenu -p "Run:" | xargs swaymsg exec
+set $menu alacritty --title launchapp --command bash -c 'compgen -c | sort -u | fzf | xargs swaymsg exec --'
+for_window [title="^launchapp$"] floating enable
 
 ### Output configuration
 output * bg ~/wallpaper.jpg fill
