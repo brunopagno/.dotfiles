@@ -1,8 +1,12 @@
 # editor
 export EDITOR=nvim
 
+# path
+export PATH="$PATH:$HOME/go/bin/"
+
 # aliases
 alias be="bundle exec"
+alias kc="kubectl"
 
 # asdf-vm
 . "$HOME/.asdf/asdf.sh"
