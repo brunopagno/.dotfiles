@@ -51,6 +51,7 @@ input type:keyboard {
 }
 input type:touchpad {
   click_method clickfinger
+  tap enabled
   scroll_factor 0.25
 }
 
