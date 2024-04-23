@@ -13,6 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   -- general dependencies
+  {
+    "catlee/pull_diags.nvim",
+    event = "LspAttach",
+    opts = {},
+  },
   { "nvim-lua/plenary.nvim" },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -82,7 +87,6 @@ require("lazy").setup({
       local lspconfig = require("lspconfig")
 
       lspconfig.tsserver.setup({})
-      -- lspconfig.solargraph.setup({})
       lspconfig.ruby_lsp.setup({})
       lspconfig.lua_ls.setup({
         settings = {
