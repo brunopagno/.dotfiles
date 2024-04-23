@@ -2,7 +2,7 @@
 # systemctl suspend
 # systemctl hibernate
 
-default_border none
+default_border pixel
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
