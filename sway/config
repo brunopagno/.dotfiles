@@ -196,6 +196,16 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+mode "present" {
+  # start mirroring
+  bindsym m mode "default"; exec wl-present mirror
+
+  # return to default mode
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+p mode "present"
+
 #
 # Media keys
 #
