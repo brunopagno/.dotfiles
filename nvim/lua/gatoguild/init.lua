@@ -1,7 +1,7 @@
 -- Options
 
 vim.opt.number = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.scrolloff = 8
 vim.opt.tabstop = 2
@@ -24,7 +24,7 @@ vim.opt.swapfile = false
 local opts = { noremap = true, silent = true }
 
 local function set(mode, lhs, rhs)
-  vim.keymap.set(mode, lhs, rhs, opts)
+	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 vim.g.mapleader = " "
@@ -33,10 +33,10 @@ vim.g.maplocalleader = " "
 set("n", "<leader>/", "<cmd>noh<cr>")
 
 -- navigation
-set({ "n", "t" }, "<C-up>", "<cmd>wincmd k<cr>")
-set({ "n", "t" }, "<C-down>", "<cmd>wincmd j<cr>")
-set({ "n", "t" }, "<C-left>", "<cmd>wincmd h<cr>")
-set({ "n", "t" }, "<C-right>", "<cmd>wincmd l<cr>")
+set({ "n", "t" }, "<C-k>", "<cmd>wincmd k<cr>")
+set({ "n", "t" }, "<C-j>", "<cmd>wincmd j<cr>")
+set({ "n", "t" }, "<C-h>", "<cmd>wincmd h<cr>")
+set({ "n", "t" }, "<C-l>", "<cmd>wincmd l<cr>")
 set("n", "<leader>ss", "<cmd>split<cr>")
 set("n", "<leader>vs", "<cmd>vsplit<cr>")
 
@@ -60,7 +60,9 @@ set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
 
 -- LSP
 -- set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
-set("n", "<leader>f", function() require("conform").format() end)
+set("n", "<leader>f", function()
+	require("conform").format()
+end)
 set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
 set("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
 set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")
@@ -74,19 +76,26 @@ vim.g.netrw_preview = 1
 
 -- console
 local function splitterm(direction)
-  vim.api.nvim_command("split")
-  vim.api.nvim_command("term")
-  vim.api.nvim_command("wincmd " .. direction)
+	vim.api.nvim_command("split")
+	vim.api.nvim_command("term")
+	vim.api.nvim_command("wincmd " .. direction)
 end
 
 vim.cmd([[
   autocmd TermOpen,BufEnter,WinEnter term://* startinsert
 ]])
 set("t", "<esc>", "<c-\\><c-n>")
-set("n", "<leader>th", function() splitterm("H") end)
-set("n", "<leader>tj", function() splitterm("J") end)
-set("n", "<leader>tk", function() splitterm("K") end)
-set("n", "<leader>tl", function() splitterm("L") end)
-
+set("n", "<leader>th", function()
+	splitterm("H")
+end)
+set("n", "<leader>tj", function()
+	splitterm("J")
+end)
+set("n", "<leader>tk", function()
+	splitterm("K")
+end)
+set("n", "<leader>tl", function()
+	splitterm("L")
+end)
 
 require("gatoguild.plugins")
