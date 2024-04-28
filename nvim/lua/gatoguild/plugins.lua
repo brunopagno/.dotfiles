@@ -86,8 +86,6 @@ require("lazy").setup({
 		config = function()
 			local lspconfig = require("lspconfig")
 
-			lspconfig.tsserver.setup({})
-			lspconfig.ruby_lsp.setup({})
 			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
@@ -97,9 +95,9 @@ require("lazy").setup({
 					},
 				},
 			})
-
+			lspconfig.tsserver.setup({})
+			lspconfig.ruby_lsp.setup({})
 			lspconfig.gopls.setup({})
-			lspconfig.rust_analyzer.setup({})
 		end,
 	},
 	{
@@ -112,7 +110,6 @@ require("lazy").setup({
 					javascript = { "prettier" },
 					ruby = { "rubocop" },
 					go = { "goimports", "gofmt" },
-					rust = { "rustfmt" },
 				},
 			})
 		end,

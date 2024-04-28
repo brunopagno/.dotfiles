@@ -72,6 +72,7 @@ set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
 set("n", "<leader>e", "<cmd>Explore<cr>")
+vim.g.netrw_banner = 0
 vim.g.netrw_preview = 1
 
 -- console
