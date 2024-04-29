@@ -71,9 +71,10 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
-set("n", "<leader>e", "<cmd>Explore<cr>")
-vim.g.netrw_banner = 0
-vim.g.netrw_preview = 1
+set("n", "<leader>e", "<cmd>Oil<cr>")
+-- set("n", "<leader>e", "<cmd>Explore<cr>")
+-- vim.g.netrw_banner = 0
+-- vim.g.netrw_preview = 1
 
 -- console
 local function splitterm(direction)

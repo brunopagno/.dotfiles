@@ -57,6 +57,12 @@ require("lazy").setup({
 
 	-- finder and search
 	{
+		"stevearc/oil.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		config = function()
 			local actions = require("telescope.actions")
