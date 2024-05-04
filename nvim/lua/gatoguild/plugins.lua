@@ -58,7 +58,11 @@ require("lazy").setup({
 	-- finder and search
 	{
 		"stevearc/oil.nvim",
-		opts = {},
+		opts = {
+			view_options = {
+				show_hidden = true,
+			},
+		},
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
@@ -104,6 +108,8 @@ require("lazy").setup({
 			lspconfig.tsserver.setup({})
 			lspconfig.ruby_lsp.setup({})
 			lspconfig.gopls.setup({})
+			lspconfig.lexical.setup({ cmd = { "lexical" } })
+			lspconfig.gleam.setup({})
 		end,
 	},
 	{
@@ -116,6 +122,8 @@ require("lazy").setup({
 					javascript = { "prettier" },
 					ruby = { "rubocop" },
 					go = { "goimports", "gofmt" },
+					elixir = { "mix" },
+					gleam = { "gleam" },
 				},
 			})
 		end,

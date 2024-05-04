@@ -196,6 +196,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+#
+# Presenting to external
+#
 mode "present" {
   # start mirroring
   bindsym m mode "default"; exec wl-present mirror
