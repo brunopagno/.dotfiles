@@ -112,8 +112,6 @@ require("lazy").setup({
 			lspconfig.tsserver.setup({})
 			lspconfig.ruby_lsp.setup({})
 			lspconfig.gopls.setup({})
-			lspconfig.lexical.setup({ cmd = { "lexical" } })
-			lspconfig.gleam.setup({})
 		end,
 	},
 	{
@@ -126,16 +124,8 @@ require("lazy").setup({
 					javascript = { "prettier" },
 					ruby = { "rubocop" },
 					go = { "goimports", "gofmt" },
-					elixir = { "mix" },
-					gleam = { "gleam" },
 				},
 			})
-		end,
-	},
-	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
 		end,
 	},
 
@@ -180,6 +170,14 @@ require("lazy").setup({
 		opts = {},
 		config = function(_, opts)
 			require("gitsigns").setup(opts)
+		end,
+	},
+
+	-- copiloto
+	{
+		"github/copilot.vim",
+		config = function()
+			vim.g.copilot_filetypes = { ["*"] = false }
 		end,
 	},
 })

@@ -37,8 +37,10 @@ set({ "n", "t" }, "<C-k>", "<cmd>wincmd k<cr>")
 set({ "n", "t" }, "<C-j>", "<cmd>wincmd j<cr>")
 set({ "n", "t" }, "<C-h>", "<cmd>wincmd h<cr>")
 set({ "n", "t" }, "<C-l>", "<cmd>wincmd l<cr>")
-set("n", "<leader>ss", "<cmd>split<cr>")
-set("n", "<leader>vs", "<cmd>vsplit<cr>")
+set("n", "<leader>vh", "<cmd>vs | wincmd H<cr>")
+set("n", "<leader>vj", "<cmd>vs | wincmd J<cr>")
+set("n", "<leader>vk", "<cmd>vs | wincmd K<cr>")
+set("n", "<leader>vl", "<cmd>vs | wincmd L<cr>")
 
 -- resize
 set({ "t", "n" }, "<M-up>", "<cmd>resize +10<cr>")
@@ -72,9 +74,6 @@ set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
 set("n", "<leader>e", "<cmd>Oil<cr>")
--- set("n", "<leader>e", "<cmd>Explore<cr>")
--- vim.g.netrw_banner = 0
--- vim.g.netrw_preview = 1
 
 -- console
 local function splitterm(direction)
@@ -99,5 +98,8 @@ end)
 set("n", "<leader>tl", function()
 	splitterm("L")
 end)
+
+-- copiloto
+set("i", "<c-o>", "<Plug>(copilot-suggest)")
 
 require("gatoguild.plugins")
