@@ -219,11 +219,12 @@ bindsym Print exec /usr/share/sway-contrib/grimshot save area
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
+bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUP exec light -A 5
 
-# These keys can also be configured for a full featured magic
-# XF86MonBrightnessDown
-# XF86MonBrightnessUp
-
+#
+# swaybar magic
+#
 bar swaybar_command waybar
 
 include /etc/sway/config.d/*
