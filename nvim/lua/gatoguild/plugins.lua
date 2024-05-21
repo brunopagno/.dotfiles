@@ -13,11 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- general dependencies
-	{
-		"catlee/pull_diags.nvim",
-		event = "LspAttach",
-		opts = {},
-	},
 	{ "nvim-lua/plenary.nvim" },
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -34,16 +29,16 @@ require("lazy").setup({
 	},
 
 	-- ui and theme
-	{
-		"EdenEast/nightfox.nvim",
-		name = "nightfox",
-		priority = 1000,
-		config = function()
-			vim.cmd([[
-        colorscheme nightfox
-      ]])
-		end,
-	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	name = "nightfox",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd([[
+  --       colorscheme nightfox
+  --     ]])
+	-- 	end,
+	-- },
 	{
 		"echasnovski/mini.indentscope",
 		version = false,
