@@ -29,16 +29,16 @@ require("lazy").setup({
 	},
 
 	-- ui and theme
-	-- {
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	name = "nightfox",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.cmd([[
-  --       colorscheme nightfox
-  --     ]])
-	-- 	end,
-	-- },
+	{
+		"EdenEast/nightfox.nvim",
+		name = "nightfox",
+		priority = 1000,
+		config = function()
+			vim.cmd([[
+        colorscheme nightfox
+      ]])
+		end,
+	},
 	{
 		"echasnovski/mini.indentscope",
 		version = false,
