@@ -19,15 +19,27 @@ git config --global credential.helper store
 git config --global pull.rebase true
 ```
 
-### NuPhy/Keychron keyboard
+### Things to be installed
 
-This will enable f# keys
+```
+sudo pacman -S ttf-jetbrains-mono-nerd
+```
+
+```
+sudo pacman -S wl-clipboard fzf
+```
+
+```
+sudo pacman -S waybar swaybg swaylock swayidle sway-contrib wl-mirror
+```
+
+```
+yay -S light
+```
+
+### Function keys keyboard
+
 ```
 echo 'options hid_apple fnmode=0' | sudo tee -a /etc/modprobe.d/hid_apple.conf
 sudo mkinitcpio -P
 ```
-
-### ZSA Moonlander
-
-[Oryx config](https://configure.zsa.io/)
-
