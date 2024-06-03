@@ -2,12 +2,11 @@
 export EDITOR=nvim
 
 # path
-export PATH="$PATH:$HOME/go/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 # aliases
 alias be="bundle exec"
 alias kc="kubectl"
-alias tlt="/usr/bin/tilt"
 alias ls="ls --color"
 
 # asdf-vm
