@@ -37,16 +37,6 @@ set({ "n", "t" }, "<C-k>", "<cmd>wincmd k<cr>")
 set({ "n", "t" }, "<C-j>", "<cmd>wincmd j<cr>")
 set({ "n", "t" }, "<C-h>", "<cmd>wincmd h<cr>")
 set({ "n", "t" }, "<C-l>", "<cmd>wincmd l<cr>")
-set("n", "<leader>vh", "<cmd>vs | wincmd H<cr>")
-set("n", "<leader>vj", "<cmd>vs | wincmd J<cr>")
-set("n", "<leader>vk", "<cmd>vs | wincmd K<cr>")
-set("n", "<leader>vl", "<cmd>vs | wincmd L<cr>")
-
--- resize
-set({ "t", "n" }, "<M-up>", "<cmd>resize +10<cr>")
-set({ "t", "n" }, "<M-down>", "<cmd>resize -10<cr>")
-set("n", "<M-right>", "<cmd>vertical resize +10<cr>")
-set("n", "<M-left>", "<cmd>vertical resize -10<cr>")
 
 -- copy to clipboard
 set("v", "<leader>y", '"+y')

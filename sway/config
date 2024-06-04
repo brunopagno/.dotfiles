@@ -26,7 +26,7 @@ output * bg ~/wallpaper.jpg fill
 # laptop screen
 output eDP-1 resolution 2256x1504 position 0,0 scale 1.5
 # samsung ultra wide
-output DP-3 resolution 3440x1440 position -592,-1504
+output DP-8 resolution 3440x1440 position -592,-1504
 
 ### Idle configuration
 #
