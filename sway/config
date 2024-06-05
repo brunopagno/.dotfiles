@@ -54,6 +54,10 @@ input type:touchpad {
   tap enabled
   scroll_factor 0.25
 }
+input type:pointer {
+  accel_profile "flat"
+  pointer_accel 0.5
+}
 
 ### Key bindings
 #
