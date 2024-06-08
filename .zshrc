@@ -14,15 +14,21 @@ alias ls="ls --color"
 fpath=(${ASDF_DIR}/completions $fpath)
 
 # autoload
-autoload -Uz compinit promptinit
+autoload -Uz compinit promptinit vcs_info
 compinit
 promptinit
-
-# prompt
-prompt redhat
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
 
 # completion
 zstyle ':completion:*' menu select
+
+# prompt
+# prompt redhat
+RPROMPT='${vcs_info_msg_0_}'
+PROMPT="%n@%m %1~ > "
+zstyle ':vcs_info:git:*' formats '%b'
 
 # history
 HISTFILE=~/.histfile
