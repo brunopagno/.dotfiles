@@ -37,6 +37,8 @@ set({ "n", "t" }, "<C-k>", "<cmd>wincmd k<cr>")
 set({ "n", "t" }, "<C-j>", "<cmd>wincmd j<cr>")
 set({ "n", "t" }, "<C-h>", "<cmd>wincmd h<cr>")
 set({ "n", "t" }, "<C-l>", "<cmd>wincmd l<cr>")
+set("n", "<leader>vs", "<cmd>vsplit<cr>")
+set("n", "<leader>ss", "<cmd>split<cr>")
 
 -- copy to clipboard
 set("v", "<leader>y", '"+y')
