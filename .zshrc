@@ -2,7 +2,7 @@
 export EDITOR=nvim
 
 # path
-export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/go/bin:./node_modules/.bin"
 
 # aliases
 alias be="bundle exec"
