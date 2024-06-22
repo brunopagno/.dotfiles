@@ -18,7 +18,16 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "lua", "vim", "vimdoc" },
+			ensure_installed = {
+				"lua",
+				"vim",
+				"vimdoc",
+				"javascript",
+				"typescript",
+				"go",
+				"ruby",
+				"gleam",
+			},
 			highlight = {
 				enable = true,
 			},
@@ -106,6 +115,7 @@ require("lazy").setup({
 			})
 			lspconfig.tsserver.setup({})
 			lspconfig.ruby_lsp.setup({})
+			lspconfig.gleam.setup({})
 			lspconfig.gopls.setup({})
 		end,
 	},
