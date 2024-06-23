@@ -9,7 +9,7 @@ link_config() {
     echo "skipping $config_name, already exists"
   else
     echo "linking $config_name"
-    ln -s "$config_path" "$HOME/.config"
+    ln -s "$config_path" "$HOME/.config/"
   fi
 }
 
@@ -17,8 +17,8 @@ echo "Symlinking folders"
 
 link_config "alacritty"
 link_config "nvim"
-link_config "sway"
-link_config "waybar"
+# link_config "sway"
+# link_config "waybar"
 
 echo "setup complete"
 
