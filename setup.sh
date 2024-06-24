@@ -17,8 +17,6 @@ echo "Symlinking folders"
 
 link_config "alacritty"
 link_config "nvim"
-# link_config "sway"
-# link_config "waybar"
 
 echo "setup complete"
 

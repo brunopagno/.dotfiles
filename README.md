@@ -23,18 +23,10 @@ git config --global pull.rebase true
 
 ```
 sudo pacman -S ttf-jetbrains-mono-nerd
-```
-
-```
 sudo pacman -S wl-clipboard fzf
-```
-
-```
-sudo pacman -S waybar swaybg swaylock swayidle sway-contrib wl-mirror
-```
-
-```
-yay -S light
+sudo pacman -S alacritty
+sudo pacman -S gdm gnome
+systemctl enable gdm
 ```
 
 ### Function keys keyboard
