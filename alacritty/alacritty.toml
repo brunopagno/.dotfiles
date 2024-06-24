@@ -1,6 +1,11 @@
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 
+[keyboard]
+bindings = [
+  { key = "n", mods = "Control|Shift", action = "SpawnNewInstance" }
+]
+
 [colors.bright]
 black = "#403833"
 red = "#E8838F"
