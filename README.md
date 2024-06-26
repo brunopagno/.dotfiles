@@ -1,12 +1,24 @@
 # All the things
 
-### Helpers so I don't need to research every time again
+### Install ArchBTW
 
-There are less things here now that I use ArchBTW. But to [install arch there's a whole gist file](https://gist.github.com/brunopagno/b395acb60f76df659480f0ef0dd5deb7).
+[Install arch gist file](https://gist.github.com/brunopagno/b395acb60f76df659480f0ef0dd5deb7).
 
-make check alive a little bit more patient in gnome
+### Gnome things
+
 ```bash
+gsettings set org.gnome.desktop.peripherals.keyboard delay 360
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 25
+
+gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 4
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super>2']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Super>3']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Super>4']"
+
 gsettings set org.gnome.mutter check-alive-timeout 20000
+gsettings set org.gnome.desktop.interface enable-hot-corners false
 ```
 
 git defaults
