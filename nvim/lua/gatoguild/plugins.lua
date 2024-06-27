@@ -24,9 +24,7 @@ require("lazy").setup({
 				"vimdoc",
 				"javascript",
 				"typescript",
-				"go",
 				"ruby",
-				"gleam",
 			},
 			highlight = {
 				enable = true,
@@ -115,8 +113,6 @@ require("lazy").setup({
 			})
 			lspconfig.tsserver.setup({})
 			lspconfig.ruby_lsp.setup({})
-			lspconfig.gleam.setup({})
-			lspconfig.gopls.setup({})
 		end,
 	},
 	{
@@ -127,9 +123,10 @@ require("lazy").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
 					javascript = { "prettier" },
+					javascriptreact = { "prettier" },
 					typescript = { "prettier" },
+					typescriptreact = { "prettier" },
 					ruby = { "rubocop" },
-					go = { "goimports", "gofmt" },
 				},
 			})
 		end,
