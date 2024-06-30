@@ -46,6 +46,7 @@ if [[ "$choice" == [Yy]* ]] then
   echo "set other gnome settings"
   gsettings set org.gnome.mutter check-alive-timeout 20000
   gsettings set org.gnome.desktop.interface enable-hot-corners false
+  gsettings set org.gnome.shell.app-switcher current-workspace-only true
 fi
 
 # ------------------
