@@ -127,7 +127,15 @@ require("lazy").setup({
 					typescript = { "prettier" },
 					typescriptreact = { "prettier" },
 					ruby = { "rubocop" },
+          prisma = { "prisma" },
 				},
+        formatters = {
+          prisma = {
+            command = "prisma",
+            args = { "format", "--schema", "$FILENAME" },
+            stdin = false,
+          },
+        },
 			})
 		end,
 	},
