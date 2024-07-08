@@ -18,6 +18,7 @@ echo "Symlink config folders"
 read -e -p "[y/N]" choice
 if [[ "$choice" == [Yy]* ]] then
   link_config "alacritty"
+  link_config "zellij"
   link_config "nvim"
 fi
 

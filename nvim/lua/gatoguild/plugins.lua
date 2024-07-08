@@ -37,12 +37,12 @@ require("lazy").setup({
 
 	-- ui and theme
 	{
-		"EdenEast/nightfox.nvim",
-		name = "nightfox",
+		"rose-pine/neovim",
+		name = "rose-pine",
 		priority = 1000,
 		config = function()
 			vim.cmd([[
-        colorscheme nightfox
+        colorscheme rose-pine-moon
       ]])
 		end,
 	},
