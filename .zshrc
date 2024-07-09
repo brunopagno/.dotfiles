@@ -17,8 +17,7 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit promptinit vcs_info
 compinit
 promptinit
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
+precmd() { vcs_info }
 setopt prompt_subst
 
 # completion
@@ -26,9 +25,8 @@ zstyle ':completion:*' menu select
 
 # prompt
 # prompt redhat
-RPROMPT='${vcs_info_msg_0_}'
-PROMPT="%n@%m %1~ > "
-zstyle ':vcs_info:git:*' formats '%b'
+PROMPT='%n@%m %1~ %F{cyan}${vcs_info_msg_0_}%F{white} > '
+zstyle ':vcs_info:git:*' formats '(%b)'
 
 # history
 HISTFILE=~/.histfile
