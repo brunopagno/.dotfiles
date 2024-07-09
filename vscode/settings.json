@@ -1,14 +1,15 @@
 {
-  "telemetry.telemetryLevel": "off",
-  "workbench.startupEditor": "none",
-  "window.zoomLevel": 1,
-  "window.zoomPerWindow": false,
-  "editor.minimap.enabled": false,
-  "editor.tabSize": 2,
-  "editor.lightbulb.enabled": "off",
-  "extensions.ignoreRecommendations": true,
-  "github.copilot.editor.enableAutoCompletions": false,
-  "workbench.colorTheme": "Rosé Pine Moon",
-  "workbench.iconTheme": "rose-pine-icons",
-  "workbench.activityBar.location": "hidden"
+    "telemetry.telemetryLevel": "off",
+    "workbench.startupEditor": "none",
+    "window.zoomLevel": 1,
+    "window.zoomPerWindow": false,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "editor.lightbulb.enabled": "off",
+    "extensions.ignoreRecommendations": true,
+    "workbench.iconTheme": "rose-pine-icons",
+    "workbench.activityBar.location": "hidden",
+    "workbench.tree.enableStickyScroll": false,
+    "editor.stickyScroll.enabled": false,
+    "github.copilot.editor.enableAutoCompletions": false
 }
