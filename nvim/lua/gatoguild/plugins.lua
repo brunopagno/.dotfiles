@@ -49,11 +49,15 @@ require("lazy").setup({
 	{
 		"echasnovski/mini.indentscope",
 		version = false,
-		opts = {
-			symbol = "│",
-		},
-		config = function(_, opts)
-			require("mini.indentscope").setup(opts)
+		config = function()
+			local indentscope = require("mini.indentscope")
+			indentscope.setup({
+				draw = {
+					delay = 0,
+					animation = indentscope.gen_animation.none(),
+				},
+				symbol = "│",
+			})
 		end,
 	},
 
@@ -127,15 +131,15 @@ require("lazy").setup({
 					typescript = { "prettier" },
 					typescriptreact = { "prettier" },
 					ruby = { "rubocop" },
-          prisma = { "prisma" },
+					prisma = { "prisma" },
 				},
-        formatters = {
-          prisma = {
-            command = "prisma",
-            args = { "format", "--schema", "$FILENAME" },
-            stdin = false,
-          },
-        },
+				formatters = {
+					prisma = {
+						command = "prisma",
+						args = { "format", "--schema", "$FILENAME" },
+						stdin = false,
+					},
+				},
 			})
 		end,
 	},
