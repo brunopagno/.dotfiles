@@ -55,7 +55,7 @@ set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
 -- LSP
 -- set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
 set("n", "<leader>f", function()
-	require("conform").format()
+	require("conform").format({ async = true })
 end)
 set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
 set("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
