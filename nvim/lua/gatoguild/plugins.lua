@@ -117,6 +117,7 @@ require("lazy").setup({
 			})
 			lspconfig.tsserver.setup({})
 			lspconfig.ruby_lsp.setup({})
+			-- lspconfig.solargraph.setup({})
 		end,
 	},
 	{
