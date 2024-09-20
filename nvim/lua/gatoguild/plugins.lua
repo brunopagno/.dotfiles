@@ -128,19 +128,9 @@ require("lazy").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
 					javascript = { "prettier" },
-					javascriptreact = { "prettier" },
 					typescript = { "prettier" },
-					typescriptreact = { "prettier" },
-          ruby = { "rubocop" },
-          prisma = { "prisma" },
+					ruby = { "rubocop" },
 				},
-        formatters = {
-          prisma = {
-            command = "prisma",
-            args = { "format", "--schema", "$FILENAME" },
-            stdin = false,
-          },
-        },
 			})
 		end,
 	},
