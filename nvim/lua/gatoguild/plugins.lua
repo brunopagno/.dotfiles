@@ -115,7 +115,7 @@ require("lazy").setup({
 					},
 				},
 			})
-			lspconfig.tsserver.setup({})
+			lspconfig.ts_ls.setup({})
 			lspconfig.ruby_lsp.setup({})
 			-- lspconfig.solargraph.setup({})
 		end,
@@ -186,14 +186,6 @@ require("lazy").setup({
 		opts = {},
 		config = function(_, opts)
 			require("gitsigns").setup(opts)
-		end,
-	},
-
-	-- copiloto
-	{
-		"github/copilot.vim",
-		config = function()
-			vim.g.copilot_filetypes = { ["*"] = false }
 		end,
 	},
 })

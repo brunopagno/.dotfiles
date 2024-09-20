@@ -91,7 +91,4 @@ set("n", "<leader>tl", function()
 	splitterm("L")
 end)
 
--- copiloto
-set("i", "<c-o>", "<Plug>(copilot-suggest)")
-
 require("gatoguild.plugins")
