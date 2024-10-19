@@ -53,8 +53,8 @@ set("n", "<leader>,", "<cmd>Telescope buffers<cr>")
 set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
 
 -- format
-set("n", "<leader>f", function()
-	require("conform").format({ async = true })
+set({ "n", "v" }, "<leader>f", function()
+	require("conform").format({ async = true, lsp_fallback = true })
 end)
 
 -- LSP

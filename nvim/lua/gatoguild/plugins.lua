@@ -128,7 +128,7 @@ require("lazy").setup({
 				eruby = { "erb_lint" },
 			}
 
-			vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 				callback = function()
 					lint.try_lint()
 				end,
