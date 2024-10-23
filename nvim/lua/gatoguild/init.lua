@@ -32,6 +32,9 @@ vim.g.maplocalleader = " "
 
 set("n", "<leader>/", "<cmd>noh<cr>")
 
+-- copy to clipboard
+set("v", "<leader>y", '"+y')
+
 -- navigation
 set({ "n", "t" }, "<C-k>", "<cmd>wincmd k<cr>")
 set({ "n", "t" }, "<C-j>", "<cmd>wincmd j<cr>")
@@ -40,8 +43,18 @@ set({ "n", "t" }, "<C-l>", "<cmd>wincmd l<cr>")
 set("n", "<leader>vs", "<cmd>vsplit<cr>")
 set("n", "<leader>ss", "<cmd>split<cr>")
 
--- copy to clipboard
-set("v", "<leader>y", '"+y')
+-- layout
+-- set("n", "<leader>zi", "<C-w>_| <C-w>|")
+-- set("n", "<leader>zo", "<C-w>=")
+set("n", "<leader>z", function()
+	if vim.g.is_zoomed_in then
+		vim.cmd("wincmd =")
+	else
+		vim.cmd("wincmd _")
+		vim.cmd("wincmd |")
+	end
+	vim.g.is_zoomed_in = not vim.g.is_zoomed_in
+end)
 
 -- buffers
 set("n", "<leader>q", "<cmd>bd<cr>")
