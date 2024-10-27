@@ -27,6 +27,9 @@ local function set(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -44,8 +47,6 @@ set("n", "<leader>vs", "<cmd>vsplit<cr>")
 set("n", "<leader>ss", "<cmd>split<cr>")
 
 -- layout
--- set("n", "<leader>zi", "<C-w>_| <C-w>|")
--- set("n", "<leader>zo", "<C-w>=")
 set("n", "<leader>z", function()
 	if vim.g.is_zoomed_in then
 		vim.cmd("wincmd =")
@@ -55,6 +56,17 @@ set("n", "<leader>z", function()
 	end
 	vim.g.is_zoomed_in = not vim.g.is_zoomed_in
 end)
+
+augroup("ZoomedNavigation", { clear = true })
+autocmd("WinEnter", {
+	group = "ZoomedNavigation",
+	callback = function()
+		if vim.g.is_zoomed_in then
+			vim.cmd("wincmd _")
+			vim.cmd("wincmd |")
+		end
+	end,
+})
 
 -- buffers
 set("n", "<leader>q", "<cmd>bd<cr>")
