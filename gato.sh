@@ -45,7 +45,7 @@ case $command in
  
     echo "set mouse accel and speed"
     gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
-    gsettings set org.gnome.desktop.peripherals.mouse speed -0.25
+    gsettings set org.gnome.desktop.peripherals.mouse speed 0.25
     
     echo "set workspaces and shortcuts"
     gsettings set org.gnome.mutter dynamic-workspaces false
