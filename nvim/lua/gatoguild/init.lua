@@ -19,16 +19,35 @@ vim.opt.termguicolors = true
 vim.opt.backup = false
 vim.opt.swapfile = false
 
--- Keymap
+-- lib
+local function context_zoom()
+	if vim.g.is_zoomed_in then
+		vim.cmd("wincmd _")
+		vim.cmd("wincmd |")
+	end
+end
 
+local function toggle_zoom()
+	if vim.g.is_zoomed_in then
+		vim.g.is_zoomed_in = false
+		vim.cmd("wincmd =")
+	else
+		vim.g.is_zoomed_in = true
+		context_zoom()
+	end
+end
+
+local function navigate_panes(direction)
+	vim.cmd("wincmd " .. direction)
+	context_zoom()
+end
+
+-- Keymap
 local opts = { noremap = true, silent = true }
 
 local function set(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
-
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -39,34 +58,25 @@ set("n", "<leader>/", "<cmd>noh<cr>")
 set("v", "<leader>y", '"+y')
 
 -- navigation
-set({ "n", "t" }, "<C-k>", "<cmd>wincmd k<cr>")
-set({ "n", "t" }, "<C-j>", "<cmd>wincmd j<cr>")
-set({ "n", "t" }, "<C-h>", "<cmd>wincmd h<cr>")
-set({ "n", "t" }, "<C-l>", "<cmd>wincmd l<cr>")
+set({ "n", "t" }, "<C-k>", function()
+	navigate_panes("k")
+end)
+set({ "n", "t" }, "<C-j>", function()
+	navigate_panes("j")
+end)
+set({ "n", "t" }, "<C-h>", function()
+	navigate_panes("h")
+end)
+set({ "n", "t" }, "<C-l>", function()
+	navigate_panes("l")
+end)
 set("n", "<leader>vs", "<cmd>vsplit<cr>")
 set("n", "<leader>ss", "<cmd>split<cr>")
 
 -- layout
 set("n", "<leader>z", function()
-	if vim.g.is_zoomed_in then
-		vim.cmd("wincmd =")
-	else
-		vim.cmd("wincmd _")
-		vim.cmd("wincmd |")
-	end
-	vim.g.is_zoomed_in = not vim.g.is_zoomed_in
+	toggle_zoom()
 end)
-
-augroup("ZoomedNavigation", { clear = true })
-autocmd("WinEnter", {
-	group = "ZoomedNavigation",
-	callback = function()
-		if vim.g.is_zoomed_in then
-			vim.cmd("wincmd _")
-			vim.cmd("wincmd |")
-		end
-	end,
-})
 
 -- buffers
 set("n", "<leader>q", "<cmd>bd<cr>")
