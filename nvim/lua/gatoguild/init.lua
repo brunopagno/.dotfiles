@@ -24,6 +24,7 @@ local function context_zoom()
 	if vim.g.is_zoomed_in then
 		vim.cmd("wincmd _")
 		vim.cmd("wincmd |")
+		vim.cmd("normal! zH")
 	end
 end
 
