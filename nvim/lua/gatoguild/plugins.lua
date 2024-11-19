@@ -126,6 +126,8 @@ require("lazy").setup({
 			local lint = require("lint")
 			lint.linters_by_ft = {
 				eruby = { "erb_lint" },
+				typescript = { "eslint_d" },
+				javascript = { "eslint_d" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
@@ -142,8 +144,8 @@ require("lazy").setup({
 			require("conform").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
-					javascript = { "prettier" },
-					typescript = { "prettier" },
+					javascript = { "eslint_d" },
+					typescript = { "eslint_d" },
 					ruby = { "rubocop" },
 				},
 			})
@@ -185,7 +187,6 @@ require("lazy").setup({
 	},
 
 	-- git
-	{ "tpope/vim-fugitive" },
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = {},
