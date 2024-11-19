@@ -81,7 +81,7 @@ end)
 
 -- buffers
 set("n", "<leader>q", "<cmd>bd<cr>")
-set("n", "<leader>cfp", "<cmd>call setreg('+', expand('%'))<cr>")
+set("n", "<leader>cfp", "<cmd>call setreg('+', expand('%:.'))<cr>")
 
 -- search and find
 set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
