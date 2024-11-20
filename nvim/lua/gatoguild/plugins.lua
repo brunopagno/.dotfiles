@@ -47,6 +47,11 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"crispgm/nvim-tabline",
+		dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional
+		config = true,
+	},
+	{
 		"echasnovski/mini.indentscope",
 		version = false,
 		config = function()
