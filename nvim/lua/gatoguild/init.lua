@@ -34,16 +34,27 @@ set("n", "<leader>/", "<cmd>noh<cr>")
 set("v", "<leader>y", '"+y')
 
 -- navigation
-set({ "n", "t" }, "<C-k>", "<cmd>wincmd k<cr>")
-set({ "n", "t" }, "<C-j>", "<cmd>wincmd j<cr>")
-set({ "n", "t" }, "<C-l>", "<cmd>wincmd l<cr>")
-set({ "n", "t" }, "<C-h>", "<cmd>wincmd h<cr>")
+set("n", "<C-k>", "<cmd>wincmd k<cr>")
+set("n", "<C-j>", "<cmd>wincmd j<cr>")
+set("n", "<C-l>", "<cmd>wincmd l<cr>")
+set("n", "<C-h>", "<cmd>wincmd h<cr>")
 set("n", "<leader>vs", "<cmd>vsplit<cr>")
 set("n", "<leader>ss", "<cmd>split<cr>")
 set("n", "<leader>tt", "<cmd>wincmd T<cr>")
 set("n", "<leader>tc", "<cmd>tabc<cr>")
 set("n", "<C-M-l>", "<cmd>tabn<cr>")
 set("n", "<C-M-h>", "<cmd>tabp<cr>")
+set("n", "<leader>z", function()
+	if vim.g.is_zoomed_in then
+		vim.g.is_zoomed_in = false
+		vim.cmd("wincmd =")
+	else
+		vim.g.is_zoomed_in = true
+		vim.cmd("wincmd _")
+		vim.cmd("wincmd |")
+		vim.cmd("normal! zH")
+	end
+end)
 
 -- buffers
 set("n", "<leader>q", "<cmd>bd<cr>")
