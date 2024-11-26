@@ -37,13 +37,10 @@ require("lazy").setup({
 
 	-- ui and theme
 	{
-		"rose-pine/neovim",
-		name = "rose-pine",
+		"jacoborus/tender.vim",
 		priority = 1000,
 		config = function()
-			vim.cmd([[
-        colorscheme rose-pine-moon
-      ]])
+			vim.cmd([[colorscheme tender]])
 		end,
 	},
 	{
