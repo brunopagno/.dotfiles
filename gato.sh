@@ -47,10 +47,6 @@ case $command in
     gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
     gsettings set org.gnome.desktop.peripherals.mouse speed 0.25
     
-    echo "set workspaces and shortcuts"
-    gsettings set org.gnome.mutter dynamic-workspaces false
-    gsettings set org.gnome.desktop.wm.preferences num-workspaces 3
-    
     echo "set other gnome settings"
     gsettings set org.gnome.mutter check-alive-timeout 20000
     gsettings set org.gnome.desktop.interface enable-hot-corners false
