@@ -55,6 +55,7 @@ case $command in
     gsettings set org.gnome.mutter check-alive-timeout 20000
     gsettings set org.gnome.desktop.interface enable-hot-corners false
     gsettings set org.gnome.shell.app-switcher current-workspace-only true
+    gsettings set org.gnome.Console custom-font 'JetBrainsMonoNL Nerd Font Mono 12'
 
     echo "done"
     ;;
