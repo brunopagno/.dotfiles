@@ -176,7 +176,7 @@ require("lazy").setup({
 				mapping = cmp.mapping.preset.insert({
 					["<c-space>"] = cmp.mapping.complete(),
 					["<c-e>"] = cmp.mapping.abort(),
-					["<c-cr>"] = cmp.mapping.confirm({ select = true }),
+					["<c-s>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
