@@ -1,0 +1,5 @@
+keybind = ctrl+s=new_split:right
+keybind = ctrl+]=goto_split:next
+keybind = ctrl+[=goto_split:previous
+
+font-family = "JetBrainsMono Nerd Font"
