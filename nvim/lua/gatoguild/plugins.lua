@@ -84,7 +84,7 @@ require("lazy").setup({
 			local actions = require("telescope.actions")
 			require("telescope").setup({
 				defaults = {
-					file_ignore_patterns = { "node_modules/.*", ".git/.*" },
+					file_ignore_patterns = { "node_modules/.*", ".git/.*", "vendor/.*" },
 				},
 				pickers = {
 					find_files = {
