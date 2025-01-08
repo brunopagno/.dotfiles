@@ -8,8 +8,9 @@
 
 ```
 sudo pacman -S ttf-jetbrains-mono-nerd
-sudo pacman -S wl-clipboard fzf
-sudo pacman -S alacritty
+sudo pacman -S wl-clipboard fzf ripgrep
+sudo pacman -S ghostty
+sudo pacman -S lazygit
 sudo pacman -S gdm gnome
 sudo pacman -S bluez fprintd power-profiles-daemon
 systemctl enable gdm
