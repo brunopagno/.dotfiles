@@ -118,8 +118,7 @@ require("lazy").setup({
 				},
 			})
 			lspconfig.ts_ls.setup({})
-			lspconfig.ruby_lsp.setup({})
-			-- lspconfig.solargraph.setup({})
+      lspconfig.ruby_lsp.setup({})
 		end,
 	},
 	{
@@ -175,8 +174,7 @@ require("lazy").setup({
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<c-space>"] = cmp.mapping.complete(),
-					["<c-e>"] = cmp.mapping.abort(),
-					["<c-s>"] = cmp.mapping.confirm({ select = true }),
+					["<c-e>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
