@@ -47,14 +47,15 @@ case $command in
     gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
     gsettings set org.gnome.desktop.peripherals.mouse speed 0.25
     
-    echo "set console settings"
-    gsettings set org.gnome.Console use-system-font false
-    gsettings set org.gnome.Console custom-font 'JetBrainsMonoNL Nerd Font Mono 12'
-
-    echo "set other gnome settings"
+    echo "set check alive timeout"
     gsettings set org.gnome.mutter check-alive-timeout 20000
-    gsettings set org.gnome.desktop.interface enable-hot-corners false
-    gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
+    echo "set weather location"
+    gsettings set org.gnome.shell.weather locations "[<(uint32 2, <('Berlin', 'EDDB', true, [(0.91426163401859872, 0.23591034304566436)], [(0.91658875132345297, 0.23387411976724018)])>)>]"
+    gsettings set org.gnome.Weather locations "[<(uint32 2, <('Berlin', 'EDDB', true, [(0.91426163401859872, 0.23591034304566436)], [(0.91658875132345297, 0.23387411976724018)])>)>]"
+
+    echo "set world clock locations"
+    gsettings set org.gnome.shell.world-clocks locations "[<(uint32 2, <('London', 'EGWU', true, [(0.89971722940307675, -0.007272211034407213)], [(0.89884456477707964, -0.0020362232784242244)])>)>, <(uint32 2, <('Porto Alegre', 'SBCO', true, [(-0.52388966962472883, -0.89389947104752665)], [(-0.52418054619786614, -0.89360857702109675)])>)>, <(uint32 2, <('Helsinki', 'EFHK', true, [(1.0527244329790106, 0.43575054239901517)], [(1.0502615814182288, 0.43518331039211688)])>)>, <(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]"
 
     echo "done"
     ;;
