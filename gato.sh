@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [[ $# -eq 0 ]] then
+if [ $# -eq 0 ]; then
   echo "Usage: 'gato <command> <options>'"
   echo ""
   echo "gato link <folder_name> # creates a symlink to the ~/.config folder"
@@ -30,8 +30,8 @@ command=$1
 
 case $command in
   "link")
-    if [[ -z "$2" ]] then
-      echo "Usage: 'gato link <folder_name>"
+    if [ -z "$2" ]; then
+      echo "Usage: './gato.sh link <folder_name>'"
       exit 1
     fi
 
@@ -52,7 +52,6 @@ case $command in
 
     echo "set weather location"
     gsettings set org.gnome.shell.weather locations "[<(uint32 2, <('Berlin', 'EDDB', true, [(0.91426163401859872, 0.23591034304566436)], [(0.91658875132345297, 0.23387411976724018)])>)>]"
-    gsettings set org.gnome.Weather locations "[<(uint32 2, <('Berlin', 'EDDB', true, [(0.91426163401859872, 0.23591034304566436)], [(0.91658875132345297, 0.23387411976724018)])>)>]"
 
     echo "set world clock locations"
     gsettings set org.gnome.shell.world-clocks locations "[<(uint32 2, <('London', 'EGWU', true, [(0.89971722940307675, -0.007272211034407213)], [(0.89884456477707964, -0.0020362232784242244)])>)>, <(uint32 2, <('Porto Alegre', 'SBCO', true, [(-0.52388966962472883, -0.89389947104752665)], [(-0.52418054619786614, -0.89360857702109675)])>)>, <(uint32 2, <('Helsinki', 'EFHK', true, [(1.0527244329790106, 0.43575054239901517)], [(1.0502615814182288, 0.43518331039211688)])>)>, <(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]"
