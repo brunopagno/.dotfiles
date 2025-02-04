@@ -1,24 +1,20 @@
-# All the things
+### Do this thing
 
-### Install ArchBTW
+1. Update stuff
 
-[Install arch gist file](https://gist.github.com/brunopagno/b395acb60f76df659480f0ef0dd5deb7).
-
-### Things to be installed
-
-```
-sudo pacman -S ttf-jetbrains-mono-nerd
-sudo pacman -S wl-clipboard fzf ripgrep
-sudo pacman -S ghostty
-sudo pacman -S lazygit
-sudo pacman -S gdm gnome
-sudo pacman -S bluez fprintd power-profiles-daemon
-systemctl enable gdm
+```shell
+sudo apt install git
+sudo apt update
+sudo apt upgrade
+sudo apt install build-essential
 ```
 
-### Function keys keyboard
+2. Gato things
 
+```shell
+git clone https://github.com/brunopagno/.dotfiles
+./gato.sh gnome
+./gato.sh link nvim
+./gato.sh link ghostty
 ```
-echo 'options hid_apple fnmode=0' | sudo tee -a /etc/modprobe.d/hid_apple.conf
-sudo mkinitcpio -P
-```
+
