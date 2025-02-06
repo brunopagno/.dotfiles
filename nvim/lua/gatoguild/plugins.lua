@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- general dependencies
-	{ "nvim-lua/plenary.nvim" },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -75,31 +74,12 @@ require("lazy").setup({
 				["<C-l>"] = false,
 			},
 		},
-		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
-		"nvim-telescope/telescope.nvim",
-		config = function()
-			local actions = require("telescope.actions")
-			require("telescope").setup({
-				defaults = {
-					file_ignore_patterns = { "node_modules/.*", ".git/.*", "vendor/.*" },
-				},
-				pickers = {
-					find_files = {
-						hidden = true,
-					},
-					buffers = {
-						mappings = {
-							i = {
-								["<c-x>"] = actions.delete_buffer,
-							},
-						},
-					},
-				},
-			})
-		end,
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
 	},
 
 	-- LSP
@@ -118,7 +98,7 @@ require("lazy").setup({
 				},
 			})
 			lspconfig.ts_ls.setup({})
-      lspconfig.ruby_lsp.setup({})
+			lspconfig.ruby_lsp.setup({})
 		end,
 	},
 	{

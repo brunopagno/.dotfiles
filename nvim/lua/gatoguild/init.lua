@@ -61,9 +61,9 @@ set("n", "<leader>q", "<cmd>bd<cr>")
 set("n", "<leader>cfp", "<cmd>call setreg('+', expand('%:.'))<cr>")
 
 -- search and find
-set("n", "<leader>p", "<cmd>Telescope find_files<cr>")
-set("n", "<leader>,", "<cmd>Telescope buffers<cr>")
-set("n", "<leader>F", "<cmd>Telescope live_grep<cr>")
+set("n", "<leader>p", "<cmd>FzfLua files<cr>")
+set("n", "<leader>,", "<cmd>FzfLua buffers<cr>")
+set("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
 
 -- format
 set({ "n", "v" }, "<leader>f", function()
