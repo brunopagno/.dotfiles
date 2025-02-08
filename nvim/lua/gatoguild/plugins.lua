@@ -180,4 +180,12 @@ require("lazy").setup({
 			require("gitsigns").setup(opts)
 		end,
 	},
+
+	-- copiloto
+	{
+		"github/copilot.vim",
+		config = function()
+			vim.g.copilot_filetypes = { ["*"] = false }
+		end,
+	},
 })

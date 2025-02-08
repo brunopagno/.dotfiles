@@ -82,4 +82,7 @@ set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 -- file navigation
 set("n", "<leader>e", "<cmd>Oil<cr>")
 
+-- copiloto
+set("i", "<c-o>", "<Plug>(copilot-suggest)")
+
 require("gatoguild.plugins")
