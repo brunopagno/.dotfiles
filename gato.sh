@@ -94,15 +94,6 @@ echo "Configuring finished"
 
 # ----------------------------
 
-echo "Installing fzf directly from git to get latest version"
-
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
-echo "Installation finished
-
-# ----------------------------
-
 echo "Installing JetBrains Mono Nerd Font"
 
 FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
