@@ -5,7 +5,9 @@ export EDITOR=nvim
 export PATH="$PATH:./node_modules/.bin"
 
 # prompt
-PS1='\u@\h \w \[\e[36m\]$(git branch 2>/dev/null | sed -n "s/^* //p")\[\e[0m\] > '
+# pure magic https://bash-prompt-generator.org/
+PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'
+PS1='\u@\h \W \[\e[36m\]${PS1_CMD1}\[\e[0m\] > '
 
 # input
 set completion-prefix-display-length 2
