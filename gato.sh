@@ -145,7 +145,7 @@ if ! command -v docker &>/dev/null; then
   sudo apt update
   
   sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-  sudo usermod -aG docker ${USER}
+  sudo usermod -aG docker $USER
 else
   echo "already installed... skipping"
 fi

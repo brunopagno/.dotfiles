@@ -49,7 +49,7 @@ require("lazy").setup({
 	},
 	{
 		"echasnovski/mini.indentscope",
-		version = false,
+		version = "*",
 		config = function()
 			local indentscope = require("mini.indentscope")
 			indentscope.setup({
@@ -140,36 +140,17 @@ require("lazy").setup({
 	},
 
 	-- autocompletions
-	{ "L3MON4D3/LuaSnip" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-buffer" },
 	{
-		"hrsh7th/nvim-cmp",
-		config = function()
-			local cmp = require("cmp")
-
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-				window = {
-					completion = cmp.config.window.bordered(),
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<c-space>"] = cmp.mapping.complete(),
-					["<c-e>"] = cmp.mapping.confirm({ select = true }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "path" },
-				}, {
-					{ name = "buffer" },
-				}),
-			})
-		end,
+		"saghen/blink.cmp",
+		dependencies = "rafamadriz/friendly-snippets",
+		version = "*",
+		opts = {
+			keymap = { preset = "default" },
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer" },
+			},
+		},
+		opts_extend = { "sources.default" },
 	},
 
 	-- git
