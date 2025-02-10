@@ -14,15 +14,15 @@ sudo apt install -y build-essential
 echo "installing dependencies"
 sudo apt install -y libssl-dev libyaml-dev zlib1g-dev
 echo "installing utilities"
-sudo apt install -y git gpg fzf wget curl ripgrep wl-clipboard
+sudo apt install -y git gpg fzf wget curl ripgrep wl-clipboard tmux
 echo "installing apps"
-snap install neovim ghostty
+snap install neovim alacritty
 
 # -----------------------------
 
 echo "#GATO: Symlinking config folders"
 
-declare -a SYMLINKS=("nvim" "ghostty")
+declare -a SYMLINKS=("nvim" "alacritty" "tmux")
 
 for folder in "${SYMLINKS[@]}"; do
   TARGET="$CONFIG_DIR/$folder"
