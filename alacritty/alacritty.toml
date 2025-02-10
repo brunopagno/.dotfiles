@@ -1,9 +1,6 @@
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 
-[terminal]
-shell = "tmux"
-
 [keyboard]
 bindings = [
   { key = "n", mods = "Control|Shift", action = "SpawnNewInstance" },
@@ -14,5 +11,5 @@ bindings = [
 padding.x = 8
 padding.y = 8
 decorations = "None"
-opacity = 0.98
+opacity = 0.95
 
