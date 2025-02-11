@@ -36,10 +36,10 @@ require("lazy").setup({
 
 	-- ui and theme
 	{
-		"jacoborus/tender.vim",
+		"rebelot/kanagawa.nvim",
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme tender]])
+			vim.cmd([[colorscheme kanagawa]])
 		end,
 	},
 	{
