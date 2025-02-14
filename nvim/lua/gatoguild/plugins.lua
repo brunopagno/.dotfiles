@@ -85,6 +85,9 @@ require("lazy").setup({
 					layout = "vertical",
 				},
 			},
+			file_ignore_patterns = {
+				"vendor",
+			},
 		},
 	},
 
