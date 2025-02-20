@@ -1,6 +1,13 @@
-keybind = ctrl+|=new_split:right
-keybind = ctrl+\=new_split:down
-keybind = ctrl+]=goto_split:next
-keybind = ctrl+[=goto_split:previous
-
 font-family = "JetBrainsMono Nerd Font"
+background = #333333
+background-opacity = 0.95
+
+keybind = unconsumed:alt+1=unbind
+keybind = unconsumed:alt+2=unbind
+keybind = unconsumed:alt+3=unbind
+keybind = unconsumed:alt+4=unbind
+keybind = unconsumed:alt+5=unbind
+keybind = unconsumed:alt+6=unbind
+keybind = unconsumed:alt+7=unbind
+keybind = unconsumed:alt+8=unbind
+keybind = unconsumed:alt+9=unbind

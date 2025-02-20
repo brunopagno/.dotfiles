@@ -16,13 +16,13 @@ sudo apt install -y libssl-dev libyaml-dev zlib1g-dev
 echo "installing utilities"
 sudo apt install -y git gpg fzf wget curl ripgrep wl-clipboard tmux
 echo "installing apps"
-snap install neovim alacritty
+snap install neovim ghostty
 
 # -----------------------------
 
 echo "#GATO: Symlinking config folders"
 
-declare -a SYMLINKS=("nvim" "alacritty" "tmux")
+declare -a SYMLINKS=("nvim" "ghostty" "tmux")
 
 for folder in "${SYMLINKS[@]}"; do
   TARGET="$CONFIG_DIR/$folder"
