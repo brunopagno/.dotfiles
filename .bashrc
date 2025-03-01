@@ -30,8 +30,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if command -v fzf &> /dev/null; then
-  source /usr/share/bash-completion/completions/fzf
-  source /usr/share/doc/fzf/examples/key-bindings.bash
+  eval "$(fzf --bash)"
 fi
 
 # applicaiton init
