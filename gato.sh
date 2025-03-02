@@ -14,7 +14,7 @@ sudo pacman -S fzf wget ripgrep wl-clipboard
 echo "installing fonts"
 sudo pacman -S ttf-jetbrains-mono-nerd 
 echo "install apps"
-sudo pacman -S tmux ghostty lazygit mise
+sudo pacman -S ghostty lazygit mise
 echo "install docker"
 sudo pacman -S docker docker-compose
 echo "install gnome and tools"
@@ -26,7 +26,7 @@ systemctl enable gdm
 
 echo "#GATO: Symlinking config folders"
 
-declare -a SYMLINKS=("nvim" "ghostty" "tmux")
+declare -a SYMLINKS=("nvim" "ghostty")
 
 [ -d "$CONFIG_DIR" ] || mkdir -p "$CONFIG_DIR"
 
