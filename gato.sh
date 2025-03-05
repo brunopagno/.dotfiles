@@ -10,7 +10,7 @@ echo "#GATO: Preparation"
 echo "updating the system"
 sudo pacman -Syu
 echo "installing utilities"
-sudo pacman -S fzf wget ripgrep wl-clipboard
+sudo pacman -S fzf wget ripgrep wl-clipboard bash-completion
 echo "installing fonts"
 sudo pacman -S ttf-jetbrains-mono-nerd 
 echo "install apps"

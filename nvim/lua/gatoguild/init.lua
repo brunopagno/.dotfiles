@@ -22,7 +22,7 @@ vim.opt.swapfile = false
 local opts = { noremap = true, silent = true }
 
 local function set(mode, lhs, rhs)
-	vim.keymap.set(mode, lhs, rhs, opts)
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 vim.g.mapleader = " "
@@ -45,15 +45,15 @@ set("n", "<leader>tc", "<cmd>tabc<cr>")
 set("n", "<C-M-l>", "<cmd>tabn<cr>")
 set("n", "<C-M-h>", "<cmd>tabp<cr>")
 set("n", "<leader>z", function()
-	if vim.g.is_zoomed_in then
-		vim.g.is_zoomed_in = false
-		vim.cmd("wincmd =")
-	else
-		vim.g.is_zoomed_in = true
-		vim.cmd("wincmd _")
-		vim.cmd("wincmd |")
-		vim.cmd("normal! zH")
-	end
+  if vim.g.is_zoomed_in then
+    vim.g.is_zoomed_in = false
+    vim.cmd("wincmd =")
+  else
+    vim.g.is_zoomed_in = true
+    vim.cmd("wincmd _")
+    vim.cmd("wincmd |")
+    vim.cmd("normal! zH")
+  end
 end)
 
 -- buffers
@@ -67,7 +67,7 @@ set("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
 
 -- format
 set({ "n", "v" }, "<leader>f", function()
-	require("conform").format({ async = true, lsp_fallback = true })
+  require("conform").format({ async = true, lsp_fallback = true })
 end)
 
 -- LSP
@@ -84,5 +84,8 @@ set("n", "<leader>e", "<cmd>Oil<cr>")
 
 -- copiloto
 set("i", "<c-o>", "<Plug>(copilot-suggest)")
+
+-- execute current file as test
+set("n", "<c-r>n", ":!npm run test -- %<cr>")
 
 require("gatoguild.plugins")
