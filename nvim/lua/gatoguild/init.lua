@@ -85,7 +85,4 @@ set("n", "<leader>e", "<cmd>Oil<cr>")
 -- copiloto
 set("i", "<c-o>", "<Plug>(copilot-suggest)")
 
--- execute current file as test
-set("n", "<c-r>n", ":!npm run test -- %<cr>")
-
 require("gatoguild.plugins")
