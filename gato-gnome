@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "#GATO: Configuring gnome settings"
+
+echo "set config"
+gsettings set org.gnome.desktop.peripherals.keyboard delay 360
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 25
+
+gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'
+gsettings set org.gnome.desktop.peripherals.mouse speed 0.25
+
+gsettings set org.gnome.mutter check-alive-timeout 20000
+
+gsettings set org.gnome.desktop.calendar show-weekdate true
+
