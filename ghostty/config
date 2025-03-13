@@ -9,4 +9,4 @@ keybind = ctrl+down=goto_split:down
 keybind = ctrl+up=goto_split:up
 keybind = ctrl+left=goto_split:left
 keybind = super+z=toggle_split_zoom
-keybind = ctrl+w=equalize_splits
+keybind = ctrl+equal=equalize_splits
