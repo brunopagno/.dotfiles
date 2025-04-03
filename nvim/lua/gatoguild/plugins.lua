@@ -114,6 +114,7 @@ require("lazy").setup({
 					javascript = { "eslint_d" },
 					typescript = { "eslint_d" },
 					ruby = { "rubocop" },
+					sql = { "sql_formatter" },
 				},
 			})
 		end,
