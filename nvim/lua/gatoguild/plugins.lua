@@ -83,6 +83,11 @@ require("lazy").setup({
 			file_ignore_patterns = {
 				"vendor",
 			},
+			keymap = {
+				fzf = {
+					["ctrl-q"] = "select-all+accept",
+				},
+			},
 		},
 	},
 
