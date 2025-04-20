@@ -118,7 +118,6 @@ require("lazy").setup({
 					lua = { "stylua" },
 					javascript = { "eslint_d" },
 					typescript = { "eslint_d" },
-					ruby = { "rubocop" },
 					sql = { "sql_formatter" },
 				},
 			})
