@@ -36,20 +36,3 @@ vim.lsp.config["ruby-lsp"] = {
 	},
 }
 vim.lsp.enable("ruby-lsp")
-
--- Go
-vim.lsp.config["gopls"] = {
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod" },
-  root_markers = { ".git", "go.mod" },
-  settings = {
-    gopls = {
-      usePlaceholders = true,
-      completeUnimported = true,
-      analyses = {
-        unusedparams = true,
-        fieldalignment = true,
-      },
-    },
-  },
-}

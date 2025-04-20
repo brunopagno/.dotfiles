@@ -119,7 +119,6 @@ require("lazy").setup({
 					javascript = { "eslint_d" },
 					typescript = { "eslint_d" },
 					ruby = { "rubocop" },
-					go = { "goimports", "gofmt" },
 					sql = { "sql_formatter" },
 				},
 			})
