@@ -57,7 +57,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- finder and search
+	-- files and search
 	{
 		"stevearc/oil.nvim",
 		opts = {
@@ -125,36 +125,43 @@ require("lazy").setup({
 	},
 
 	-- autocompletions
-	{ "L3MON4D3/LuaSnip" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-buffer" },
 	{
-		"hrsh7th/nvim-cmp",
+		"echasnovski/mini.completion",
+		version = "*",
 		config = function()
-			local cmp = require("cmp")
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-				window = {
-					completion = cmp.config.window.bordered(),
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<c-space>"] = cmp.mapping.complete(),
-					["<c-y>"] = cmp.mapping.confirm({ select = true }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "path" },
-				}, {
-					{ name = "buffer" },
-				}),
-			})
+			require("mini.completion").setup({})
 		end,
 	},
+	-- { "L3MON4D3/LuaSnip" },
+	-- { "hrsh7th/cmp-nvim-lsp" },
+	-- { "hrsh7th/cmp-path" },
+	-- { "hrsh7th/cmp-buffer" },
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	config = function()
+	-- 		local cmp = require("cmp")
+	-- 		cmp.setup({
+	-- 			snippet = {
+	-- 				expand = function(args)
+	-- 					require("luasnip").lsp_expand(args.body)
+	-- 				end,
+	-- 			},
+	-- 			window = {
+	-- 				completion = cmp.config.window.bordered(),
+	-- 			},
+	-- 			mapping = cmp.mapping.preset.insert({
+	-- 				["<c-space>"] = cmp.mapping.complete(),
+	-- 				["<c-y>"] = cmp.mapping.confirm({ select = true }),
+	-- 			}),
+	-- 			sources = cmp.config.sources({
+	-- 				{ name = "nvim_lsp" },
+	-- 				{ name = "path" },
+	-- 			}, {
+	-- 				{ name = "buffer" },
+	-- 			}),
+	-- 		})
+	-- 	end,
+	-- },
 
 	-- git
 	{
