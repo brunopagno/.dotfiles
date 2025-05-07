@@ -1,0 +1,12 @@
+{
+  "window.zoomLevel": 1,
+  "window.zoomPerWindow": false,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "editor.lightbulb.enabled": "off",
+  "extensions.ignoreRecommendations": true,
+  "workbench.activityBar.location": "hidden",
+  "workbench.tree.enableStickyScroll": false,
+  "editor.stickyScroll.enabled": false,
+  "workbench.colorTheme": "Quiet Light"
+}
