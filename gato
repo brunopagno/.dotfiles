@@ -10,11 +10,11 @@ echo "#GATO: Preparation"
 echo "updating the system"
 sudo pacman -Syu
 echo "installing utilities"
-sudo pacman -S fzf wget ripgrep wl-clipboard bash-completion
+sudo pacman -S git fzf wget ripgrep wl-clipboard bash-completion
 echo "installing fonts"
 sudo pacman -S ttf-jetbrains-mono-nerd 
 echo "install apps"
-sudo pacman -S ghostty lazygit mise
+sudo pacman -S neovim mise
 echo "install docker"
 sudo pacman -S docker docker-compose
 echo "install gnome and tools"
@@ -24,23 +24,23 @@ systemctl enable gdm
 
 # -----------------------------
 
-echo "#GATO: Symlinking config folders"
+# echo "#GATO: Symlinking config folders"
 
-declare -a SYMLINKS=("nvim" "ghostty")
-
-[ -d "$CONFIG_DIR" ] || mkdir -p "$CONFIG_DIR"
-
-for folder in "${SYMLINKS[@]}"; do
-  TARGET="$CONFIG_DIR/$folder"
-  SOURCE="$BASE_DIR/$folder"
-
-  if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
-    echo "Skipping $TARGET (already exists)"
-  else
-    ln -s "$SOURCE" "$TARGET"
-    echo "Symlinked $SOURCE -> $TARGET"
-  fi
-done
+# declare -a SYMLINKS=("nvim" "ghostty")
+# 
+# [ -d "$CONFIG_DIR" ] || mkdir -p "$CONFIG_DIR"
+# 
+# for folder in "${SYMLINKS[@]}"; do
+#   TARGET="$CONFIG_DIR/$folder"
+#   SOURCE="$BASE_DIR/$folder"
+# 
+#   if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
+#     echo "Skipping $TARGET (already exists)"
+#   else
+#     ln -s "$SOURCE" "$TARGET"
+#     echo "Symlinked $SOURCE -> $TARGET"
+#   fi
+# done
 
 # -----------------------------
 

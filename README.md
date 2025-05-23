@@ -1,3 +1,5 @@
-### Do this thing
+### Do the thing
 
-Run run `./gato.sh` and hope for the best
+```sh
+cd ~ && git clone https://github.com/brunopagno/.dotfiles.git .dotfiles && cd .dotfiles && chmod +x gato && ./gato
+```
