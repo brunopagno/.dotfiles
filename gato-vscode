@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -e
+
+BASE_DIR="$(pwd)"
+VSCODE_USER_DIR="$HOME/.config/Code/User"
+
+echo "#GATO: Symlinking VS Code settings and keybindings"
+
+if [ ! -d "$VSCODE_USER_DIR" ]; then
+  echo "Error: VS Code user directory '$VSCODE_USER_DIR' does not exist."
+  exit 1
+fi
+
+for file in settings.json keybindings.json; do
+  SOURCE="$BASE_DIR/code/$file"
+  TARGET="$VSCODE_USER_DIR/$file"
+  if [ ! -e "$SOURCE" ]; then
+    echo "Error: Source $SOURCE does not exist."
+    exit 1
+  fi
+
+  if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
+    BACKUP="$TARGET.backup.$(date +%s)"
+    echo "Backing up $TARGET to $BACKUP"
+    mv "$TARGET" "$BACKUP"
+  fi
+
+  ln -s "$SOURCE" "$TARGET"
+  echo "Symlinked $SOURCE -> $TARGET"
+done
