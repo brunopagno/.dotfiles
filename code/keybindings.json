@@ -24,5 +24,9 @@
         "key": "shift+alt+f",
         "command": "-editor.action.formatDocument",
         "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
+        "key": "ctrl+alt+u",
+        "command": "workbench.action.toggleMaximizedPanel"
     }
 ]
