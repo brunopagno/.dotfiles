@@ -9,5 +9,10 @@
     "editor.stickyScroll.enabled": false,
     "workbench.startupEditor": "none",
     "workbench.activityBar.location": "top",
-    "workbench.colorTheme": "Quiet Light"
+    "window.zoomLevel": 1,
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.view.explorer",
+        "workbench.panel.chat"
+    ]
 }
