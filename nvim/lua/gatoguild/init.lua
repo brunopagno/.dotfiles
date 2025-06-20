@@ -80,11 +80,14 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
-set("n", "<leader>e", "<cmd>Oil<cr>")
+-- set("n", "<leader>e", "<cmd>Oil<cr>")
+set("n", "<leader>e", "<cmd>Ex<cr>")
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 1
 
 -- AI
 set("i", "<c-o>", "<Plug>(copilot-suggest)")
-set({ "n", "i" }, "<c-i>", "<cmd>CodeCompanionChat<cr>")
+set({ "n", "i" }, "<leader>a", "<cmd>CodeCompanionChat<cr>")
 
 -- for when I have some patience
 -- https://neovim.io/doc/user/tabpage.html#_4.-setting-'tabline'

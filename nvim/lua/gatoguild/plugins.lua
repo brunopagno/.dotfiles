@@ -51,18 +51,14 @@ require("lazy").setup({
 	},
 
 	-- files and search
-	{
-		"stevearc/oil.nvim",
-		opts = {
-			view_options = {
-				show_hidden = true,
-			},
-			keymaps = {
-				["<C-h>"] = false,
-				["<C-l>"] = false,
-			},
-		},
-	},
+	-- {
+	-- 	"stevearc/oil.nvim",
+	-- 	opts = {
+	-- 		view_options = {
+	-- 			show_hidden = true,
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -147,6 +143,20 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
+			"ravitemer/codecompanion-history.nvim",
 		},
+		config = function()
+			require("codecompanion").setup({
+				auto_suggest = false,
+				extensions = {
+					history = {
+						opts = {
+							picker = "fzf-lua",
+							continue_last_chat = true,
+						},
+					},
+				},
+			})
+		end,
 	},
 })
