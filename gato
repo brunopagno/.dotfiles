@@ -24,23 +24,23 @@ systemctl enable gdm
 
 # -----------------------------
 
-# echo "#GATO: Symlinking config folders"
+echo "#GATO: Symlinking config folders"
 
-# declare -a SYMLINKS=("nvim" "ghostty")
-# 
-# [ -d "$CONFIG_DIR" ] || mkdir -p "$CONFIG_DIR"
-# 
-# for folder in "${SYMLINKS[@]}"; do
-#   TARGET="$CONFIG_DIR/$folder"
-#   SOURCE="$BASE_DIR/$folder"
-# 
-#   if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
-#     echo "Skipping $TARGET (already exists)"
-#   else
-#     ln -s "$SOURCE" "$TARGET"
-#     echo "Symlinked $SOURCE -> $TARGET"
-#   fi
-# done
+declare -a SYMLINKS=("nvim" "ghostty")
+
+[ -d "$CONFIG_DIR" ] || mkdir -p "$CONFIG_DIR"
+
+for folder in "${SYMLINKS[@]}"; do
+  TARGET="$CONFIG_DIR/$folder"
+  SOURCE="$BASE_DIR/$folder"
+
+  if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
+    echo "Skipping $TARGET (already exists)"
+  else
+    ln -s "$SOURCE" "$TARGET"
+    echo "Symlinked $SOURCE -> $TARGET"
+  fi
+done
 
 # -----------------------------
 

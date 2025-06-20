@@ -34,7 +34,35 @@ require("lazy").setup({
 		end,
 	},
 
+	-- ui and theme
+	{
+		"echasnovski/mini.indentscope",
+		version = "*",
+		config = function()
+			local indentscope = require("mini.indentscope")
+			indentscope.setup({
+				draw = {
+					delay = 0,
+					animation = indentscope.gen_animation.none(),
+				},
+				symbol = "│",
+			})
+		end,
+	},
+
 	-- files and search
+	{
+		"stevearc/oil.nvim",
+		opts = {
+			view_options = {
+				show_hidden = true,
+			},
+			keymaps = {
+				["<C-h>"] = false,
+				["<C-l>"] = false,
+			},
+		},
+	},
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -55,6 +83,48 @@ require("lazy").setup({
 		},
 	},
 
+	-- LSP
+	{
+		"mfussenegger/nvim-lint",
+		config = function()
+			local lint = require("lint")
+			lint.linters_by_ft = {
+				eruby = { "erb_lint" },
+				typescript = { "eslint_d" },
+				javascript = { "eslint_d" },
+			}
+
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+				callback = function()
+					lint.try_lint()
+				end,
+			})
+		end,
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {},
+		config = function()
+			require("conform").setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					javascript = { "eslint_d" },
+					typescript = { "eslint_d" },
+					sql = { "sql_formatter" },
+				},
+			})
+		end,
+	},
+
+	-- autocompletions
+	{
+		"echasnovski/mini.completion",
+		version = "*",
+		config = function()
+			require("mini.completion").setup({})
+		end,
+	},
+
 	-- git
 	{
 		"lewis6991/gitsigns.nvim",
@@ -62,5 +132,21 @@ require("lazy").setup({
 		config = function(_, opts)
 			require("gitsigns").setup(opts)
 		end,
+	},
+
+	-- AI
+	{
+		"github/copilot.vim",
+		config = function()
+			vim.g.copilot_filetypes = { ["*"] = false }
+		end,
+	},
+	{
+		"olimorris/codecompanion.nvim",
+		opts = {},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 })
