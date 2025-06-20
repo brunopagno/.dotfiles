@@ -3,7 +3,7 @@
         "key": "alt+f",
         "command": "workbench.action.terminal.sendSequence",
         "args": {
-            "text": "${file}"
+            "text": "${relativeFile}"
         },
         "when": "terminalFocus"
     },
