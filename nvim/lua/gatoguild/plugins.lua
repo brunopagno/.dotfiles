@@ -117,11 +117,25 @@ require("lazy").setup({
 	},
 
 	-- autocompletions
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/cmp-path" },
+	{ "hrsh7th/cmp-buffer" },
 	{
-		"echasnovski/mini.completion",
-		version = "*",
+		"hrsh7th/nvim-cmp",
 		config = function()
-			require("mini.completion").setup({})
+			local cmp = require("cmp")
+			cmp.setup({
+				mapping = {
+					["<c-space>"] = cmp.mapping.complete(),
+					["<c-y>"] = cmp.mapping.confirm({ select = true }),
+				},
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
+					{ name = "nvim_lsp" },
+				}, {
+					{ name = "buffer" },
+				}),
+			})
 		end,
 	},
 
@@ -147,19 +161,10 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			"ravitemer/codecompanion-history.nvim",
 		},
 		config = function()
 			require("codecompanion").setup({
 				auto_suggest = false,
-				extensions = {
-					history = {
-						opts = {
-							picker = "fzf-lua",
-							continue_last_chat = true,
-						},
-					},
-				},
 			})
 		end,
 	},
