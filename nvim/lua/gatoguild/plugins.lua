@@ -51,14 +51,18 @@ require("lazy").setup({
 	},
 
 	-- files and search
-	-- {
-	-- 	"stevearc/oil.nvim",
-	-- 	opts = {
-	-- 		view_options = {
-	-- 			show_hidden = true,
-	-- 		},
-	-- 	},
-	-- },
+	{
+		"stevearc/oil.nvim",
+		opts = {
+			view_options = {
+				show_hidden = true,
+			},
+			keymaps = {
+				["<C-h>"] = false,
+				["<C-l>"] = false,
+			},
+		},
+	},
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },

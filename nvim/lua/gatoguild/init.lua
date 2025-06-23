@@ -80,10 +80,7 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
--- set("n", "<leader>e", "<cmd>Oil<cr>")
-set("n", "<leader>e", "<cmd>Ex<cr>")
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 1
+set("n", "<leader>e", "<cmd>Oil<cr>")
 
 -- AI
 set("i", "<c-o>", "<Plug>(copilot-suggest)")
