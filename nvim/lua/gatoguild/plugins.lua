@@ -155,17 +155,4 @@ require("lazy").setup({
 			vim.g.copilot_filetypes = { ["*"] = false }
 		end,
 	},
-	{
-		"olimorris/codecompanion.nvim",
-		opts = {},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = function()
-			require("codecompanion").setup({
-				auto_suggest = false,
-			})
-		end,
-	},
 })

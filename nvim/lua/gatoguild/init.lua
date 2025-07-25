@@ -84,7 +84,6 @@ set("n", "<leader>e", "<cmd>Oil<cr>")
 
 -- AI
 set("i", "<c-o>", "<Plug>(copilot-suggest)")
-set("n", "<leader>a", "<cmd>CodeCompanionChat<cr>")
 
 -- tabline
 vim.o.tabline = "%!v:lua.CustomTabLine()"
