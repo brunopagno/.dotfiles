@@ -100,10 +100,11 @@ function _G.CustomTabLine()
 		local modified = vim.fn.getbufvar(bufnr, "&modified") == 1 and "+ " or ""
 		if i == vim.fn.tabpagenr() then
 			s = s .. "%#TabLineSel#"
+			s = s .. " " .. modified .. "[" .. fname .. "] "
 		else
 			s = s .. "%#TabLine#"
+			s = s .. " " .. modified .. fname .. " "
 		end
-		s = s .. " " .. modified .. fname .. " "
 		if tab_count > 1 and i < tab_count then
 			s = s .. sep
 		end
