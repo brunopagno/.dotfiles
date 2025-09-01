@@ -110,8 +110,8 @@ require("lazy").setup({
 					lua = { "stylua" },
 					javascript = { "eslint_d" },
 					typescript = { "eslint_d" },
-                    javascriptreact = { "eslint_d" },
-                    typescriptreact = { "eslint_d" },
+					javascriptreact = { "eslint_d" },
+					typescriptreact = { "eslint_d" },
 					sql = { "sql_formatter" },
 				},
 			})
@@ -128,12 +128,14 @@ require("lazy").setup({
 			local cmp = require("cmp")
 			cmp.setup({
 				mapping = {
+					["<c-p>"] = cmp.mapping.select_prev_item(),
+					["<c-n>"] = cmp.mapping.select_next_item(),
 					["<c-space>"] = cmp.mapping.complete(),
 					["<c-y>"] = cmp.mapping.confirm({ select = true }),
 				},
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					{ name = "nvim_lsp" },
+					{ name = "path" },
 				}, {
 					{ name = "buffer" },
 				}),
