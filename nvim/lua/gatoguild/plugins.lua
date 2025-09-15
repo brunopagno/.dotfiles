@@ -112,7 +112,6 @@ require("lazy").setup({
 					typescript = { "eslint_d" },
 					javascriptreact = { "eslint_d" },
 					typescriptreact = { "eslint_d" },
-					sql = { "sql_formatter" },
 				},
 			})
 		end,
