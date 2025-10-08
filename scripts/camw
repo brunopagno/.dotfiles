@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DEVICE=$(cameractrls -L | grep -m1 "Logitech BRIO" | sed -n 's/.*(\(\/dev\/video[0-9]\+\)).*/\1/p')
+
+if [ -z "$DEVICE" ]; then
+  echo "Logitech BRIO camera not found." >&2
+  exit 1
+fi
+
+case "$1" in
+  -u)
+    cameractrls -d "$DEVICE" -c logitech_brio_fov=90
+    cameractrls -d "$DEVICE" -c zoom_absolute=100 ;;
+  -d)
+    cameractrls -d "$DEVICE" -c logitech_brio_fov=65
+    cameractrls -d "$DEVICE" -c zoom_absolute=100 ;;
+  *)
+    echo "Usage: $0 {-u|-d}" >&2
+    exit 1 ;;
+esac
+

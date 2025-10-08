@@ -10,3 +10,4 @@ keybind = ctrl+up=goto_split:up
 keybind = ctrl+left=goto_split:left
 keybind = super+z=toggle_split_zoom
 keybind = ctrl+equal=equalize_splits
+keybind = shift+enter=text:\x1b\r

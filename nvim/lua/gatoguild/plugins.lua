@@ -90,8 +90,8 @@ require("lazy").setup({
 			local lint = require("lint")
 			lint.linters_by_ft = {
 				eruby = { "erb_lint" },
-				typescript = { "eslint_d" },
-				javascript = { "eslint_d" },
+				typescript = { "eslint" },
+				javascript = { "eslint" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
@@ -108,10 +108,10 @@ require("lazy").setup({
 			require("conform").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
-					javascript = { "eslint_d" },
-					typescript = { "eslint_d" },
-					javascriptreact = { "eslint_d" },
-					typescriptreact = { "eslint_d" },
+					javascript = { "eslint" },
+					typescript = { "eslint" },
+					javascriptreact = { "eslint" },
+					typescriptreact = { "eslint" },
 				},
 			})
 		end,
