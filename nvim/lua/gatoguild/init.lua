@@ -14,7 +14,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.showtabline = 2
 vim.opt.mouse = "nv"
 vim.opt.termguicolors = true
-vim.opt.completeopt = { "fuzzy", "menuone", "noinsert", "popup" }
 
 vim.opt.backup = false
 vim.opt.swapfile = false
@@ -71,7 +70,6 @@ set({ "n", "v" }, "<leader>f", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end)
 -- set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
-set("i", "<C-space>", "<C-x><C-o>")
 set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
 set("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
 set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")

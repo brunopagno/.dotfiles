@@ -117,6 +117,31 @@ require("lazy").setup({
 		end,
 	},
 
+	-- autocompletions
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/cmp-path" },
+	{ "hrsh7th/cmp-buffer" },
+	{
+		"hrsh7th/nvim-cmp",
+		config = function()
+			local cmp = require("cmp")
+			cmp.setup({
+				mapping = {
+					["<c-p>"] = cmp.mapping.select_prev_item(),
+					["<c-n>"] = cmp.mapping.select_next_item(),
+					["<c-space>"] = cmp.mapping.complete(),
+					["<c-y>"] = cmp.mapping.confirm({ select = true }),
+				},
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
+					{ name = "path" },
+				}, {
+					{ name = "buffer" },
+				}),
+			})
+		end,
+	},
+
 	-- git
 	{
 		"lewis6991/gitsigns.nvim",
