@@ -66,12 +66,10 @@ set("n", "<leader>p", "<cmd>FzfLua files<cr>")
 set("n", "<leader>,", "<cmd>FzfLua buffers<cr>")
 set("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
 
--- format
+-- format, LSP and lint
 set({ "n", "v" }, "<leader>f", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end)
-
--- LSP
 -- set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
 set("i", "<C-space>", "<C-x><C-o>")
 set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
@@ -80,6 +78,7 @@ set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
+set("n", "<leader>o", "<cmd>OrganizeImports<cr>")
 
 -- file navigation
 set("n", "<leader>e", "<cmd>Oil<cr>")
