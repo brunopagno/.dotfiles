@@ -1,0 +1,5 @@
+gui:
+  returnImmediately: true
+logs:
+  since: 10m
+  tail: 1000
