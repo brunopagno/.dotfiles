@@ -5,35 +5,13 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- general dependencies
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		opts = {
-			ensure_installed = {
-				"lua",
-				"vim",
-				"vimdoc",
-				"javascript",
-				"typescript",
-				"ruby",
-			},
-			highlight = {
-				enable = true,
-			},
-		},
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
-		end,
-	},
-
 	-- ui and theme
 	{
 		"echasnovski/mini.indentscope",
@@ -152,10 +130,10 @@ require("lazy").setup({
 	},
 
 	-- AI
-	{
-		"github/copilot.vim",
-		config = function()
-			vim.g.copilot_filetypes = { ["*"] = false }
-		end,
-	},
+	-- {
+	-- 	"github/copilot.vim",
+	-- 	config = function()
+	-- 		vim.g.copilot_filetypes = { ["*"] = false }
+	-- 	end,
+	-- },
 })
