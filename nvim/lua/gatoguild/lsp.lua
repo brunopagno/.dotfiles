@@ -44,6 +44,7 @@ vim.lsp.config["tsserver"] = {
 }
 vim.lsp.enable("tsserver")
 
+-- vscode-langservers-extracted
 vim.lsp.config["eslint"] = {
 	cmd = { "vscode-eslint-language-server", "--stdio" },
 	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
