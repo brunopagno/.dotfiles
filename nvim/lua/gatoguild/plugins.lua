@@ -112,4 +112,12 @@ require("lazy").setup({
 			require("gitsigns").setup(opts)
 		end,
 	},
+
+	-- LLM
+	{
+		"github/copilot.vim",
+		config = function()
+			vim.g.copilot_filetypes = { ["*"] = false }
+		end,
+	},
 })

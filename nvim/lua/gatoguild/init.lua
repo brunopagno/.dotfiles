@@ -81,12 +81,12 @@ map("n", "<leader>o", "<cmd>OrganizeImports<cr>")
 -- file navigation
 map("n", "<leader>e", "<cmd>Oil<cr>")
 
--- AI
--- map("i", "<c-o>", "<Plug>(copilot-suggest)")
+-- LLM
+map("i", "<c-o>", "<Plug>(copilot-suggest)")
 
 -- tabline
 require("gatoguild.tabline")
 require("gatoguild.lsp")
 require("gatoguild.plugins")
 
--- vim.cmd([[colorscheme default]])
+vim.cmd([[colorscheme default]])
