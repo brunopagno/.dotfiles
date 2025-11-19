@@ -14,4 +14,3 @@ gsettings set org.gnome.mutter check-alive-timeout 20000
 gsettings set org.gnome.desktop.calendar show-weekdate true
 
 gsettings set org.gnome.desktop.interface enable-animations false
-gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
