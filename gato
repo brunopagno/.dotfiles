@@ -6,18 +6,14 @@ echo "#GATO: Preparation"
 
 echo "updating the system"
 sudo pacman -Syu
-echo "installing utilities"
-sudo pacman -S git fzf wget ripgrep wl-clipboard bash-completion
-echo "installing fonts"
-sudo pacman -S ttf-jetbrains-mono-nerd 
-echo "install apps"
-sudo pacman -S neovim mise
-echo "install docker"
-sudo pacman -S docker docker-compose docker-buildx
-echo "install gnome and tools"
-sudo pacman -S gdm gnome
-sudo pacman -S bluez fprintd power-profiles-daemon
-systemctl enable gdm
+echo "installing things"
+sudo pacman -S git fzf wget ripgrep wl-clipboard bash-completion \
+  ttf-jetbrains-mono-nerd neovim mise \
+  docker docker-compose docker-buildx \
+  bluez fprintd power-profiles-daemon \
+  lazygit lazydocker
+sudo systemctl enable bluetooth
+sudo usermod -aG docker $USER
 
 # -----------------------------
 
