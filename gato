@@ -17,17 +17,19 @@ sudo usermod -aG docker $USER
 
 # -----------------------------
 
-echo "#GATO: Copying .bashrc"
+echo "#GATO: Copying config files"
 
 BASE_DIR="$(pwd)"
+FILES=(.bashrc .inputrc)
 
-BASHRC_SOURCE="$BASE_DIR/.bashrc"
-BASHRC_TARGET="$HOME/.bashrc"
-
-[ -e "$BASHRC_TARGET" ] && cp "$BASHRC_TARGET" "$BASHRC_TARGET.old"
-
-cp "$BASHRC_SOURCE" "$BASHRC_TARGET"
-echo "Copied .bashrc to $BASHRC_TARGET"
+for file in "${FILES[@]}"; do
+  echo "#GATO: Copying $file"
+  SOURCE="$BASE_DIR/$file"
+  TARGET="$HOME/$file"
+  [ -e "$TARGET" ] && cp "$TARGET" "$TARGET.old"
+  cp "$SOURCE" "$TARGET"
+  echo "Copied $file to $TARGET"
+done
 
 # ----------------------------
 

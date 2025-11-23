@@ -9,15 +9,6 @@ export PATH="$PATH:./node_modules/.bin"
 PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'
 PS1='\u@\h \W \[\e[36m\]${PS1_CMD1}\[\e[0m\] > '
 
-# input
-set completion-prefix-display-length 2
-set show-all-if-ambiguous on
-set show-all-if-unmodified on
-set mark-directories on
-set match-hidden-files off
-set page-completions off
-set colored-stats on
-
 # history
 shopt -s histappend
 HISTSIZE=20000
