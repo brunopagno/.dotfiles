@@ -12,6 +12,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  -- ui
+	{
+		"echasnovski/mini.indentscope",
+		version = "*",
+		config = function()
+			local indentscope = require("mini.indentscope")
+			indentscope.setup({
+				draw = {
+					delay = 0,
+					animation = indentscope.gen_animation.none(),
+				},
+				symbol = "│",
+			})
+		end,
+	},
+
 	-- files and search
 	{
 		"stevearc/oil.nvim",
