@@ -81,9 +81,6 @@ map("n", "<leader>o", "<cmd>OrganizeImports<cr>")
 -- file navigation
 map("n", "<leader>e", "<cmd>Oil<cr>")
 
--- LLM
-map("i", "<c-o>", "<Plug>(copilot-suggest)")
-
 -- tabline
 require("gatoguild.tabline")
 require("gatoguild.lsp")
