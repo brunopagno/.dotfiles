@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- ui
+	-- ui
 	{
 		"echasnovski/mini.indentscope",
 		version = "*",
@@ -126,14 +126,6 @@ require("lazy").setup({
 		opts = {},
 		config = function(_, opts)
 			require("gitsigns").setup(opts)
-		end,
-	},
-
-	-- LLM
-	{
-		"github/copilot.vim",
-		config = function()
-			vim.g.copilot_filetypes = { ["*"] = false }
 		end,
 	},
 })
