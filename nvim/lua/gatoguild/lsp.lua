@@ -19,7 +19,7 @@ vim.lsp.enable("luals")
 -- TypeScript/JavaScript
 vim.lsp.config["tsserver"] = {
 	cmd = { "typescript-language-server", "--stdio" },
-	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
 	on_attach = function(_client, bufnr)
 		vim.api.nvim_buf_create_user_command(bufnr, "OrganizeImports", function()
