@@ -13,7 +13,6 @@ vim.opt.ruler = true
 vim.opt.signcolumn = "yes"
 vim.opt.showtabline = 2
 vim.opt.mouse = "nv"
-vim.opt.termguicolors = true
 
 vim.opt.backup = false
 vim.opt.swapfile = false
@@ -67,7 +66,7 @@ map("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
 
 -- format, LSP and lint
 map({ "n", "v" }, "<leader>f", function()
-	require("conform").format({ async = true, lsp_fallback = true })
+	require("conform").format({ async = true, lsp_format = "fallback" })
 end)
 -- map("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
