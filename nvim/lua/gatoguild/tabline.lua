@@ -3,7 +3,7 @@ function _G.CustomTabLine()
 	local s = ""
 	local sep = "│"
 	local tab_count = vim.fn.tabpagenr("$")
-	for i = 1, vim.fn.tabpagenr("$") do
+	for i = 1, tab_count do
 		local winnr = vim.fn.tabpagewinnr(i)
 		local buflist = vim.fn.tabpagebuflist(i)
 		local bufnr = buflist[winnr]

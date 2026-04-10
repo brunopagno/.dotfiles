@@ -43,17 +43,6 @@ map("n", "<leader>tt", "<cmd>wincmd T<cr>")
 map("n", "<leader>tc", "<cmd>tabc<cr>")
 map("n", "<C-M-l>", "<cmd>tabn<cr>")
 map("n", "<C-M-h>", "<cmd>tabp<cr>")
-map("n", "<leader>z", function()
-	if vim.g.is_zoomed_in then
-		vim.g.is_zoomed_in = false
-		vim.cmd("wincmd =")
-	else
-		vim.g.is_zoomed_in = true
-		vim.cmd("wincmd _")
-		vim.cmd("wincmd |")
-		vim.cmd("normal! zH")
-	end
-end)
 
 -- buffers
 map("n", "<leader>q", "<cmd>bd<cr>")

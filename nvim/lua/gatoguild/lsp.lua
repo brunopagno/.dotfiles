@@ -17,7 +17,7 @@ vim.lsp.config["luals"] = {
 vim.lsp.enable("luals")
 
 -- TypeScript/JavaScript
-vim.lsp.config["tsserver"] = {
+vim.lsp.config["ts_ls"] = {
 	cmd = { "typescript-language-server", "--stdio" },
 	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
@@ -33,7 +33,7 @@ vim.lsp.config["tsserver"] = {
 		end, { desc = "Organize imports" })
 	end,
 }
-vim.lsp.enable("tsserver")
+vim.lsp.enable("ts_ls")
 
 -- Ruby
 vim.lsp.config["ruby-lsp"] = {
