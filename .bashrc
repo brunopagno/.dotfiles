@@ -2,7 +2,7 @@
 export EDITOR=nvim
 
 #path
-export PATH="$PATH:./node_modules/.bin"
+export PATH="$HOME/.local/bin:$PATH:./node_modules/.bin"
 
 # prompt
 # pure magic https://bash-prompt-generator.org/

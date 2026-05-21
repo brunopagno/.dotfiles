@@ -17,6 +17,10 @@ vim.opt.mouse = "nv"
 vim.opt.backup = false
 vim.opt.swapfile = false
 
+vim.diagnostic.config({
+	float = { source = true },
+})
+
 -- Keymap
 local opts = { noremap = true, silent = true }
 
@@ -55,9 +59,8 @@ map("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
 
 -- format, LSP and lint
 map({ "n", "v" }, "<leader>f", function()
-	require("conform").format({ async = true, lsp_format = "fallback" })
+	vim.lsp.buf.format({ async = true })
 end)
--- map("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end)
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
 map("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
 map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")

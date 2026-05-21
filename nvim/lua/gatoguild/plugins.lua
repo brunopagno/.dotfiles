@@ -7,10 +7,6 @@ vim.pack.add({
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/ibhagwan/fzf-lua",
 
-  -- langservers
-  "https://github.com/mfussenegger/nvim-lint",
-  "https://github.com/stevearc/conform.nvim",
-
   -- autocompletions
   "https://github.com/hrsh7th/cmp-nvim-lsp",
   "https://github.com/hrsh7th/cmp-path",
@@ -35,28 +31,6 @@ require("fzf-lua").setup({
   winopts = { preview = { layout = "vertical" } },
   file_ignore_patterns = { "vendor" },
   keymap = { fzf = { ["ctrl-q"] = "select-all+accept" } },
-})
-
-local lint = require("lint")
-lint.linters_by_ft = {
-  eruby = { "erb_lint" },
-  typescript = { "eslint" },
-  javascript = { "eslint" },
-}
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-  callback = function()
-    lint.try_lint()
-  end,
-})
-
-require("conform").setup({
-  formatters_by_ft = {
-    lua = { "stylua" },
-    javascript = { "eslint_d" },
-    typescript = { "eslint_d" },
-    javascriptreact = { "eslint_d" },
-    typescriptreact = { "eslint_d" },
-  },
 })
 
 local cmp = require("cmp")
