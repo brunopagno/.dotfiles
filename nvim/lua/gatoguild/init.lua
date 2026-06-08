@@ -18,14 +18,14 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 
 vim.diagnostic.config({
-	float = { source = true },
+  float = { source = true },
 })
 
 -- Keymap
 local opts = { noremap = true, silent = true }
 
 local function map(mode, lhs, rhs)
-	vim.keymap.set(mode, lhs, rhs, opts)
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 vim.g.mapleader = " "
@@ -59,7 +59,7 @@ map("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
 
 -- format, LSP and lint
 map({ "n", "v" }, "<leader>f", function()
-	vim.lsp.buf.format({ async = true })
+  vim.lsp.buf.format({ async = true })
 end)
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
 map("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
@@ -67,7 +67,6 @@ map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
-map("n", "<leader>o", "<cmd>OrganizeImports<cr>")
 
 -- file navigation
 map("n", "<leader>e", "<cmd>Oil<cr>")

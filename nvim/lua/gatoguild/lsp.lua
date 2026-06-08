@@ -18,23 +18,13 @@ vim.lsp.enable("luals")
 
 -- TypeScript/JavaScript
 vim.lsp.config["ts_ls"] = {
-	cmd = { "typescript-language-server", "--stdio" },
-	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-	root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
-	on_attach = function(_client, bufnr)
-		vim.api.nvim_buf_create_user_command(bufnr, "OrganizeImports", function()
-			vim.lsp.buf.code_action({
-				context = {
-					only = { "source.organizeImports" },
-					diagnostics = {},
-				},
-				apply = true,
-			})
-		end, { desc = "Organize imports" })
-	end,
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
 }
 vim.lsp.enable("ts_ls")
 
+-- vscode-langservers-extracted
 vim.lsp.config["eslint"] = {
   cmd = { "vscode-eslint-language-server", "--stdio" },
   filetypes = {
@@ -88,3 +78,21 @@ vim.lsp.config["ruby-lsp"] = {
   },
 }
 vim.lsp.enable("ruby-lsp")
+
+-- Rust
+-- vim.lsp.config["rust-analyzer"] = {
+--   cmd = { "rust-analyzer" },
+--   filetypes = { "rust" },
+--   root_markers = { "Cargo.toml", "Cargo.lock", ".git" },
+--   settings = {
+--     ["rust-analyzer"] = {
+--       checkOnSave = {
+--         command = "clippy",
+--       },
+--       rustfmt = {
+--         enableRangeFormatting = true,
+--       },
+--     },
+--   },
+-- }
+-- vim.lsp.enable("rust-analyzer")
