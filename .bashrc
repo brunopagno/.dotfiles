@@ -4,6 +4,9 @@ export EDITOR=nvim
 #path
 export PATH="$HOME/.local/bin:$PATH:./node_modules/.bin"
 
+# dead keys
+export GTK_IM_MODULE=simple
+
 # prompt
 # pure magic https://bash-prompt-generator.org/
 PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'
@@ -24,5 +27,7 @@ if command -v fzf &> /dev/null; then
   eval "$(fzf --bash)"
 fi
 
-# applicaiton init
-eval "$(mise activate bash)"
+# mise
+if command -v mise &> /dev/null; then
+  eval "$(mise activate bash)"
+fi
