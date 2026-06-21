@@ -80,19 +80,17 @@ vim.lsp.config["ruby-lsp"] = {
 vim.lsp.enable("ruby-lsp")
 
 -- Rust
--- vim.lsp.config["rust-analyzer"] = {
---   cmd = { "rust-analyzer" },
---   filetypes = { "rust" },
---   root_markers = { "Cargo.toml", "Cargo.lock", ".git" },
---   settings = {
---     ["rust-analyzer"] = {
---       checkOnSave = {
---         command = "clippy",
---       },
---       rustfmt = {
---         enableRangeFormatting = true,
---       },
---     },
---   },
--- }
--- vim.lsp.enable("rust-analyzer")
+vim.lsp.config["rust-analyzer"] = {
+  cmd = { "rustup", "run", "stable", "rust-analyzer" },
+  filetypes = { "rust" },
+  root_markers = { "Cargo.toml", "rust-project.json" },
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = true,
+      check = { command = "clippy" },
+      cargo = { buildScripts = { enable = true } },
+      procMacro = { enable = true },
+    },
+  },
+}
+vim.lsp.enable("rust-analyzer")
