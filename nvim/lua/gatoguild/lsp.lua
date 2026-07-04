@@ -21,6 +21,17 @@ vim.lsp.config["ts_ls"] = {
   cmd = { "typescript-language-server", "--stdio" },
   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
   root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+  on_attach = function(_, bufnr)
+    vim.api.nvim_buf_create_user_command(bufnr, "OrganizeImports", function()
+      vim.lsp.buf.code_action({
+        context = {
+          only = { "source.organizeImports" },
+          diagnostics = {},
+        },
+        apply = true,
+      })
+    end, { desc = "Organize imports" })
+  end,
 }
 vim.lsp.enable("ts_ls")
 
@@ -86,10 +97,10 @@ vim.lsp.config["rust-analyzer"] = {
   root_markers = { "Cargo.toml", "rust-project.json" },
   settings = {
     ["rust-analyzer"] = {
-      checkOnSave = true,
       check = { command = "clippy" },
       cargo = { buildScripts = { enable = true } },
       procMacro = { enable = true },
+      diagnostics = { experimental = { enable = true } },
     },
   },
 }
