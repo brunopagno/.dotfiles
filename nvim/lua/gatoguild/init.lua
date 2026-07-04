@@ -21,57 +21,49 @@ vim.diagnostic.config({
   float = { source = true },
 })
 
--- Keymap
-local opts = { noremap = true, silent = true }
-
-local function map(mode, lhs, rhs)
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-map("n", "<leader>/", "<cmd>noh<cr>")
+vim.keymap.set("n", "<leader>/", "<cmd>noh<cr>")
 
 -- copy to clipboard
-map("v", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
 
 -- navigation
-map("n", "<C-k>", "<cmd>wincmd k<cr>")
-map("n", "<C-j>", "<cmd>wincmd j<cr>")
-map("n", "<C-l>", "<cmd>wincmd l<cr>")
-map("n", "<C-h>", "<cmd>wincmd h<cr>")
-map("n", "<leader>vs", "<cmd>vsplit<cr>")
-map("n", "<leader>ss", "<cmd>split<cr>")
-map("n", "<leader>tt", "<cmd>wincmd T<cr>")
-map("n", "<leader>tc", "<cmd>tabc<cr>")
-map("n", "<C-M-l>", "<cmd>tabn<cr>")
-map("n", "<C-M-h>", "<cmd>tabp<cr>")
+vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<cr>")
+vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<cr>")
+vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<cr>")
+vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<cr>")
+vim.keymap.set("n", "<leader>vs", "<cmd>vsplit<cr>")
+vim.keymap.set("n", "<leader>ss", "<cmd>split<cr>")
+vim.keymap.set("n", "<leader>tt", "<cmd>wincmd T<cr>")
+vim.keymap.set("n", "<leader>tc", "<cmd>tabc<cr>")
+vim.keymap.set("n", "<C-M-l>", "<cmd>tabn<cr>")
+vim.keymap.set("n", "<C-M-h>", "<cmd>tabp<cr>")
 
 -- buffers
-map("n", "<leader>q", "<cmd>bd<cr>")
-map("n", "<leader>cfp", "<cmd>call setreg('+', expand('%:.'))<cr>")
+vim.keymap.set("n", "<leader>q", "<cmd>bd<cr>")
+vim.keymap.set("n", "<leader>cfp", "<cmd>call setreg('+', expand('%:.'))<cr>")
 
 -- search and find
-map("n", "<leader>p", "<cmd>FzfLua files<cr>")
-map("n", "<leader>,", "<cmd>FzfLua buffers<cr>")
-map("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
+vim.keymap.set("n", "<leader>p", "<cmd>FzfLua files<cr>")
+vim.keymap.set("n", "<leader>,", "<cmd>FzfLua buffers<cr>")
+vim.keymap.set("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
 
 -- format, LSP and lint
-map({ "n", "v" }, "<leader>f", function()
+vim.keymap.set({ "n", "v" }, "<leader>f", function()
   vim.lsp.buf.format({ async = true })
 end)
-map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
-map("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
-map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
-map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
-map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
+vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
+vim.keymap.set("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
+vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
+vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
 -- file navigation
-map("n", "<leader>e", "<cmd>Oil<cr>")
+vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
 
--- tabline
 require("gatoguild.tabline")
 require("gatoguild.lsp")
 require("gatoguild.plugins")
