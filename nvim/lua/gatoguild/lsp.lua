@@ -91,17 +91,20 @@ vim.lsp.config["ruby-lsp"] = {
 vim.lsp.enable("ruby-lsp")
 
 -- Rust
-vim.lsp.config["rust-analyzer"] = {
-  cmd = { "rustup", "run", "stable", "rust-analyzer" },
-  filetypes = { "rust" },
-  root_markers = { "Cargo.toml", "rust-project.json" },
-  settings = {
-    ["rust-analyzer"] = {
-      check = { command = "clippy" },
-      cargo = { buildScripts = { enable = true } },
-      procMacro = { enable = true },
-      diagnostics = { experimental = { enable = true } },
-    },
-  },
-}
-vim.lsp.enable("rust-analyzer")
+-- vim.lsp.config["rust-analyzer"] = {
+--   cmd = { "rustup", "run", "stable", "rust-analyzer" },
+--   filetypes = { "rust" },
+--   root_markers = { "Cargo.toml", "rust-project.json" },
+--   settings = {
+--     ["rust-analyzer"] = {
+--       check = { command = "clippy" },
+--       cargo = {
+--         buildScripts = { enable = true },
+--         extraEnv = { RUSTC_BOOTSTRAP = "1" },
+--       },
+--       procMacro = { enable = true },
+--       diagnostics = { experimental = { enable = true } },
+--     },
+--   },
+-- }
+-- vim.lsp.enable("rust-analyzer")
