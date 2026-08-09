@@ -31,3 +31,8 @@ fi
 if command -v mise &> /dev/null; then
   eval "$(mise activate bash)"
 fi
+
+# aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
