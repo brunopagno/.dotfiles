@@ -9,12 +9,15 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
-vim.opt.ruler = true
+-- vim.opt.ruler = true
 vim.opt.signcolumn = "yes"
 vim.opt.showtabline = 2
 vim.opt.mouse = "nv"
 
-vim.opt.backup = false
+vim.opt.completeopt = { "menu", "menuone", "noselect", "popup", "fuzzy" }
+vim.opt.autocompletedelay = 100
+
+-- vim.opt.backup = false
 vim.opt.swapfile = false
 
 vim.diagnostic.config({
@@ -54,12 +57,14 @@ vim.keymap.set("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
   vim.lsp.buf.format({ async = true })
 end)
-vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
-vim.keymap.set("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
-vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+-- vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
+-- vim.keymap.set("n", "<f2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
+-- vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>")
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
-vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
+-- vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
+vim.keymap.set("i", "<C-space>", function() vim.lsp.completion.get() end)
+
 
 -- file navigation
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
@@ -69,157 +74,174 @@ vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
 -- tabline
 -- #####################################
 
-vim.o.tabline = "%!v:lua.CustomTabLine()"
-function _G.CustomTabLine()
-	local s = ""
-	local sep = "│"
-	local tab_count = vim.fn.tabpagenr("$")
-	for i = 1, tab_count do
-		local winnr = vim.fn.tabpagewinnr(i)
-		local buflist = vim.fn.tabpagebuflist(i)
-		local bufnr = buflist[winnr]
-		local name = vim.fn.bufname(bufnr)
-		local fname = name ~= "" and vim.fn.fnamemodify(name, ":t") or "[No Name]"
-		local modified = vim.fn.getbufvar(bufnr, "&modified") == 1 and "+ " or ""
-		if i == vim.fn.tabpagenr() then
-			s = s .. "%#TabLineSel#"
-			s = s .. " " .. modified .. "[" .. fname .. "] "
-		else
-			s = s .. "%#TabLine#"
-			s = s .. " " .. modified .. fname .. " "
-		end
-		if tab_count > 1 and i < tab_count then
-			s = s .. sep
-		end
-	end
-	s = s .. "%#TabLineFill#"
-	return s
-end
+-- vim.o.tabline = "%!v:lua.CustomTabLine()"
+-- function _G.CustomTabLine()
+-- 	local s = ""
+-- 	local sep = "│"
+-- 	local tab_count = vim.fn.tabpagenr("$")
+-- 	for i = 1, tab_count do
+-- 		local winnr = vim.fn.tabpagewinnr(i)
+-- 		local buflist = vim.fn.tabpagebuflist(i)
+-- 		local bufnr = buflist[winnr]
+-- 		local name = vim.fn.bufname(bufnr)
+-- 		local fname = name ~= "" and vim.fn.fnamemodify(name, ":t") or "[No Name]"
+-- 		local modified = vim.fn.getbufvar(bufnr, "&modified") == 1 and "+ " or ""
+-- 		if i == vim.fn.tabpagenr() then
+-- 			s = s .. "%#TabLineSel#"
+-- 			s = s .. " " .. modified .. "[" .. fname .. "] "
+-- 		else
+-- 			s = s .. "%#TabLine#"
+-- 			s = s .. " " .. modified .. fname .. " "
+-- 		end
+-- 		if tab_count > 1 and i < tab_count then
+-- 			s = s .. sep
+-- 		end
+-- 	end
+-- 	s = s .. "%#TabLineFill#"
+-- 	return s
+-- end
 
 
 -- #####################################
 -- LSP
 -- #####################################
 
+-- native completion: popup on typing in buffers with an LSP client
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(ev)
+--     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--     if not (client and client:supports_method("textDocument/completion")) then
+--       return
+--     end
+-- 
+--     vim.lsp.completion.enable(true, client.id, ev.buf)
+-- 
+--     -- Keep the popup LSP-only instead of pulling in words from every buffer.
+--     vim.bo[ev.buf].complete = "o"
+--     vim.bo[ev.buf].autocomplete = true
+--   end,
+-- })
+
 -- Lua
-if vim.fn.executable("lua-language-server") == 1 then
-  vim.lsp.config["luals"] = {
-    cmd = { "lua-language-server" },
-    filetypes = { "lua" },
-    root_markers = { ".luarc.json", ".luarc.jsonc" },
-    settings = {
-      Lua = {
-        runtime = {
-          version = "LuaJIT",
-        },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
-        },
-      },
-    },
-  }
-  vim.lsp.enable("luals")
-end
+--if vim.fn.executable("lua-language-server") == 1 then
+--  vim.lsp.config["luals"] = {
+--    cmd = { "lua-language-server" },
+--    filetypes = { "lua" },
+--    root_markers = { ".luarc.json", ".luarc.jsonc" },
+--    settings = {
+--      Lua = {
+--        runtime = {
+--          version = "LuaJIT",
+--        },
+--        workspace = {
+--          library = vim.api.nvim_get_runtime_file("", true),
+--        },
+--      },
+--    },
+--  }
+--  vim.lsp.enable("luals")
+--end
 
--- TypeScript/JavaScript
-if vim.fn.executable("typescript-language-server") == 1 then
-  vim.lsp.config["ts_ls"] = {
-    cmd = { "typescript-language-server", "--stdio" },
-    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-    root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
-    on_attach = function(_, bufnr)
-      vim.api.nvim_buf_create_user_command(bufnr, "OrganizeImports", function()
-        vim.lsp.buf.code_action({
-          context = {
-            only = { "source.organizeImports" },
-            diagnostics = {},
-          },
-          apply = true,
-        })
-      end, { desc = "Organize imports" })
-    end,
-  }
-  vim.lsp.enable("ts_ls")
-end
+---- TypeScript/JavaScript
+--if vim.fn.executable("typescript-language-server") == 1 then
+--  vim.lsp.config["ts_ls"] = {
+--    cmd = { "typescript-language-server", "--stdio" },
+--    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+--    root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+--    on_attach = function(_, bufnr)
+--      vim.api.nvim_buf_create_user_command(bufnr, "OrganizeImports", function()
+--        vim.lsp.buf.code_action({
+--          context = {
+--            only = { "source.organizeImports" },
+--            diagnostics = {},
+--          },
+--          apply = true,
+--        })
+--      end, { desc = "Organize imports" })
+--    end,
+--  }
+--  vim.lsp.enable("ts_ls")
+--end
 
-if vim.fn.executable("vscode-eslint-language-server") == 1 then
-  vim.lsp.config["eslint"] = {
-    cmd = { "vscode-eslint-language-server", "--stdio" },
-    filetypes = {
-      "javascript", "javascriptreact", "typescript", "typescriptreact",
-      "json", "jsonc", "css",
-    },
-    root_markers = {
-      "eslint.config.mjs", "eslint.config.js", "eslint.config.cjs",
-      ".eslintrc", ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.json",
-      "package.json", ".git",
-    },
-    settings = {
-      validate = "on",
-      useESLintClass = false,
-      experimental = { useFlatConfig = false },
-      codeAction = {
-        disableRuleComment = { enable = true, location = "separateLine" },
-        showDocumentation = { enable = true },
-      },
-      codeActionOnSave = { enable = false, mode = "all" },
-      format = true,
-      quiet = false,
-      onIgnoredFiles = "off",
-      rulesCustomizations = {},
-      run = "onType",
-      problems = { shortenToSingleLine = false },
-      nodePath = "",
-      workingDirectory = { mode = "location" },
-    },
-    on_init = function(client)
-      local workspace = client.workspace_folders and client.workspace_folders[1]
-      if workspace then
-        client.settings.workspaceFolder = {
-          uri = workspace.uri,
-          name = workspace.name,
-        }
-      end
-    end,
-  }
-  vim.lsp.enable("eslint")
-end
+---- install vscode-langservers-extracted
+--if vim.fn.executable("vscode-eslint-language-server") == 1 then
+--  vim.lsp.config["eslint"] = {
+--    cmd = { "vscode-eslint-language-server", "--stdio" },
+--    filetypes = {
+--      "javascript", "javascriptreact", "typescript", "typescriptreact",
+--      "json", "jsonc", "css",
+--    },
+--    root_markers = {
+--      "eslint.config.mjs", "eslint.config.js", "eslint.config.cjs",
+--      ".eslintrc", ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.json",
+--      "package.json", ".git",
+--    },
+--    settings = {
+--      validate = "on",
+--      useESLintClass = false,
+--      experimental = { useFlatConfig = false },
+--      codeAction = {
+--        disableRuleComment = { enable = true, location = "separateLine" },
+--        showDocumentation = { enable = true },
+--      },
+--      codeActionOnSave = { enable = false, mode = "all" },
+--      format = true,
+--      quiet = false,
+--      onIgnoredFiles = "off",
+--      rulesCustomizations = {},
+--      run = "onType",
+--      problems = { shortenToSingleLine = false },
+--      nodePath = "",
+--      workingDirectory = { mode = "location" },
+--    },
+--    on_init = function(client)
+--      local workspace = client.workspace_folders and client.workspace_folders[1]
+--      if workspace then
+--        client.settings.workspaceFolder = {
+--          uri = workspace.uri,
+--          name = workspace.name,
+--        }
+--      end
+--    end,
+--  }
+--  vim.lsp.enable("eslint")
+--end
 
--- Ruby
-if vim.fn.executable("ruby-lsp") == 1 then
-  vim.lsp.config["ruby-lsp"] = {
-    cmd = { "ruby-lsp" },
-    filetypes = { "ruby", "eruby" },
-    root_markers = { ".git", ".rubocop.yml", "Gemfile" },
-    settings = {
-      ruby = {
-        formatter = "auto",
-      },
-    },
-  }
-  vim.lsp.enable("ruby-lsp")
-end
+---- Ruby
+--if vim.fn.executable("ruby-lsp") == 1 then
+--  vim.lsp.config["ruby-lsp"] = {
+--    cmd = { "ruby-lsp" },
+--    filetypes = { "ruby", "eruby" },
+--    root_markers = { ".git", ".rubocop.yml", "Gemfile" },
+--    settings = {
+--      ruby = {
+--        formatter = "auto",
+--      },
+--    },
+--  }
+--  vim.lsp.enable("ruby-lsp")
+--end
 
--- Rust
-if vim.fn.executable("rust-analyzer") == 1 then
-  vim.lsp.config["rust-analyzer"] = {
-    cmd = { "rustup", "run", "stable", "rust-analyzer" },
-    filetypes = { "rust" },
-    root_markers = { "Cargo.toml", "rust-project.json" },
-    settings = {
-      ["rust-analyzer"] = {
-        check = { command = "clippy" },
-        cargo = {
-          buildScripts = { enable = true },
-          extraEnv = { RUSTC_BOOTSTRAP = "1" },
-        },
-        procMacro = { enable = true },
-        diagnostics = { experimental = { enable = true } },
-      },
-    },
-  }
-  vim.lsp.enable("rust-analyzer")
-end
+---- Rust
+--if vim.fn.executable("rust-analyzer") == 1 then
+--  vim.lsp.config["rust-analyzer"] = {
+--    cmd = { "rustup", "run", "stable", "rust-analyzer" },
+--    filetypes = { "rust" },
+--    root_markers = { "Cargo.toml", "rust-project.json" },
+--    settings = {
+--      ["rust-analyzer"] = {
+--        check = { command = "clippy" },
+--        cargo = {
+--          buildScripts = { enable = true },
+--          extraEnv = { RUSTC_BOOTSTRAP = "1" },
+--        },
+--        procMacro = { enable = true },
+--        diagnostics = { experimental = { enable = true } },
+--      },
+--    },
+--  }
+--  vim.lsp.enable("rust-analyzer")
+--end
 
 
 -- #####################################
@@ -228,21 +250,18 @@ end
 
 vim.pack.add({
   -- ui
-  "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/echasnovski/mini.icons",
   "https://github.com/echasnovski/mini.indentscope",
 
   -- files and search
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/ibhagwan/fzf-lua",
 
-  -- autocompletions
-  "https://github.com/hrsh7th/cmp-nvim-lsp",
-  "https://github.com/hrsh7th/cmp-path",
-  "https://github.com/hrsh7th/nvim-cmp",
-
   -- git
   "https://github.com/lewis6991/gitsigns.nvim",
 })
+
+require("mini.icons").setup()
 
 local indentscope = require("mini.indentscope")
 indentscope.setup({
@@ -261,18 +280,4 @@ require("fzf-lua").setup({
   keymap = { fzf = { ["ctrl-q"] = "select-all+accept" } },
 })
 
-local cmp = require("cmp")
-cmp.setup({
-  mapping = {
-    ["<c-p>"] = cmp.mapping.select_prev_item(),
-    ["<c-n>"] = cmp.mapping.select_next_item(),
-    ["<c-space>"] = cmp.mapping.complete(),
-    ["<c-y>"] = cmp.mapping.confirm({ select = true }),
-  },
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "path" },
-  }),
-})
-
-vim.cmd([[colorscheme default]])
+-- vim.cmd([[colorscheme default]])
