@@ -32,7 +32,7 @@ local missing = {}
 for name, server in pairs(servers) do
   if vim.fn.executable(server.bin) == 1 then
     vim.lsp.enable(name)
-  else
+  elseif vim.fn.executable(server.install:match("^%S+")) == 1 then
     table.insert(missing, name)
   end
 end
