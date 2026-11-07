@@ -5,8 +5,9 @@
 local servers = {
   lua_ls = { bin = "lua-language-server", install = "mise use -g lua-language-server" },
   ruby_lsp = { bin = "ruby-lsp", install = "gem install ruby-lsp" },
-  tsc = { bin = "tsc", install = "mise use -g npm:typescript@7" }, -- TS 7 native (Go) server
-  eslint = { bin = "vscode-eslint-language-server", install = "mise use -g npm:vscode-langservers-extracted" },
+  tsc = { bin = "tsc", install = "mise use -g npm:typescript@7" },
+  oxlint = { bin = "oxlint" },
+  oxfmt = { bin = "oxfmt" },
 }
 
 vim.lsp.config("lua_ls", {
@@ -18,10 +19,10 @@ vim.lsp.config("lua_ls", {
   },
 })
 
-vim.lsp.config("eslint", {
+vim.lsp.config("oxfmt", {
   filetypes = {
     "javascript", "javascriptreact", "typescript", "typescriptreact",
-    "json", "jsonc", "css",
+    "json", "jsonc",
   },
 })
 
@@ -32,7 +33,7 @@ local missing = {}
 for name, server in pairs(servers) do
   if vim.fn.executable(server.bin) == 1 then
     vim.lsp.enable(name)
-  elseif vim.fn.executable(server.install:match("^%S+")) == 1 then
+  elseif server.install and vim.fn.executable(server.install:match("^%S+")) == 1 then
     table.insert(missing, name)
   end
 end
