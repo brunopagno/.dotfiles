@@ -1,0 +1,5 @@
+[terminal.shell]
+# program = 'pwsh.exe'
+# args = ["-NoLogo", "-WorkingDirectory", "~"]
+program = "C:\\Program Files\\Git\\bin\\bash"
+args = ["--cd-to-home", "-i"]

@@ -29,11 +29,12 @@ winget install `
 ### Manually Install
 
 - [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)
-- [Docker](https://www.docker.com/]
+- [Docker](https://www.docker.com/)
 
 ```powershell
 New-Item -ItemType Junction -Path "$env:LOCALAPPDATA\nvim" -Target "$HOME\.dotfiles\nvim"
 New-Item -ItemType Junction -Path "$env:APPDATA\alacritty" -Target "$HOME\.dotfiles\alacritty"
+New-Item -ItemType SymbolicLink -Path "$HOME\.alacritty.local.toml" -Target "$HOME\.dotfiles\alacritty\windows.toml"
 New-Item -ItemType SymbolicLink -Path "$HOME\.bashrc" -Target "$HOME\.dotfiles\bash\.bashrc"
 New-Item -ItemType SymbolicLink -Path "$HOME\.inputrc" -Target "$HOME\.dotfiles\bash\.inputrc"
 ```
