@@ -57,8 +57,6 @@ vim.keymap.set({ "n", "v" }, "<leader>f", function()
 end)
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
-vim.keymap.set("i", "<C-space>", function() vim.lsp.completion.get() end)
-
 
 -- file navigation
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
