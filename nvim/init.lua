@@ -13,9 +13,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.showtabline = 2
 vim.opt.mouse = "nv"
 
-vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
-vim.opt.autocompletedelay = 100
-
 vim.opt.swapfile = false
 vim.opt.fileformats = "unix,dos"
 
@@ -107,6 +104,9 @@ vim.pack.add({
   "https://github.com/echasnovski/mini.icons",
   "https://github.com/echasnovski/mini.indentscope",
 
+  -- autocompletion
+  "https://github.com/nvim-mini/mini.completion",
+
   -- files and search
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/ibhagwan/fzf-lua",
@@ -122,9 +122,11 @@ require("mini.icons").setup()
 
 local indentscope = require("mini.indentscope")
 indentscope.setup({
-  draw = { delay = 0, animation = indentscope.gen_animation.none() },
+  draw = { delay = 0.1, animation = indentscope.gen_animation.none() },
   symbol = "│",
 })
+
+require("mini.completion").setup()
 
 require("oil").setup({
   view_options = { show_hidden = true },
