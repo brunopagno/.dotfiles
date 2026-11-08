@@ -13,6 +13,7 @@ sudo pacman -S \
 ```bash
 ln -s "$(pwd)/nvim" "$HOME/.config/nvim"
 ln -s "$(pwd)/alacritty" "$HOME/.config/alacritty"
+ln -s "$(pwd)/lazydocker" "$HOME/.config/lazydocker"
 ln -s "$(pwd)/bash/.bashrc" "$HOME/.bashrc"
 ln -s "$(pwd)/bash/.inputrc" "$HOME/.inputrc"
 ```
@@ -34,6 +35,8 @@ winget install `
 ```powershell
 New-Item -ItemType Junction -Path "$env:LOCALAPPDATA\nvim" -Target "$HOME\.dotfiles\nvim"
 New-Item -ItemType Junction -Path "$env:APPDATA\alacritty" -Target "$HOME\.dotfiles\alacritty"
+New-Item -ItemType Directory -Force -Path "$env:APPDATA\jesseduffield"
+New-Item -ItemType Junction -Path "$env:APPDATA\jesseduffield\lazydocker" -Target "$HOME\.dotfiles\lazydocker"
 New-Item -ItemType SymbolicLink -Path "$HOME\.alacritty.local.toml" -Target "$HOME\.dotfiles\alacritty\windows.toml"
 New-Item -ItemType SymbolicLink -Path "$HOME\.bashrc" -Target "$HOME\.dotfiles\bash\.bashrc"
 New-Item -ItemType SymbolicLink -Path "$HOME\.inputrc" -Target "$HOME\.dotfiles\bash\.inputrc"
