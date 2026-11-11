@@ -9,3 +9,9 @@ normal = { family = "JetBrainsMono Nerd Font" }
 bindings = [
   { key = "n", mods = "Control | Shift", action = "SpawnNewInstance" },
 ]
+
+[window]
+padding = { x = 4, y = 8 }
+decorations = "Full"
+title = "Love"
+decorations_theme_variant = "Dark"
