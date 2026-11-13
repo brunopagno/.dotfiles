@@ -52,11 +52,18 @@ vim.keymap.set("n", "<leader>,", "<cmd>FzfLua buffers<cr>")
 vim.keymap.set("n", "<leader>F", "<cmd>FzfLua live_grep<cr>")
 
 -- format, LSP and lint
+--  default keymappings
+--    gra: code actions
+--    grn: rename
+--    grr: find references
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
   vim.lsp.buf.format({ async = true })
 end)
-vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
-vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
+vim.keymap.set({ "n", "v" }, "grs", function()
+  vim.lsp.buf.code_action({ context = { only = { "source" }, diagnostics = {} } })
+end)
+vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
 -- file navigation
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
